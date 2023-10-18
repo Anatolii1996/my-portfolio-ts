@@ -18,7 +18,7 @@ const HeaderWrap: FC = () => {
 
   useEffect(() => {
     navigate("/");
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     getIp();
