@@ -27,9 +27,7 @@ const HeaderWrap: FC = () => {
 
   const getIp = async () => {
     try {
-      const response = await axios.get<IIp>(
-        "http://localhost:3002/ip"
-      );
+      const response = await axios.get<IIp>("http://localhost:3002/ip");
       setIp(response.data.ipAddress);
     } catch (e) {
       console.error("Произошла ошибка при запросе:", e);
@@ -134,9 +132,8 @@ const HeaderWrap: FC = () => {
           </p>
         </div>
       </Header>
-      <div className="page_wrap">
-        <Outlet />
-      </div>
+
+      <Outlet />
     </>
   );
 };

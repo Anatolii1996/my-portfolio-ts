@@ -5,13 +5,11 @@ import Feedback from "./pages/Feedback";
 
 const App = () => {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<HeaderWrap />}>
-          <Route path="/feedback" element={<Feedback/>} />
-        </Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<HeaderWrap />}>
+        <Route path="/feedback" element={<Feedback />} />
+      </Route>
+    </Routes>
   );
 };
 
