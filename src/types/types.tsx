@@ -1,3 +1,9 @@
 export interface IIp {
-    ipAddress: string;
-  }
+  ipAddress: string;
+};
+
+export interface IForm{
+    name: string;
+    surname: string;
+    comment: string;
+}
