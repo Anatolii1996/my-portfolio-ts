@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues, Resolver } from "react-hook-form";
 import cn from "classnames";
 import axios from "axios";
 import { message } from "antd";
 import "./feedback.scss";
-import { IForm } from "../types/types";
 
 const Feedback = () => {
   const [name, setName] = useState("");
@@ -47,22 +46,43 @@ const Feedback = () => {
     });
   };
 
+  type FormValues = {
+    name: string;
+    surname: string;
+    comment: string;
+  };
+
+  const resolver: Resolver<FormValues> = async (values) => {
+    return {
+      values:
+       values.name ? values : {},
+      errors: !values.name
+        ? {
+            name: {
+              type: "required",
+              message: "* Це поле обов'язкове",
+              maxLength: {
+                value: 20,
+                message: "* Максимальна довжина 20 символів",
+              },
+            },
+          }
+        : {},
+    };
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormValues>({ resolver });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     // Здесь вы можете выполнить действия с данными формы
-    const name = data.name;
-    const surname = data.surname;
-    const comment = data.comment;
-
     const requestData = {
-      name,
-      surname, // Другие данные...
-      comment, // Другие данные...
+      name: data.name,
+      surname: data.surname, // Другие данные...
+      comment: data.comment, // Другие данные...
     };
 
     const config = {
@@ -112,22 +132,16 @@ const Feedback = () => {
               <input
                 type="text"
                 autoComplete="off"
-                {...register("name", {
-                  required: "* Це поле обов'язкове",
-                  maxLength: {
-                    value: 20,
-                    message: "* Максимальна довжина 20 символів",
-                  },
-                })}
+                {...register("name")}
                 value={name}
                 onChange={(e) => {
                   handleInputChange(e, setName);
                 }}
               />
               <label className={infoClasses.name}>* Ім'я:</label>
-              <p>{errors.name?.message}</p>
+              {errors?.name && <p>{errors.name.message}</p>}
             </div>
-            <div className="user-box">
+           {/* <div className="user-box">
               <input
                 type="text"
                 autoComplete="off"
@@ -143,7 +157,7 @@ const Feedback = () => {
                   handleInputChange(e, setSurname);
                 }}
               />
-              <label className={infoClasses.surname}>* Прізвище:</label>
+               <label className={infoClasses.surname}>* Прізвище:</label>
               <p>{errors.surname?.message}</p>
             </div>
             <div className="user-box">
@@ -163,8 +177,8 @@ const Feedback = () => {
                 }}
               />
               <label className={infoClasses.comment}>* Ваш коментар:</label>
-              <p>{errors.comment?.message}</p>
-            </div>
+              <p>{errors.comment?.message}</p> 
+            </div>*/}
             <center>
               <button type="submit">
                 ВІДПРАВИТИ
