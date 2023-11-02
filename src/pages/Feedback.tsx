@@ -93,21 +93,10 @@ const Feedback = () => {
       };
     }
 
-    if (!values.name) {
-      errors.name = {
-        type: "required",
-        message: "* Это поле обязательно",
-        maxLength: {
-          value: 20,
-          message: "* Максимальная длина 20 символов",
-        },
-      };
-    }
-
     if (!values.surname) {
       errors.surname = {
         type: "required",
-        message: "* Это поле обязательно",
+        message: "* Це поле обов'язкове",
         maxLength: {
           value: 20,
           message: "* Максимальная длина 20 символов",
@@ -118,7 +107,7 @@ const Feedback = () => {
     if (!values.comment) {
       errors.comment = {
         type: "required",
-        message: "* Это поле обязательно",
+        message: "* Це поле обов'язкове",
         maxLength: {
           value: 1000,
           message: "* Максимальная длина 1000 символов",

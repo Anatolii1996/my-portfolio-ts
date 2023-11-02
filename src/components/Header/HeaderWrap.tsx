@@ -133,7 +133,9 @@ const HeaderWrap: FC = () => {
         </div>
       </Header>
 
-      <Outlet />
+      <div className="page_wrap">
+        <Outlet />
+      </div>
     </>
   );
 };
