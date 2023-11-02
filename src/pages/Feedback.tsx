@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm, SubmitHandler, FieldValues, Resolver } from "react-hook-form";
+import { FormValues, ErrorValues } from "../types/types";
 import cn from "classnames";
 import axios from "axios";
 import { message } from "antd";
@@ -44,39 +45,6 @@ const Feedback = () => {
       content: "Дані відправлено",
       duration: 1,
     });
-  };
-
-  type FormValues = {
-    name: string;
-    surname: string;
-    comment: string;
-  };
-
-  type ErrorValues = {
-    name: {
-      type: string,
-      message: string,
-      maxLength: {
-        value: number;
-        message: string;
-      };
-    };
-    surname: {
-      type: string,
-      message: string,
-      maxLength: {
-        value: number;
-        message: string;
-      };
-    };
-    comment: {
-      type: string,
-      message: string,
-      maxLength: {
-        value: number;
-        message: string;
-      };
-    };
   };
 
   const resolver: Resolver<FormValues> = async (values) => {
