@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler, FieldValues, Resolver } from "react-hook-form";
+import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import { FormValues, ErrorValues } from "../types/types";
 import cn from "classnames";
 import axios from "axios";
@@ -95,7 +95,7 @@ const Feedback = () => {
     formState: { errors },
   } = useForm<FormValues>({ resolver });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     // Здесь вы можете выполнить действия с данными формы
     const requestData = {
       name: data.name,
