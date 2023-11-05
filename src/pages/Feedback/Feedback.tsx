@@ -1,11 +1,11 @@
 import React, { useState, FC } from "react";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
-import { FormValues, ErrorValues } from "../types/types";
+import { FormValues, ErrorValues } from "../../types/types";
 import cn from "classnames";
 import axios from "axios";
 import { message } from "antd";
 import "./feedback.scss";
-import Chat from "../components/Chat/Chat";
+import Chat from "../../components/Chat/Chat";
 
 const Feedback:FC = () => {
   const [name, setName] = useState("");
