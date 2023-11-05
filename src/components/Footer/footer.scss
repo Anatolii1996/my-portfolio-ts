@@ -1,0 +1,26 @@
+.footer {
+  background: #001529;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    &:nth-child(4) {
+      svg {
+        g {
+          fill: #fff;
+        }
+      }
+    }
+    svg {
+      font-size: 1.8rem;
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  a + a {
+    margin-left: 15px;
+  }
+}
