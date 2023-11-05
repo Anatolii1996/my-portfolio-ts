@@ -1,42 +1,54 @@
+import { ObjectId } from "mongodb";
+
 export interface IIp {
   ipAddress: string;
 }
 
-export interface IForm {
+// export interface IForm {
+//   name: string;
+//   surname: string;
+//   comment: string;
+// }
+
+export interface FormValues {
   name: string;
   surname: string;
   comment: string;
 }
 
-export interface FormValues  {
-  name: string;
-  surname: string;
-  comment: string;
-};
-
 export interface ErrorValues {
   name: {
-    type: string,
-    message: string,
+    type: string;
+    message: string;
     maxLength: {
       value: number;
       message: string;
     };
   };
   surname: {
-    type: string,
-    message: string,
+    type: string;
+    message: string;
     maxLength: {
       value: number;
       message: string;
     };
   };
   comment: {
-    type: string,
-    message: string,
+    type: string;
+    message: string;
     maxLength: {
       value: number;
       message: string;
     };
   };
-};
+}
+
+export interface IComment {
+  ipAddress: string;
+  date: string;
+  creatingTime: string;
+  name: string;
+  surname: string;
+  comment: string;
+  _id: ObjectId;
+}

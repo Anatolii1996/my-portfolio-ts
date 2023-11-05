@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import { FormValues, ErrorValues } from "../types/types";
 import cn from "classnames";
 import axios from "axios";
 import { message } from "antd";
 import "./feedback.scss";
+import Chat from "../components/Chat/Chat";
 
-const Feedback = () => {
+const Feedback:FC = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [comment, setComment] = useState("");
@@ -193,7 +194,7 @@ const Feedback = () => {
             </center>
           </form>
         </div>
-        {/* <Chat chatUpdate={chatUpdate} /> */}
+       <Chat chatUpdate={chatUpdate} /> 
       </div>
     </div>
   );
