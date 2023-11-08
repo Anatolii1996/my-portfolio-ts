@@ -8,6 +8,7 @@ import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 
 const Feedback:FC = () => {
+  const [indexPage] = useState(4);
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [comment, setComment] = useState("");
