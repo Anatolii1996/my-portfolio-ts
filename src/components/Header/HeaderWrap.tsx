@@ -5,7 +5,7 @@ import cn from "classnames";
 import axios from "axios";
 import { Icon } from "@iconify/react";
 import "./header.scss";
-import { IIp } from "../../types/types";
+import { IIp } from "./types";
 const { Header } = Layout;
 
 const HeaderWrap: FC = () => {
