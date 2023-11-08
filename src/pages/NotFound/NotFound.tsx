@@ -1,10 +1,10 @@
 /* eslint-disable */
-import React, { useLayoutEffect, useState, useRef } from "react";
+import React, { useLayoutEffect, useState, useRef, FC } from "react";
 import { NavLink } from "react-router-dom";
 // import { gsap, TimelineMax } from "gsap";
 import "./notFound.scss";
 
-const NotFound = () => {
+const NotFound:FC = () => {
   const [chatterTL, setChatterTL] = useState(null);
   const [yetiTL, setYetiTL] = useState(null);
 
