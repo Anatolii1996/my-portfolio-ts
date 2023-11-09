@@ -1,4 +1,6 @@
 import React, { useState, FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import { FormValues, ErrorValues } from "./types";
 import cn from "classnames";

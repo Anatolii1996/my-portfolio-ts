@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
 import indexPrevPageReduser from './indexPrevPageSlice'
-import { type } from 'os';
 
  const store = configureStore({
   reducer: {
