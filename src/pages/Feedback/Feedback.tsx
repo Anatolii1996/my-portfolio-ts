@@ -10,17 +10,24 @@ import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 
 const Feedback:FC = () => {
+  const [indexPage] = useState(4);
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleUnmount = () => {
-      dispatch(setPrevPage(4));
+      dispatch(setPrevPage(indexPage));
     };
 
     return handleUnmount;
   }, [dispatch]);
-  
+
+  const pageAnimClasses = cn("page_wrap feddback_page", {
+    // Используем classNames для условных классов
+    "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
+    "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
+  });
+
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [comment, setComment] = useState("");
@@ -33,12 +40,6 @@ const Feedback:FC = () => {
   ) => {
     switchFunc(event.target.value);
   };
-
-  const feedbackWrapClasses = cn("feedback_wrap", {
-    // Используем classNames для условных классов
-    // "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
-    // "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
-  });
 
   const infoClasses = {
     name: cn({
@@ -141,7 +142,7 @@ const Feedback:FC = () => {
   };
 
   return (
-    <div className={feedbackWrapClasses}>
+    <div className={pageAnimClasses}>
       <div className="feedback_warning">
         <p>
           В даному розділі виможете залишити свою думку стосовно створеного мною
