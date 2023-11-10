@@ -5,7 +5,7 @@ import cn from "classnames";
 import axios from "axios";
 import { Icon } from "@iconify/react";
 import "./header.scss";
-import { IIp } from "../../types/types";
+import { IIp } from "./types";
 const { Header } = Layout;
 
 const HeaderWrap: FC = () => {
@@ -109,9 +109,9 @@ const HeaderWrap: FC = () => {
             {" "}
             <Link to="/">Головна</Link>
           </Menu.Item>
-          <Menu.Item key="/about">
+          {/* <Menu.Item key="/about">
             <Link to="/about">Моя історія</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key="/galery">
             {" "}
             <Link to="/galery">Галерея робіт</Link>
@@ -122,6 +122,7 @@ const HeaderWrap: FC = () => {
           <Menu.Item key="/feedback">
             <Link to="/feedback">Зворотній зв'язок</Link>
           </Menu.Item>
+          
         </Menu>
         <div className="header__visitors">
           <div className={iconWrapClasses}>

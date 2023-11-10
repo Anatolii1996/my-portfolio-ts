@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FC } from "react";
 import axios from "axios";
-import { IComment } from "../../types/types";
+import { IComment } from "./types";
 import cn from "classnames";
 import "./chat.scss";
 

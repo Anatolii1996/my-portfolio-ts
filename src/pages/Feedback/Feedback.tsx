@@ -1,13 +1,32 @@
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
-import { FormValues, ErrorValues } from "../../types/types";
+import { FormValues, ErrorValues } from "./types";
 import cn from "classnames";
+import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import axios from "axios";
 import { message } from "antd";
 import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 
-const Feedback:FC = () => {
+const Feedback: FC = () => {
+  const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const handleUnmount = () => {
+      dispatch(setPrevPage(4));
+    };
+
+    return handleUnmount;
+  }, [dispatch]);
+
+  const [pageAnimStyle, setPageAnimStyle] = useState("");
+  useEffect(() => {
+    setPageAnimStyle(setPageAnimation("feedback", 4, indexPrevPage));
+  }, [indexPrevPage]);
+
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [comment, setComment] = useState("");
@@ -20,12 +39,6 @@ const Feedback:FC = () => {
   ) => {
     switchFunc(event.target.value);
   };
-
-  const feedbackWrapClasses = cn("feedback_wrap", {
-    // Используем classNames для условных классов
-    // "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
-    // "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
-  });
 
   const infoClasses = {
     name: cn({
@@ -128,7 +141,7 @@ const Feedback:FC = () => {
   };
 
   return (
-    <div className={feedbackWrapClasses}>
+    <div className={pageAnimStyle}>
       <div className="feedback_warning">
         <p>
           В даному розділі виможете залишити свою думку стосовно створеного мною
@@ -184,7 +197,7 @@ const Feedback:FC = () => {
                 }}
               />
               <label className={infoClasses.comment}>* Ваш коментар:</label>
-              <p>{errors.comment?.message}</p> 
+              <p>{errors.comment?.message}</p>
             </div>
             <center>
               <button type="submit">
@@ -194,7 +207,7 @@ const Feedback:FC = () => {
             </center>
           </form>
         </div>
-       <Chat chatUpdate={chatUpdate} /> 
+        <Chat chatUpdate={chatUpdate} />
       </div>
     </div>
   );
