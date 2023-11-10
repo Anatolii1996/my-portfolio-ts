@@ -7,11 +7,6 @@ const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
-// useEffect(()=>{
-// console.log(indexPage)
-// console.log(typeof indexPage)
-// }, [])
-
   useEffect(() => {
     const handleUnmount = () => {
       dispatch(setPrevPage(1));

@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
@@ -10,7 +10,17 @@ import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 
 const Feedback:FC = () => {
-  const [indexPage] = useState(4);
+  const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const handleUnmount = () => {
+      dispatch(setPrevPage(4));
+    };
+
+    return handleUnmount;
+  }, [dispatch]);
+  
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [comment, setComment] = useState("");
