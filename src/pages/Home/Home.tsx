@@ -2,6 +2,7 @@ import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
+import "./home.scss"
 
 const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
