@@ -4,29 +4,28 @@ import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import { FormValues, ErrorValues } from "./types";
 import cn from "classnames";
+import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import axios from "axios";
 import { message } from "antd";
 import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 
-const Feedback:FC = () => {
-  const [indexPage] = useState(4);
+const Feedback: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleUnmount = () => {
-      dispatch(setPrevPage(indexPage));
+      dispatch(setPrevPage(4));
     };
 
     return handleUnmount;
   }, [dispatch]);
 
-  const pageAnimClasses = cn("page_wrap feddback_page", {
-    // Используем classNames для условных классов
-    "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
-    "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
-  });
+  const [pageAnimStyle, setPageAnimStyle] = useState("");
+  useEffect(() => {
+    setPageAnimStyle(setPageAnimation("feedback", 4, indexPrevPage));
+  }, [indexPrevPage]);
 
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
@@ -142,7 +141,7 @@ const Feedback:FC = () => {
   };
 
   return (
-    <div className={pageAnimClasses}>
+    <div className={pageAnimStyle}>
       <div className="feedback_warning">
         <p>
           В даному розділі виможете залишити свою думку стосовно створеного мною
@@ -198,7 +197,7 @@ const Feedback:FC = () => {
                 }}
               />
               <label className={infoClasses.comment}>* Ваш коментар:</label>
-              <p>{errors.comment?.message}</p> 
+              <p>{errors.comment?.message}</p>
             </div>
             <center>
               <button type="submit">
@@ -208,7 +207,7 @@ const Feedback:FC = () => {
             </center>
           </form>
         </div>
-       <Chat chatUpdate={chatUpdate} /> 
+        <Chat chatUpdate={chatUpdate} />
       </div>
     </div>
   );

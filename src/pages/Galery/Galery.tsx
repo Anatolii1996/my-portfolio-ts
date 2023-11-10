@@ -1,28 +1,26 @@
 import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
-import cn from "classnames";
+import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 
 const Galery: FC = () => {
-  const [indexPage] = useState(2);
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleUnmount = () => {
-      dispatch(setPrevPage(indexPage));
+      dispatch(setPrevPage(2));
     };
 
     return handleUnmount;
   }, [dispatch]);
 
-  const pageAnimClasses = cn("page_wrap galery_page", {
-    // Используем classNames для условных классов
-    "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
-    "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
-  });
+  const [pageAnimStyle, setPageAnimStyle] = useState("");
+  useEffect(() => {
+    setPageAnimStyle(setPageAnimation("galery", 2, indexPrevPage));
+  }, [indexPrevPage]);
 
-  return <div className={pageAnimClasses} >Galery</div>;
+  return <div className={pageAnimStyle}>Galery</div>;
 };
 
 export default Galery;

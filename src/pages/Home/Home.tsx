@@ -1,28 +1,27 @@
 import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
-import cn from "classnames";
+import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 
 const Home: FC = () => {
-  const [indexPage] = useState(1);
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
+
+  const [pageAnimStyle, setPageAnimStyle] = useState("");
+  useEffect(() => {
+    setPageAnimStyle(setPageAnimation("home", 1, indexPrevPage));
+  }, [ indexPrevPage]);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const handleUnmount = () => {
-      dispatch(setPrevPage(indexPage));
+      dispatch(setPrevPage(1));
     };
 
     return handleUnmount;
-  }, [ dispatch]);
+  }, [dispatch]);
 
-  const pageAnimClasses = cn("page_wrap home_page", {
-    // Используем classNames для условных классов
-    "animate__animated animate__fadeInRightBig": indexPage > indexPrevPage,
-    "animate__animated animate__fadeInLeftBig": indexPage <= indexPrevPage,
-  });
-
-  return <div className={pageAnimClasses} >Home</div>;
+  return <div className={pageAnimStyle}>Home</div>;
 };
 
 export default Home;
