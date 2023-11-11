@@ -1,26 +1,39 @@
+$label-count: 15;
+
 .tech_page {
-    text-align: justify;
-    background-color: #fff;
-    p{
-      text-indent: 25px;
-    }
-  
-    ul {
-      list-style: none;
-  
-      .technical__label {
-        display: flex;
-        align-items: center;
-  
-        h3 {
-          padding-left: 20px;
-        }
-  
-        svg {
-          width: 25px;
-          height: 25px;
-        }
-      }
+  text-align: justify;
+  background-color: #fff;
+  p {
+    text-indent: 25px;
+  }
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+.technical__label {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    padding-left: 20px;
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@for $i from 1 through $label-count {
+  li:nth-child(#{$i}) {
+    .technical__label {
+      justify-content: if($i % 2 == 1, flex-start, flex-end);
     }
   }
-  
+}
+

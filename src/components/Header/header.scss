@@ -2,12 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 21, 41 );
+  background-color: rgba(0, 21, 41);
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 2;
-  ul{
+  ul {
     width: 80%;
   }
 }
@@ -26,9 +26,6 @@
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-}
 .header__visitors {
   display: flex;
   align-items: center;
@@ -45,4 +42,3 @@ a {
   display: inline-block;
   animation-delay: 0.5s;
 }
-
