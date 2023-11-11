@@ -6,12 +6,6 @@ import "./home.scss"
 
 const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
-
-  const [pageAnimStyle, setPageAnimStyle] = useState("");
-  useEffect(() => {
-    setPageAnimStyle(setPageAnimation("home", 1, indexPrevPage));
-  }, [ indexPrevPage]);
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,6 +15,11 @@ const Home: FC = () => {
 
     return handleUnmount;
   }, [dispatch]);
+
+  const [pageAnimStyle, setPageAnimStyle] = useState("");
+  useEffect(() => {
+    setPageAnimStyle(setPageAnimation("home", 1, indexPrevPage));
+  }, [ indexPrevPage]);
 
   return <div className={pageAnimStyle}>Home</div>;
 };
