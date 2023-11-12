@@ -2,3 +2,13 @@
   padding: 20px;
   min-height: calc(100dvh - 7.05rem);
 }
+.home_page{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  img{
+    width: 320px;
+    height: 400px;
+    background-color: gray;
+  }
+}

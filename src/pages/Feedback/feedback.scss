@@ -1,17 +1,21 @@
 .feedback_warning {
   margin-bottom: 20px;
 
-  p:nth-child(1) {
+  p {
     color: #fff;
     text-align: justify;
     padding-bottom: 10px;
+    a{
+      color: bisque;
+    }
   }
-  p:nth-child(2) {
+  p:nth-child(3) {
     background-color: #dcdcaa;
     border-radius: 10px;
     line-height: 3.5rem;
     border: 2px solid black;
     padding: 5px;
+    color: black;
     &::before {
       content: "!";
       color: red;

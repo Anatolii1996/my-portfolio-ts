@@ -2,7 +2,8 @@ import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
-import "./home.scss"
+import myPhoto from "../../assets/my-photo.png";
+import "./home.scss";
 
 const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
@@ -19,9 +20,17 @@ const Home: FC = () => {
   const [pageAnimStyle, setPageAnimStyle] = useState("");
   useEffect(() => {
     setPageAnimStyle(setPageAnimation("home", 1, indexPrevPage));
-  }, [ indexPrevPage]);
+  }, [indexPrevPage]);
 
-  return <div className={pageAnimStyle}>Home</div>;
+  return (
+    <div className={pageAnimStyle}>
+      <div className="description">
+        <h1>Всім привіт!</h1>
+        <h2>Давайте знайомитись</h2>
+      </div>
+      <img src={myPhoto} alt="my-photo" />
+    </div>
+  );
 };
 
 export default Home;
