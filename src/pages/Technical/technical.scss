@@ -12,6 +12,13 @@ $label-count: 15;
 
   ul {
     list-style: none;
+    @for $i from 1 through $label-count {
+      li:nth-child(#{$i}) {
+        .technical__label {
+          justify-content: if($i % 2 == 1, flex-start, flex-end);
+        }
+      }
+    }
   }
 }
 
@@ -29,11 +36,14 @@ $label-count: 15;
   }
 }
 
-@for $i from 1 through $label-count {
-  li:nth-child(#{$i}) {
-    .technical__label {
-      justify-content: if($i % 2 == 1, flex-start, flex-end);
-    }
-  }
-}
+
+
+// @for $i from 1 through $label-count {
+  
+//     .technical__label:nth-of-type(#{$i}) {
+//       justify-content: if($i % 2 == 1, flex-start, flex-end);
+//     }
+  
+// }
+
 
