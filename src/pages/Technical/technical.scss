@@ -16,15 +16,18 @@
         padding-top: 20px;
       }
       &:nth-child(odd) {
+        animation-name: fadeInLeftBig;
         .technical__label {
           justify-content: flex-start;
+          
           
         }
       }
       &:nth-child(even) {
+        animation-name: fadeInRightBig;
         .technical__label {
           justify-content: flex-end;
-          animation: fadeInRightBig;
+         
         }
       }
 
@@ -45,5 +48,9 @@
   svg {
     width: 25px;
     height: 25px;
+  }
+  img{
+    width:75px;
+    
   }
 }
