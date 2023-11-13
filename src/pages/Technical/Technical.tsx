@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import { Icon } from "@iconify/react";
-import WOW from "wow.js";
-import "wow.js/css/libs/animate.css";
+// import WOW from "wow.js";
+// import "wow.js/css/libs/animate.css";
 import wow_icon from "../../assets/wow-logo.jpg";
 import "./technical.scss";
 
@@ -26,10 +26,10 @@ const Technical: FC = () => {
     setPageAnimStyle(setPageAnimation("tech", 3, indexPrevPage));
   }, [indexPrevPage]);
 
-  useEffect(() => {
-    const wow = new WOW();
-    wow.init();
-  }, []);
+  // useEffect(() => {
+  //   const wow = new WOW();
+  //   wow.init();
+  // }, []);
 
   return (
     <div className={pageAnimStyle}>
@@ -121,7 +121,7 @@ const Technical: FC = () => {
             <p></p>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <h2>Frontend частина</h2>
 
           <div className="technical__label">
@@ -156,13 +156,13 @@ const Technical: FC = () => {
             іншому писати код?
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="logos:ant-design" />
             <h3>Ant.Design</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="logos:redux" />
             <h3>Redux</h3>
@@ -197,7 +197,7 @@ const Technical: FC = () => {
             знає, як це можна зробити простіше, будь-ласка підкажіть.
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="logos:sass" />
             <h3>Sass</h3>
@@ -246,7 +246,7 @@ const Technical: FC = () => {
             в звичайному CSS не з'являться всі необхідні для мене можливості.
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <h3>Animate.css</h3>
           </div>
@@ -273,13 +273,13 @@ const Technical: FC = () => {
             бачу. Проте створити щось дійсно круте вона не може.
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <img src={wow_icon} alt="" />
             <h3>Wow.js</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <h3>Classnames</h3>
           </div>
@@ -291,13 +291,13 @@ const Technical: FC = () => {
             Обов'язково буду користуватись в майбутньому.
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="simple-icons:iconify" />
             <h3>Iconify</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <h2>Backend частина</h2>
 
           <div className="technical__label">
@@ -313,25 +313,25 @@ const Technical: FC = () => {
             цим займатись.
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="skill-icons:expressjs-dark" />
             <h3>Express</h3>
           </div>
           <p></p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="vscode-icons:file-type-mongo" />
             <h3>MongoDb</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <h3>Mongoose</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="devicon:git" />
             <Icon icon="devicon:github" />
@@ -378,13 +378,13 @@ const Technical: FC = () => {
             отримує роботу. Тепер зрозумів!
           </p>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="logos:testing-library" />
             <h3>Testing-library</h3>
           </div>
         </li>
-        <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
+        <li >
           <div className="technical__label">
             <Icon icon="logos:netlify-icon" />
             <h3>Netlify</h3>
