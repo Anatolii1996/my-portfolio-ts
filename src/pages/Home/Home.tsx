@@ -4,6 +4,7 @@ import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import myPhoto from "../../assets/my-photo.png";
 import ProgressWrap from "../../components/Progress/ProgressWrap";
+import { Icon } from "@iconify/react";
 import "./home.scss";
 
 const Home: FC = () => {
@@ -30,19 +31,113 @@ const Home: FC = () => {
         <h2>Давайте знайомитись</h2>
         <h3>Стек технологій</h3>
         <ul>
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>React</li>
-          <li>Redux</li>
-          <li>Node.js</li>
-          <li>Express</li>
-          <li>MongoDB</li>
-          <li>MySQL</li>
-          <li>Git/GitHub</li>
-          <li>Ant Design</li>
-          <li>Sass</li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="vscode-icons:file-type-html" />
+              <p>HTML</p>
+            </div>
+            <ProgressWrap quantity={85} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="vscode-icons:file-type-css" />
+              <p>CSS</p>
+            </div>
+            <ProgressWrap quantity={85} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="vscode-icons:file-type-js-official" />
+              <p>JavaScript</p>
+            </div>
+            <ProgressWrap quantity={60} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="devicon:typescript" />
+              <p>TypeScript</p>
+            </div>
+            <ProgressWrap quantity={30} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="devicon:react" />
+              <p>React</p>
+            </div>
+            <ProgressWrap quantity={70} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:redux" />
+              <p>Redux</p>
+            </div>
+            <ProgressWrap quantity={50} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:firebase" />
+              <p>Firebase</p>
+            </div>
+            <ProgressWrap quantity={40} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="vscode-icons:file-type-node" />
+              <p>Node.js</p>
+            </div>
+            <ProgressWrap quantity={30} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="skill-icons:expressjs-dark" />
+              <p>Express</p>
+            </div>
+            <ProgressWrap quantity={30} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="vscode-icons:file-type-mongo" />
+              <p>MongoDB</p>
+            </div>
+            <ProgressWrap quantity={40} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:mysql" />
+              <p>MySQL</p>
+            </div>
+            <ProgressWrap quantity={20} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="devicon:git" />
+              <Icon icon="devicon:github" />
+              <p>Git/GitHub</p>
+            </div>
+            <ProgressWrap quantity={30} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:ant-design" />
+              <p>Ant Design</p>
+            </div>
+            <ProgressWrap quantity={40} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:sass" />
+              <p>Sass</p>
+            </div>
+            <ProgressWrap quantity={85} />
+          </li>
+          <li>
+            <div className="tech_name">
+              <Icon icon="logos:testing-library" />
+              <p>Testing library</p>
+            </div>
+            <ProgressWrap quantity={15} />
+          </li>
         </ul>
-        <ProgressWrap/>
       </div>
       <img src={myPhoto} alt="my-photo" />
     </div>

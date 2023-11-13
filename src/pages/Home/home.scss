@@ -11,4 +11,24 @@
     height: 400px;
     background-color: gray;
   }
+  h3{
+    text-align: center;
+  }
+  ul{
+    list-style: none;
+    li{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .tech_name{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 130px;
+      }
+     p{
+      padding-left: 10px;
+     }
+    }
+  }
 }

@@ -6,7 +6,7 @@ import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import { Icon } from "@iconify/react";
 // import WOW from "wow.js";
 // import "wow.js/css/libs/animate.css";
-import wow_icon from "../../assets/wow-logo.jpg";
+// import wow_icon from "../../assets/wow-logo.jpg";
 import "./technical.scss";
 
 const Technical: FC = () => {
@@ -273,12 +273,12 @@ const Technical: FC = () => {
             бачу. Проте створити щось дійсно круте вона не може.
           </p>
         </li>
-        <li >
+        {/* <li >
           <div className="technical__label">
             <img src={wow_icon} alt="" />
             <h3>Wow.js</h3>
           </div>
-        </li>
+        </li> */}
         <li >
           <div className="technical__label">
             <h3>Classnames</h3>
