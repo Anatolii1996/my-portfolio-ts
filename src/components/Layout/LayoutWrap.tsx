@@ -106,6 +106,8 @@ const LayoutWrap: FC = () => {
     // Используем classNames для условных классов
     "animate__animated animate__bounceInDown":
       visitsIp.length && !visitsIp.includes(ip),
+      "animate__animated animate__fadeIn":
+      visitsIp.length && visitsIp.includes(ip),
   });
 
   return (

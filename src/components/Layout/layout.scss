@@ -1,3 +1,5 @@
+
+
 .footer {
   background: #001529;
   padding: 10px 0;
@@ -72,4 +74,7 @@
     padding-left: 5px;
     display: inline-block;
     animation-delay: 0.5s;
+  }
+  .animate__animated{
+    animation-duration: 2s;
   }
