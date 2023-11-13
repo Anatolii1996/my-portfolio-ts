@@ -28,6 +28,20 @@ const Home: FC = () => {
       <div className="description">
         <h1>Всім привіт!</h1>
         <h2>Давайте знайомитись</h2>
+        <h3>Стек технологій</h3>
+        <ul>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Redux</li>
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>MongoDB</li>
+          <li>MySQL</li>
+          <li>Git/GitHub</li>
+          <li>Ant Design</li>
+          <li>Sass</li>
+        </ul>
         <ProgressWrap/>
       </div>
       <img src={myPhoto} alt="my-photo" />
