@@ -5,9 +5,13 @@
   background-color: white;
   display: flex;
   justify-content: space-between;
+  .description{
+    width: min(20%, 410px);
+   
+  }
   img{
-    width: 320px;
-    height: 400px;
+    width: min(33%, 320px);
+    height:min(44%, 395px);
     background-color: gray;
   }
   h3{
