@@ -151,6 +151,13 @@ const LayoutWrap: FC = () => {
         >
           <Outlet/>
         </div>
+        <ul className="main_icons">
+          <li> <Icon icon="skill-icons:typescript" /></li>
+          <li> <Icon icon="devicon:react" /></li>
+          {/* <li> <Icon icon="vscode-icons:file-type-js-official" /></li> */}
+          {/* <li></li>
+          <li></li> */}
+        </ul>
       </Content>
       <Footer style={{ textAlign: "center" }}>
         <div className="footer">
