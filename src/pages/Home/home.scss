@@ -1,8 +1,12 @@
 .page_wrap {
   min-height: calc(100dvh - 7.05rem);
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  background-color: white;
 }
 .home_page{
-  background-color: white;
+ 
   display: flex;
   justify-content: space-between;
   .description{

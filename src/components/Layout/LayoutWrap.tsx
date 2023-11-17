@@ -154,9 +154,16 @@ const LayoutWrap: FC = () => {
         <ul className="main_icons">
           <li> <Icon icon="skill-icons:typescript" /></li>
           <li> <Icon icon="devicon:react" /></li>
-          {/* <li> <Icon icon="vscode-icons:file-type-js-official" /></li> */}
-          {/* <li></li>
-          <li></li> */}
+          <li> <Icon icon="vscode-icons:file-type-js-official" /></li>
+          <li> <Icon icon="logos:ant-design" /></li>
+          <li> <Icon icon="devicon:vscode" /></li>
+          <li> <Icon icon="logos:redux"  /></li>
+          <li> <Icon icon="logos:sass" /></li>
+          <li> <Icon icon="vscode-icons:file-type-node" /></li>
+          <li> <Icon icon="skill-icons:expressjs-dark" /></li>
+          <li> <Icon icon="vscode-icons:file-type-mongo" /></li>
+          <li> <Icon icon="devicon:git" /></li>
+          <li> <Icon icon="devicon:github" /></li>
         </ul>
       </Content>
       <Footer style={{ textAlign: "center" }}>
