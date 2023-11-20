@@ -55,9 +55,7 @@ const LayoutWrap: FC = () => {
   useEffect(() => {
     if (visitsIp.length && ip.length) {
       if (!visitsIp.includes(ip)) {
-        setTimeout(() => {
-          setCount((prev) => prev + 1);
-        }, 1300);
+        setCount((prev) => prev + 1);
 
         const requestData = {
           ipAddress: ip,
