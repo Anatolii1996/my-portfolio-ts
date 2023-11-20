@@ -1,10 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import {
-  Outlet,
-  Link,
-  useNavigate,
-  useLocation,
-} from "react-router-dom";
+import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { Layout, Menu, theme } from "antd";
 import { Icon } from "@iconify/react";
 import cn from "classnames";
@@ -12,17 +7,16 @@ import axios from "axios";
 import { IIp } from "./types";
 import "./layout.scss";
 
-
 const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState(0);
   const [ip, setIp] = useState<string>("");
   const [visitsIp, setVisitIp] = useState<string[]>([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     navigate("/");
@@ -48,6 +42,7 @@ const LayoutWrap: FC = () => {
         "http://localhost:3002/visits"
       );
       setVisitIp(response.data);
+      setLoading(false);
     } catch (e) {
       console.error("Произошла ошибка при запросе:", e);
     }
@@ -106,7 +101,7 @@ const LayoutWrap: FC = () => {
     // Используем classNames для условных классов
     "animate__animated animate__bounceInDown":
       visitsIp.length && !visitsIp.includes(ip),
-      "animate__animated animate__fadeIn":
+    "animate__animated animate__fadeIn":
       visitsIp.length && visitsIp.includes(ip),
   });
 
@@ -133,15 +128,12 @@ const LayoutWrap: FC = () => {
           <Menu.Item key="/feedback">
             <Link to="/feedback">Зворотній зв'язок</Link>
           </Menu.Item>
-         
         </Menu>
         <div className="header__visitors">
           <div className={iconWrapClasses}>
             <Icon icon="twemoji:star" className={headerIconClasses} />
           </div>
-          <p>
-            :<span className={countClasses}>{count}</span>{" "}
-          </p>
+          <p>:{!loading && <span className={countClasses}>{count}</span>}</p>
         </div>
       </Header>
       <Content style={{ padding: "0 50px" }}>
@@ -149,21 +141,57 @@ const LayoutWrap: FC = () => {
           className="site-layout-content"
           style={{ background: colorBgContainer }}
         >
-          <Outlet/>
+          <Outlet />
         </div>
         <ul className="main_icons">
-          <li> <Icon icon="skill-icons:typescript" /></li>
-          <li> <Icon icon="devicon:react" /></li>
-          <li> <Icon icon="vscode-icons:file-type-js-official" /></li>
-          <li> <Icon icon="logos:ant-design" /></li>
-          <li> <Icon icon="devicon:vscode" /></li>
-          <li> <Icon icon="logos:redux"  /></li>
-          <li> <Icon icon="logos:sass" /></li>
-          <li> <Icon icon="vscode-icons:file-type-node" /></li>
-          <li> <Icon icon="skill-icons:expressjs-dark" /></li>
-          <li> <Icon icon="vscode-icons:file-type-mongo" /></li>
-          <li> <Icon icon="devicon:git" /></li>
-          <li> <Icon icon="devicon:github" /></li>
+          <li>
+            {" "}
+            <Icon icon="skill-icons:typescript" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="devicon:react" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="vscode-icons:file-type-js-official" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="logos:ant-design" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="devicon:vscode" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="logos:redux" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="logos:sass" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="vscode-icons:file-type-node" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="skill-icons:expressjs-dark" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="vscode-icons:file-type-mongo" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="devicon:git" />
+          </li>
+          <li>
+            {" "}
+            <Icon icon="devicon:github" />
+          </li>
         </ul>
       </Content>
       <Footer style={{ textAlign: "center" }}>
