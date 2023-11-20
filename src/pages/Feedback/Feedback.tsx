@@ -14,6 +14,8 @@ const Feedback: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
+  const [chatUpdate, setChatUpdate] = useState(0);
+
   useEffect(() => {
     const handleUnmount = () => {
       dispatch(setPrevPage(4));
@@ -27,28 +29,30 @@ const Feedback: FC = () => {
     setPageAnimStyle(setPageAnimation("feedback", 4, indexPrevPage));
   }, [indexPrevPage]);
 
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [comment, setComment] = useState("");
+  const [formState, setFormState] = useState({
+    name: "",
+    surname: "",
+    comment: "",
+  });
 
-  const [chatUpdate, setChatUpdate] = useState(0);
-
-  const handleInputChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
-    event: React.ChangeEvent<T>,
-    switchFunc: (value: string) => void
+  const handleFormChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    e: React.ChangeEvent<T>
   ) => {
-    switchFunc(event.target.value);
+    setFormState((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const infoClasses = {
     name: cn({
-      info: name,
+      info: formState.name,
     }),
     surname: cn({
-      info: surname,
+      info: formState.surname,
     }),
     comment: cn({
-      info: comment,
+      info: formState.comment,
     }),
   };
 
@@ -129,9 +133,11 @@ const Feedback: FC = () => {
       .then(() => {
         setTimeout(() => {
           success();
-          setName("");
-          setSurname("");
-          setComment("");
+          setFormState({
+            name: "",
+            surname: "",
+            comment: "",
+          });
           setChatUpdate((prev) => prev + 1);
         }, 800);
       })
@@ -150,7 +156,17 @@ const Feedback: FC = () => {
           конструктивну критику, а також поради стосоно якості написання коду,
           або роботи додатку в цілому.{" "}
         </p>
-        <p>Також буду безмежно вдячний кожному, хто додасть мене до своїх контактів на <a href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127/" target="_blank">Linkedin</a>, та підтвердить там мої навички.</p>
+        <p>
+          Також буду безмежно вдячний кожному, хто додасть мене до своїх
+          контактів на{" "}
+          <a
+            href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127/"
+            target="_blank"
+          >
+            Linkedin
+          </a>
+          , та підтвердить там мої навички.
+        </p>
         <p>
           Дописи, що не відповідатимуть характеру дружнього спілкування будуть
           видалені, а користувачам, що їх залишають буде заборонено повторний
@@ -166,10 +182,8 @@ const Feedback: FC = () => {
                 type="text"
                 autoComplete="off"
                 {...register("name")}
-                value={name}
-                onChange={(e) => {
-                  handleInputChange(e, setName);
-                }}
+                value={formState.name}
+                onChange={handleFormChange}
               />
               <label className={infoClasses.name}>* Ім'я:</label>
               {errors?.name && <p>{errors.name.message}</p>}
@@ -179,10 +193,8 @@ const Feedback: FC = () => {
                 type="text"
                 autoComplete="off"
                 {...register("surname")}
-                value={surname}
-                onChange={(e) => {
-                  handleInputChange(e, setSurname);
-                }}
+                value={formState.surname}
+                onChange={handleFormChange}
               />
               <label className={infoClasses.surname}>* Прізвище:</label>
               <p>{errors.surname?.message}</p>
@@ -192,10 +204,8 @@ const Feedback: FC = () => {
                 rows={5}
                 autoComplete="off"
                 {...register("comment")}
-                value={comment}
-                onChange={(e) => {
-                  handleInputChange(e, setComment);
-                }}
+                value={formState.comment}
+                onChange={handleFormChange}
               />
               <label className={infoClasses.comment}>* Ваш коментар:</label>
               <p>{errors.comment?.message}</p>
