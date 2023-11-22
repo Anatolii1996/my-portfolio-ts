@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme } from "antd";
 import { Icon } from "@iconify/react";
 import cn from "classnames";
@@ -13,6 +15,8 @@ const LayoutWrap: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const dispatch = useAppDispatch();
+
   const [count, setCount] = useState(0);
   const [ip, setIp] = useState<string>("");
   const [visitsIp, setVisitIp] = useState<string[]>([]);
@@ -20,6 +24,7 @@ const LayoutWrap: FC = () => {
 
   useEffect(() => {
     navigate("/");
+    dispatch(getCountUser())
   }, []);
 
   useEffect(() => {

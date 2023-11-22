@@ -1,8 +1,8 @@
 import { all, call } from "@redux-saga/core/effects";
-import watchRoomSaga from "./roomSaga";
+import countUserSaga from "./countUserSaga";
 
 const sagasList = [
-  watchRoomSaga,
+    countUserSaga,
   
 ];
 
