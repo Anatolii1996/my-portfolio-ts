@@ -21,7 +21,9 @@ export const countUserSlice = createSlice({
 });
 
 export const GET_COUNT_USERS = "countUserSlice/getCountUser";
-export const getCountUser = createAction(GET_COUNT_USERS);
+export const getCountUser = createAction(GET_COUNT_USERS, () => ({
+  payload: undefined,
+}));
 export const { setCountUser } = countUserSlice.actions;
 export const selectPage = (state: RootState) => state.indexPrevPage.value;
 export default countUserSlice.reducer;
