@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import indexPrevPageReduser from './indexPrevPageSlice'
+import countUserReduser from "./countUserSlice"
 
  const store = configureStore({
   reducer: {
-    indexPrevPage: indexPrevPageReduser 
+    indexPrevPage: indexPrevPageReduser,
+    countUser: countUserReduser
   },
 });
 
