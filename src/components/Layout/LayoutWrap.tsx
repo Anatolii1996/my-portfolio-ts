@@ -14,22 +14,27 @@ const { Header, Content, Footer } = Layout;
 const LayoutWrap: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-
-  const dispatch = useAppDispatch();
-
-  const [count, setCount] = useState(0);
-  const [ip, setIp] = useState<string>("");
-  const [visitsIp, setVisitIp] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     navigate("/");
-    dispatch(getCountUser())
+    dispatch(getCountUser());
   }, []);
+
+  const dispatch = useAppDispatch();
+  const countVisit = useAppSelector((state) => state.countUser.values);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [countVisit]);
+
+  // const [count, setCount] = useState(0);
+  const [ip, setIp] = useState<string>("");
+  // const [visitsIp, setVisitIp] = useState<string[]>([]);
 
   useEffect(() => {
     getIp();
-    getVisits();
+    // getVisits();
   }, []);
 
   const getIp = async () => {
@@ -41,26 +46,26 @@ const LayoutWrap: FC = () => {
     }
   };
 
-  const getVisits = async () => {
-    try {
-      const response = await axios.get<string[]>(
-        "http://localhost:3002/visits"
-      );
-      setVisitIp(response.data);
-      setLoading(false);
-    } catch (e) {
-      console.error("Произошла ошибка при запросе:", e);
-    }
-  };
+  // const getVisits = async () => {
+  //   try {
+  //     const response = await axios.get<string[]>(
+  //       "http://localhost:3002/visits"
+  //     );
+  //     setVisitIp(response.data);
+  //     // setLoading(false);
+  //   } catch (e) {
+  //     console.error("Произошла ошибка при запросе:", e);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   setCount(visitsIp.length);
+  // }, [visitsIp]);
 
   useEffect(() => {
-    setCount(visitsIp.length);
-  }, [visitsIp]);
-
-  useEffect(() => {
-    if (visitsIp.length && ip.length) {
-      if (!visitsIp.includes(ip)) {
-        setCount((prev) => prev + 1);
+    if (countVisit && ip.length) {
+      if (!countVisit.includes(ip)) {
+        // setCount((prev) => prev + 1);
 
         const requestData = {
           ipAddress: ip,
@@ -136,7 +141,9 @@ const LayoutWrap: FC = () => {
           <div className={iconWrapClasses}>
             <Icon icon="twemoji:star" className={headerIconClasses} />
           </div>
-          <p>:{!loading && <span className={countClasses}>{count}</span>}</p>
+          <p>
+            :{!loading && <span className={countClasses}>{countVisit.length}</span>}
+          </p>
         </div>
       </Header>
       <Content style={{ padding: "0 50px" }}>
