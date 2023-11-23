@@ -34,27 +34,22 @@ const LayoutWrap: FC = () => {
     token: { colorBgContainer },
   } = theme.useToken();
 
- const iconWrapClasses = cn("icon__wrap", {
+  const iconWrapClasses = cn("icon__wrap", {
     // Используем classNames для условных классов
     "animate__animated animate__rotateIn":
-    visits && !visits.includes(currentIP),
+      visits && !visits.includes(currentIP),
   });
 
   const headerIconClasses = cn("header__icon", {
     // Используем classNames для условных классов
-    "animate__animated animate__zoomIn":
-    visits && !visits.includes(currentIP),
-    "animate__animated animate__rotateIn":
-    visits && !visits.includes(currentIP),
+    "animate__animated animate__zoomIn": visits && !visits.includes(currentIP),
   });
 
- 
   const countClasses = cn("header__count", {
     // Используем classNames для условных классов
     "animate__animated animate__bounceInDown":
-    visits && !visits.includes(currentIP),
-    "animate__animated animate__fadeIn":
-    visits && visits.includes(currentIP),
+      visits && !visits.includes(currentIP),
+    "animate__animated animate__fadeIn": visits && visits.includes(currentIP),
   });
 
   return (
@@ -82,22 +77,13 @@ const LayoutWrap: FC = () => {
           </Menu.Item>
         </Menu>
         <div className="header__visitors">
-          <div
-           className={iconWrapClasses}
-          >
-            <Icon
-              icon="twemoji:star"
-              className={headerIconClasses}
-            />
+          <div className={iconWrapClasses}>
+            <Icon icon="twemoji:star" className={headerIconClasses} />
           </div>
           <p>
             :
             {!loading && (
-              <span
-               className={countClasses}
-              >
-                {countVisit.length}
-              </span>
+              <span className={countClasses}>{countVisit.length}</span>
             )}
           </p>
         </div>

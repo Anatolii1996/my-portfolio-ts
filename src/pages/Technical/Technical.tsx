@@ -199,6 +199,14 @@ const Technical: FC = () => {
         </li>
         <li >
           <div className="technical__label">
+          <Icon icon="logos:redux-saga" />
+            <h3>Redux-Saga</h3>
+          </div>
+          
+         
+        </li>
+        <li >
+          <div className="technical__label">
             <Icon icon="logos:sass" />
             <h3>Sass</h3>
           </div>
