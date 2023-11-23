@@ -2,7 +2,8 @@ import React, { FC, useEffect, useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getCountUser } from "../../redux/countUserSlice";
-import { Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme, Switch, Space } from "antd";
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Icon } from "@iconify/react";
 import { visits } from "../../sagas/countUserSaga";
 import cn from "classnames";
@@ -76,6 +77,7 @@ const LayoutWrap: FC = () => {
             <Link to="/feedback">Зворотній зв'язок</Link>
           </Menu.Item>
         </Menu>
+        <Switch checkedChildren="ua" unCheckedChildren="en" defaultChecked />
         <div className="header__visitors">
           <div className={iconWrapClasses}>
             <Icon icon="twemoji:star" className={headerIconClasses} />

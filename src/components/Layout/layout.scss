@@ -167,3 +167,11 @@ main {
     }
   }
 }
+
+:where(.css-dev-only-do-not-override-3mqfnx).ant-switch{
+  background: #1677ff;
+}
+
+:where(.css-dev-only-do-not-override-3mqfnx).ant-switch:hover:not(.ant-switch-disabled){
+  background: #4096ff
+}
