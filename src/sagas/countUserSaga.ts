@@ -7,11 +7,11 @@ import { IIp } from "./types";
 import axios from "axios";
 
 export let visits: string[] = [];
-let currentIP: string = "";
+export let currentIP: string = "";
 
 function* getCountUserWorker(): any {
   const payload = yield axios.get<string[]>("http://localhost:3002/visits");
-  console.log("saga count worker");
+  // console.log("saga count worker");
   yield put(setCountUser(payload.data));
   const state = yield select();
   visits = state.countUser.values;
@@ -20,15 +20,15 @@ function* getCountUserWorker(): any {
 
 function* getCurrentIPWorker(): any {
   const payload = yield axios.get<IIp>("http://localhost:3002/ip");
-  console.log("saga currentIP worker");
+  // console.log("saga currentIP worker");
   yield put(setCurrentIP(payload.data.ipAddress));
   const state = yield select();
   currentIP = state.currentIP.value;
-  console.log(currentIP);
+  // console.log(currentIP);
 }
 
 function* changeCountWorker(): any {
-  console.log("changecount sags");
+  // console.log("changecount sags");
   if (!visits.includes(currentIP)) {
     const requestData = {
       ipAddress: currentIP,
@@ -54,7 +54,7 @@ function* changeCountWorker(): any {
 }
 
 export default function* countUserSaga() {
-  console.log("Saga started");
+  // console.log("Saga started");
 
   yield takeEvery(GET_COUNT_USERS, function* () {
     yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
