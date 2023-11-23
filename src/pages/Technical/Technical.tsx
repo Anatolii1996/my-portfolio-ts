@@ -15,7 +15,7 @@ const Technical: FC = () => {
   const dispatch = useAppDispatch();
 
   const language = useContext(LanguageContext)
-console.log(language)
+// console.log(language)
   useEffect(() => {
     const handleUnmount = () => {
       dispatch(setPrevPage(3));
