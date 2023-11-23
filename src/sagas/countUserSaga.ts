@@ -1,7 +1,9 @@
 /* eslint-disable */
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery, all } from "redux-saga/effects";
 import { GET_COUNT_USERS } from "../redux/countUserSlice";
 import { setCountUser } from "../redux/countUserSlice";
+import { setCurrentIP } from "../redux/currentIPSlice"; 
+import { IIp } from "./types";
 import axios from "axios";
 
 function* getCountUserWorker(): any {
@@ -10,7 +12,18 @@ function* getCountUserWorker(): any {
   yield put(setCountUser(payload.data))
 }
 
+function* getCurrentIPWorker(): any {
+  const payload = yield axios.get<IIp>("http://localhost:3002/ip");;
+  console.log("saga currentIP worker")
+  yield put(setCurrentIP(payload.data.ipAddress))
+}
+
 export default function* countUserSaga() {
   console.log("Saga started");
-  yield takeEvery(GET_COUNT_USERS, getCountUserWorker);
+  yield all ([
+     takeEvery(GET_COUNT_USERS, getCountUserWorker),
+     takeEvery(GET_COUNT_USERS, getCurrentIPWorker),
+  ])
+  
+ 
 }

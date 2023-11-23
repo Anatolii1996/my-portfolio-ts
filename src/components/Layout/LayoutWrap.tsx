@@ -6,7 +6,7 @@ import { Layout, Menu, theme } from "antd";
 import { Icon } from "@iconify/react";
 import cn from "classnames";
 import axios from "axios";
-import { IIp } from "./types";
+import { IIp } from "../../sagas/types";
 import "./layout.scss";
 
 const { Header, Content, Footer } = Layout;
