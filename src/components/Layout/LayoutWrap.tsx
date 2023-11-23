@@ -23,28 +23,31 @@ const LayoutWrap: FC = () => {
 
   const dispatch = useAppDispatch();
   const countVisit = useAppSelector((state) => state.countUser.values);
+  const currentIP = useAppSelector((state) => state.currentIP.value);
 
   useEffect(() => {
-    setLoading(false);
-  }, [countVisit]);
+    if (countVisit && currentIP) {
+      setLoading(false);
+    }
+  }, [countVisit, currentIP]);
 
   // const [count, setCount] = useState(0);
-  const [ip, setIp] = useState<string>("");
+  // const [ip, setIp] = useState<string>("");
   // const [visitsIp, setVisitIp] = useState<string[]>([]);
 
-  useEffect(() => {
-    getIp();
-    // getVisits();
-  }, []);
+  // useEffect(() => {
+  //   getIp();
+  //   // getVisits();
+  // }, []);
 
-  const getIp = async () => {
-    try {
-      const response = await axios.get<IIp>("http://localhost:3002/ip");
-      setIp(response.data.ipAddress);
-    } catch (e) {
-      console.error("Произошла ошибка при запросе:", e);
-    }
-  };
+  // const getIp = async () => {
+  //   try {
+  //     const response = await axios.get<IIp>("http://localhost:3002/ip");
+  //     setIp(response.data.ipAddress);
+  //   } catch (e) {
+  //     console.error("Произошла ошибка при запросе:", e);
+  //   }
+  // };
 
   // const getVisits = async () => {
   //   try {
@@ -62,33 +65,33 @@ const LayoutWrap: FC = () => {
   //   setCount(visitsIp.length);
   // }, [visitsIp]);
 
-  useEffect(() => {
-    if (countVisit && ip.length) {
-      if (!countVisit.includes(ip)) {
-        // setCount((prev) => prev + 1);
+  // useEffect(() => {
+  //   if (countVisit && ip.length) {
+  //     if (!countVisit.includes(ip)) {
+  //       // setCount((prev) => prev + 1);
 
-        const requestData = {
-          ipAddress: ip,
-          entryTime: new Date().toUTCString(),
-          // Другие данные...
-        };
+  //       const requestData = {
+  //         ipAddress: ip,
+  //         entryTime: new Date().toUTCString(),
+  //         // Другие данные...
+  //       };
 
-        // Укажите заголовок Content-Type как application/json
-        const config = {
-          method: "post",
-          url: "http://localhost:3002/new-visit",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: JSON.stringify(requestData), // Преобразуйте данные в JSON-строку
-        };
+  //       // Укажите заголовок Content-Type как application/json
+  //       const config = {
+  //         method: "post",
+  //         url: "http://localhost:3002/new-visit",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         data: JSON.stringify(requestData), // Преобразуйте данные в JSON-строку
+  //       };
 
-        axios(config).catch((error) => {
-          console.log(error);
-        });
-      }
-    }
-  }, [ip]);
+  //       axios(config).catch((error) => {
+  //         console.log(error);
+  //       });
+  //     }
+  //   }
+  // }, [ip]);
 
   const {
     token: { colorBgContainer },
@@ -140,15 +143,21 @@ const LayoutWrap: FC = () => {
         <div className="header__visitors">
           <div
           //  className={iconWrapClasses}
-           >
-            <Icon icon="twemoji:star" 
-            // className={headerIconClasses}
-             />
+          >
+            <Icon
+              icon="twemoji:star"
+              // className={headerIconClasses}
+            />
           </div>
           <p>
-            :{!loading && <span
-            //  className={countClasses}
-             >{countVisit.length}</span>}
+            :
+            {!loading && (
+              <span
+              //  className={countClasses}
+              >
+                {countVisit.length}
+              </span>
+            )}
           </p>
         </div>
       </Header>
