@@ -6,7 +6,7 @@ import axios from "axios";
 
 function* getCountUserWorker(): any {
   const payload = yield axios.get<string[]>("http://localhost:3002/visits");
-  console.log(payload.data)
+  console.log("saga count worker")
   yield put(setCountUser(payload.data))
 }
 

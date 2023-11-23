@@ -88,30 +88,30 @@ const LayoutWrap: FC = () => {
         });
       }
     }
-  }, [ip, visitsIp]);
+  }, [ip]);
 
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const headerIconClasses = cn("header__icon", {
-    // Используем classNames для условных классов
-    "animate__animated animate__zoomIn":
-      visitsIp.length && !visitsIp.includes(ip),
-  });
+  // const headerIconClasses = cn("header__icon", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__zoomIn":
+  //     visitsIp.length && !visitsIp.includes(ip),
+  // });
 
-  const iconWrapClasses = cn("icon__wrap", {
-    // Используем classNames для условных классов
-    "animate__animated animate__rotateIn":
-      visitsIp.length && !visitsIp.includes(ip),
-  });
-  const countClasses = cn("header__count", {
-    // Используем classNames для условных классов
-    "animate__animated animate__bounceInDown":
-      visitsIp.length && !visitsIp.includes(ip),
-    "animate__animated animate__fadeIn":
-      visitsIp.length && visitsIp.includes(ip),
-  });
+  // const iconWrapClasses = cn("icon__wrap", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__rotateIn":
+  //     visitsIp.length && !visitsIp.includes(ip),
+  // });
+  // const countClasses = cn("header__count", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__bounceInDown":
+  //     visitsIp.length && !visitsIp.includes(ip),
+  //   "animate__animated animate__fadeIn":
+  //     visitsIp.length && visitsIp.includes(ip),
+  // });
 
   return (
     <Layout className="layout">
@@ -138,11 +138,17 @@ const LayoutWrap: FC = () => {
           </Menu.Item>
         </Menu>
         <div className="header__visitors">
-          <div className={iconWrapClasses}>
-            <Icon icon="twemoji:star" className={headerIconClasses} />
+          <div
+          //  className={iconWrapClasses}
+           >
+            <Icon icon="twemoji:star" 
+            // className={headerIconClasses}
+             />
           </div>
           <p>
-            :{!loading && <span className={countClasses}>{countVisit.length}</span>}
+            :{!loading && <span
+            //  className={countClasses}
+             >{countVisit.length}</span>}
           </p>
         </div>
       </Header>
