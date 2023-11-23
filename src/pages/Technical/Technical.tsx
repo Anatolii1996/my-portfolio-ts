@@ -1,9 +1,10 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import { Icon } from "@iconify/react";
+import { LanguageContext } from "../../context";
 // import WOW from "wow.js";
 // import "wow.js/css/libs/animate.css";
 // import wow_icon from "../../assets/wow-logo.jpg";
@@ -13,6 +14,8 @@ const Technical: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
 
+  const language = useContext(LanguageContext)
+console.log(language)
   useEffect(() => {
     const handleUnmount = () => {
       dispatch(setPrevPage(3));
