@@ -4,9 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme } from "antd";
 import { Icon } from "@iconify/react";
+import { visits } from "../../sagas/countUserSaga";
 import cn from "classnames";
-import axios from "axios";
-import { IIp } from "../../sagas/types";
 import "./layout.scss";
 
 const { Header, Content, Footer } = Layout;
@@ -31,90 +30,32 @@ const LayoutWrap: FC = () => {
     }
   }, [countVisit, currentIP]);
 
-  // const [count, setCount] = useState(0);
-  // const [ip, setIp] = useState<string>("");
-  // const [visitsIp, setVisitIp] = useState<string[]>([]);
-
-  // useEffect(() => {
-  //   getIp();
-  //   // getVisits();
-  // }, []);
-
-  // const getIp = async () => {
-  //   try {
-  //     const response = await axios.get<IIp>("http://localhost:3002/ip");
-  //     setIp(response.data.ipAddress);
-  //   } catch (e) {
-  //     console.error("Произошла ошибка при запросе:", e);
-  //   }
-  // };
-
-  // const getVisits = async () => {
-  //   try {
-  //     const response = await axios.get<string[]>(
-  //       "http://localhost:3002/visits"
-  //     );
-  //     setVisitIp(response.data);
-  //     // setLoading(false);
-  //   } catch (e) {
-  //     console.error("Произошла ошибка при запросе:", e);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   setCount(visitsIp.length);
-  // }, [visitsIp]);
-
-  // useEffect(() => {
-  //   if (countVisit && ip.length) {
-  //     if (!countVisit.includes(ip)) {
-  //       // setCount((prev) => prev + 1);
-
-  //       const requestData = {
-  //         ipAddress: ip,
-  //         entryTime: new Date().toUTCString(),
-  //         // Другие данные...
-  //       };
-
-  //       // Укажите заголовок Content-Type как application/json
-  //       const config = {
-  //         method: "post",
-  //         url: "http://localhost:3002/new-visit",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         data: JSON.stringify(requestData), // Преобразуйте данные в JSON-строку
-  //       };
-
-  //       axios(config).catch((error) => {
-  //         console.log(error);
-  //       });
-  //     }
-  //   }
-  // }, [ip]);
-
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  // const headerIconClasses = cn("header__icon", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__zoomIn":
-  //     visitsIp.length && !visitsIp.includes(ip),
-  // });
+ const iconWrapClasses = cn("icon__wrap", {
+    // Используем classNames для условных классов
+    "animate__animated animate__rotateIn":
+    visits && !visits.includes(currentIP),
+  });
 
-  // const iconWrapClasses = cn("icon__wrap", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__rotateIn":
-  //     visitsIp.length && !visitsIp.includes(ip),
-  // });
-  // const countClasses = cn("header__count", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__bounceInDown":
-  //     visitsIp.length && !visitsIp.includes(ip),
-  //   "animate__animated animate__fadeIn":
-  //     visitsIp.length && visitsIp.includes(ip),
-  // });
+  const headerIconClasses = cn("header__icon", {
+    // Используем classNames для условных классов
+    "animate__animated animate__zoomIn":
+    visits && !visits.includes(currentIP),
+    "animate__animated animate__rotateIn":
+    visits && !visits.includes(currentIP),
+  });
+
+ 
+  const countClasses = cn("header__count", {
+    // Используем classNames для условных классов
+    "animate__animated animate__bounceInDown":
+    visits && !visits.includes(currentIP),
+    "animate__animated animate__fadeIn":
+    visits && visits.includes(currentIP),
+  });
 
   return (
     <Layout className="layout">
@@ -142,18 +83,18 @@ const LayoutWrap: FC = () => {
         </Menu>
         <div className="header__visitors">
           <div
-          //  className={iconWrapClasses}
+           className={iconWrapClasses}
           >
             <Icon
               icon="twemoji:star"
-              // className={headerIconClasses}
+              className={headerIconClasses}
             />
           </div>
           <p>
             :
             {!loading && (
               <span
-              //  className={countClasses}
+               className={countClasses}
               >
                 {countVisit.length}
               </span>
