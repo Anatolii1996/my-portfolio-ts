@@ -5,6 +5,10 @@ import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import myPhoto from "../../assets/my-photo.png";
 import ProgressWrap from "../../components/Progress/ProgressWrap";
 import { Icon } from "@iconify/react";
+import NestLogo from "../../assets/nestjs-icon-2048x2040-3rrvcej8.png"
+import NextLogo from "../../assets/next-js-icon-512x512-zuauazrk.png"
+import BunLogo from "../../assets/Bun.png"
+import GSAPLogo from "../../assets/gsap-greensock.svg"
 import "./home.scss";
 
 const Home: FC = () => {
@@ -138,8 +142,39 @@ const Home: FC = () => {
             <ProgressWrap quantity={15} />
           </li>
         </ul>
+        <h2>Технології для подальшого вивчення</h2>
+        <ul>
+          <li>
+            {" "}
+            <div className="tech_name">
+           <img src={NestLogo} alt="Nest-logo" />
+              <p>Nest.js</p>
+            </div>
+          </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <img src={NextLogo} alt="Nest-logo" />
+              <p>Next.js</p>
+            </div>
+          </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <img src={BunLogo} alt="Nest-logo" />
+              <p>Bun.sh</p>
+            </div>
+          </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <img src={GSAPLogo} alt="Nest-logo" />
+              <p>GSAP</p>
+            </div>
+          </li>
+        </ul>
       </div>
-      <img src={myPhoto} alt="my-photo" />
+      <img className="my_photo" src={myPhoto} alt="my-photo" />
     </div>
   );
 };
