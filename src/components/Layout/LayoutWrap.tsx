@@ -11,13 +11,11 @@ import "./layout.scss";
 
 const { Header, Content, Footer } = Layout;
 
-const languages = ["ua", "en"];
-
 const LayoutWrap: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [language, setLanguage] = useState(languages[0]);
+  const [language, setLanguage] = useState("ua");
 
   useEffect(() => {
     navigate("/");
@@ -58,7 +56,7 @@ const LayoutWrap: FC = () => {
 
   const handleSwitchChange = (checked: boolean) => {
     // Update the language state based on the checked value
-    setLanguage(checked ? languages[0] : languages[1]);
+    setLanguage(checked ? "ua" : "en");
   };
 
   return (
@@ -88,8 +86,8 @@ const LayoutWrap: FC = () => {
           </Menu>
           <Switch
             onChange={handleSwitchChange}
-            checkedChildren="ua"
-            unCheckedChildren="en"
+            checkedChildren="en"
+            unCheckedChildren="ua"
             defaultChecked
           />
           <div className="header__visitors">
