@@ -1,3 +1,14 @@
+h2{
+    margin-bottom: 1rem;
+}
 .devEducation_projects{
     display: flex;
+    justify-content: space-evenly;
+    img{
+        max-width: 350px;
+        max-height: 485px;
+        &:hover{
+            transform: scale(105%);
+        }
+    }
 }
