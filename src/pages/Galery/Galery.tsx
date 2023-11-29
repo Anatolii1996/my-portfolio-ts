@@ -7,19 +7,7 @@ import QuizImg from "../../assets/quiz.jpg";
 import NewsImg from "../../assets/Request.jpg";
 import HotelImg from "../../assets/Hotel.jpg";
 import PopoverWrap from "../../components/Popover/PopoverWrap";
-import { Button, ConfigProvider, Popover, Segmented } from 'antd';
 import "./galery.scss";
-
-const text = <span>Technologies:</span>;
-
-const buttonWidth = 80;
-
-const content = (
-  <div>
-    <p>Content</p>
-    <p>Content</p>
-  </div>
-);
 
 const Galery: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
