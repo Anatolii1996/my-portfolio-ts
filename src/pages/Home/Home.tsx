@@ -172,6 +172,13 @@ const Home: FC = () => {
               <p>GSAP</p>
             </div>
           </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <Icon icon="devicon:storybook" />
+              <p>Storybook</p>
+            </div>
+          </li>
         </ul>
       </div>
       <img className="my_photo" src={myPhoto} alt="my-photo" />
