@@ -42,7 +42,7 @@ const Galery: FC = () => {
     <div className={pageAnimStyle}>
       <h2>Випускні роботи DevEducation</h2>
       <div className="devEducation_projects">
-      <PopoverWrap content={["React", "Bootstrap"]}>
+      <PopoverWrap content={["React", "Bootstrap", "Firebase"]}>
         <div className="project_item">
           {" "}
           <a href="https://network-requst.netlify.app/" target="_blank">
@@ -50,7 +50,7 @@ const Galery: FC = () => {
           </a>
         </div>
         </PopoverWrap>
-        <PopoverWrap content={["React", "Bootstrap"]}>
+        <PopoverWrap content={["React", "Redux","Redux-Saga", "Firebase"]} comment={["Username - user1", "Password - pass1"]}>
         <div className="project_item">
           {" "}
           <a href="https://lustrous-kataifi-f520ba.netlify.app/" target="_blank">
@@ -58,7 +58,7 @@ const Galery: FC = () => {
           </a>
         </div>
         </PopoverWrap>
-        <PopoverWrap content={["React", "Bootstrap"]}>
+        <PopoverWrap content={["React", "Redux","Firebase"]}>
         <div className="project_item">
           {" "}
           <a
