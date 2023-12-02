@@ -1,7 +1,3 @@
-import { ObjectId } from "mongodb";
-
-
-
 
 export interface IComment {
   ipAddress: string;
@@ -10,5 +6,5 @@ export interface IComment {
   name: string;
   surname: string;
   comment: string;
-  _id: ObjectId;
+  _id: string;
 }
