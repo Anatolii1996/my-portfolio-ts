@@ -1,9 +1,8 @@
 import { ObjectId } from "mongodb";
 
-
 export interface IPage {
   value: number;
-};
+}
 
 export interface ICountState {
   values: string[];
@@ -11,14 +10,19 @@ export interface ICountState {
 
 export interface ICurrentIP {
   value: string;
-};
+}
 
-export interface IComment {
-  ipAddress: string;
-  date: string;
-  creatingTime: string;
+export interface IMessage {
   name: string;
   surname: string;
   comment: string;
-  _id: string;
 }
+
+export interface IComment extends IMessage{
+  ipAddress?: string;
+  date?: string;
+  creatingTime?: string;
+   _id?: ObjectId;
+}
+
+
