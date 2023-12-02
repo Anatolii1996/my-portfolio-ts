@@ -21,7 +21,6 @@ const Feedback: FC = () => {
 
   useEffect(()=>{
     dispatch(getComments());
-    console.log("first")
   }, [])
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");

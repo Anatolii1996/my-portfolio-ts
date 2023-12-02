@@ -1,10 +1,10 @@
 import React, { useState, FC } from "react";
-import { FormValues, ErrorValues } from "./types";
 import { useAppDispatch } from "../../hooks";
 import { createComment } from "../../redux/chatSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import cn from "classnames";
 import { message } from "antd";
+import { FormValues, ErrorValues } from "./types";
 import "./form.scss";
 
 const FormWrap: FC = () => {

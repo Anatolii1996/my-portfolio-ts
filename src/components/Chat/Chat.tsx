@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { useAppSelector } from "../../hooks";
 import { v4 as uuidv4 } from "uuid"
-
 import cn from "classnames";
 import "./chat.scss";
 

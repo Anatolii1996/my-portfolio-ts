@@ -6,15 +6,13 @@ import axios from "axios";
 
 function* getCommentsWorker(): any {
   const payload = yield axios.get<IComment[]>("http://localhost:3002/comments");
-  console.log("saga comment worker");
+  // console.log("saga comment worker");
   // console.log(payload.data)
   yield put(setComments(payload.data));
 }
 
-
-
 function* createCommentsWorker(action:CreateCommentAction) {
-  console.log("saga Createcomment worker");
+  // console.log("saga Createcomment worker");
   const data = action.payload;
   // console.log(data)
   const requestData = {
@@ -37,7 +35,7 @@ function* createCommentsWorker(action:CreateCommentAction) {
 }
 
 export default function* commentSaga() {
-  console.log("commentSaga started");
+  // console.log("commentSaga started");
   yield takeEvery(GET_COMMENTS, getCommentsWorker);
   yield takeLatest("comments/createComment", createCommentsWorker);
 }
