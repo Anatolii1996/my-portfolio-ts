@@ -18,11 +18,9 @@ export interface IMessage {
   comment: string;
 }
 
-export interface IComment extends IMessage{
+export interface IComment extends IMessage {
   ipAddress?: string;
   date?: string;
   creatingTime?: string;
-   _id?: ObjectId;
+  _id?: ObjectId;
 }
-
-
