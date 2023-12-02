@@ -1,9 +1,10 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, FC } from "react";
 import { FormValues, ErrorValues } from "./types";
+import { useAppDispatch } from "../../hooks";
+import { createComment } from "../../redux/chatSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import cn from "classnames";
 import { message } from "antd";
-import axios from "axios";
 import "./form.scss";
 
 const FormWrap: FC = () => {
@@ -12,6 +13,8 @@ const FormWrap: FC = () => {
     surname: "",
     comment: "",
   });
+
+  const dispatch = useAppDispatch();
 
   const resolver: Resolver<FormValues> = async (values) => {
     const errors: Partial<ErrorValues> = {};
@@ -72,34 +75,15 @@ const FormWrap: FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     // Здесь вы можете выполнить действия с данными формы
-    const requestData = {
-      name: data.name,
-      surname: data.surname, // Другие данные...
-      comment: data.comment, // Другие данные...
-    };
-
-    const config = {
-      method: "post",
-      url: "http://localhost:3002/new-comment",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: JSON.stringify(requestData), // Преобразуйте данные в JSON-строку
-    };
-    axios(config)
-      .then(() => {
-        setTimeout(() => {
-          success();
-          setFormState({
-            name: "",
-            surname: "",
-            comment: "",
-          });
-        }, 800);
-      })
-      .catch((error) => {
-        console.log(error);
+    dispatch(createComment(data));
+    setTimeout(() => {
+      success();
+      setFormState({
+        name: "",
+        surname: "",
+        comment: "",
       });
+    }, 800);  
   };
 
   const infoClasses = {

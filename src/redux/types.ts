@@ -24,3 +24,13 @@ export interface IComment extends IMessage {
   creatingTime?: string;
   _id?: ObjectId;
 }
+
+export interface CreateCommentAction {
+  type: string;
+  payload: {
+    name: string;
+    surname: string;
+    comment: string;
+    
+  };
+}
