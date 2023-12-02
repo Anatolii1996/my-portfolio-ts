@@ -38,6 +38,6 @@ function* createCommentsWorker(action:CreateCommentAction) {
 
 export default function* commentSaga() {
   console.log("commentSaga started");
-  yield takeLatest(GET_COMMENTS, getCommentsWorker);
+  yield takeEvery(GET_COMMENTS, getCommentsWorker);
   yield takeLatest("comments/createComment", createCommentsWorker);
 }

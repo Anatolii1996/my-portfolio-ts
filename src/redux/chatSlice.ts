@@ -7,16 +7,19 @@ export const chatSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
-    setComments: (state = initialState, action: PayloadAction<IMessage[]>) => {
-      return [...state, ...action.payload];
+    setComments: (state = initialState, action: PayloadAction<IComment[]>) => {
+      const uniqueCommentIds = new Set(state.map(comment => comment._id));
+      const uniqueComments = action.payload.filter(comment => !uniqueCommentIds.has(comment._id));
+      return [...state, ...uniqueComments];
     },
     createComment: (state = initialState, action: PayloadAction<IMessage>) => {
       const newComment = {
+        ipAddress: process.env.REACT_APP_MY_IP,
         name: action.payload.name,
         surname: action.payload.surname,
         comment: action.payload.comment,
       };
-      return [...state, newComment]
+      return [newComment, ...state ]
     },
   },
 });

@@ -2,12 +2,7 @@ import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getComments } from "../../redux/chatSlice";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
-import { useForm, SubmitHandler, Resolver } from "react-hook-form";
-
-import cn from "classnames";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
-
-
 import "./feedback.scss";
 import Chat from "../../components/Chat/Chat";
 import FormWrap from "../../components/Form/Form";
@@ -26,6 +21,7 @@ const Feedback: FC = () => {
 
   useEffect(()=>{
     dispatch(getComments());
+    console.log("first")
   }, [])
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
