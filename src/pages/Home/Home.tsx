@@ -179,6 +179,13 @@ const Home: FC = () => {
               <p>Storybook</p>
             </div>
           </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <Icon icon="vscode-icons:file-type-eslint2" />
+              <p>Eslint</p>
+            </div>
+          </li>
         </ul>
       </div>
       <img className="my_photo" src={myPhoto} alt="my-photo" />
