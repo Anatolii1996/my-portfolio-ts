@@ -34,4 +34,6 @@
       margin-left: 50%;
     }
   }
-  
+  :where(.css-dev-only-do-not-override-2q8sxy).ant-empty{
+    margin-top: calc(50% - 40px);
+  }

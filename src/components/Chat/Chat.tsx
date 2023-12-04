@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 import { useAppSelector } from "../../hooks";
 import { v4 as uuidv4 } from "uuid"
+import {  Empty } from 'antd';
 import cn from "classnames";
 import "./chat.scss";
 
 const Chat: FC = () => {
-  const comments = useAppSelector((state)=>state.comments)
-// console.log(comments)
+  const comments = useAppSelector((state)=>state.comments.messages)
+console.log(Boolean(comments) )
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
-      {comments.messages
-      .map((comment, index) => {
+      {comments.length ?
+       comments.map((comment, index) => {
         // console.log(comment)
         // const messageId = comment._id;
         const messageClasses = cn("chat_message", {
@@ -29,7 +30,20 @@ const Chat: FC = () => {
             <p>{comment.comment}</p>
           </div>
         );
-      })}
+      }):
+      <Empty
+      image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+      imageStyle={{ height: 60 }}
+      description={
+        <span>
+          Не вдалося завантажити  коментарі
+        </span>
+      }
+    >
+      
+    </Empty>
+      }
+
     </div>
   );
 };
