@@ -9,7 +9,8 @@ const Chat: FC = () => {
 // console.log(comments)
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
-      {comments.map((comment, index) => {
+      {comments.messages
+      .map((comment, index) => {
         // console.log(comment)
         // const messageId = comment._id;
         const messageClasses = cn("chat_message", {

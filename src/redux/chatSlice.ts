@@ -1,13 +1,19 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IComment, IMessage } from "./types";
+import { IComment, IMessage, ICommentStatee } from "./types";
 
-const initialState: IComment[] = [];
+const initialState: ICommentStatee = {
+  messages: [],
+  errors: "",
+};
 export const chatSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
     setComments: (state = initialState, action: PayloadAction<IComment[]>) => {
-      return [...state, ...action.payload];
+      state.messages = action.payload;
+    },
+    getCommentsFail:(state = initialState, action: PayloadAction<string>)=>{
+      state.errors = action.payload;
     },
     createComment: (state = initialState, action: PayloadAction<IMessage>) => {
       const newComment = {
@@ -16,11 +22,11 @@ export const chatSlice = createSlice({
         surname: action.payload.surname,
         comment: action.payload.comment,
       };
-      return [newComment, ...state ]
+      state.messages=[newComment, ...state.messages]
+     
     },
   },
 });
 
-
-export const { setComments, createComment } = chatSlice.actions;
+export const { setComments, createComment,getCommentsFail } = chatSlice.actions;
 export default chatSlice.reducer;

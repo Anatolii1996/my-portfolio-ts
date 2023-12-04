@@ -24,6 +24,10 @@ export interface IComment extends IMessage {
   creatingTime?: string;
   _id?: ObjectId;
 }
+export interface ICommentStatee  {
+  messages: IComment[],
+  errors: string
+}
 
 export interface CreateCommentAction {
   type: string;
