@@ -25,5 +25,4 @@ export const getCountUser = createAction(GET_COUNT_USERS, () => ({
 }));
 
 export const { setCountUser } = countUserSlice.actions;
-export const selectVisits = (state: RootState) => state.countUser.values;
 export default countUserSlice.reducer;

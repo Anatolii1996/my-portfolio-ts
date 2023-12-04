@@ -20,5 +20,4 @@ export const currentIPSlice = createSlice({
 });
 
 export const { setCurrentIP } = currentIPSlice.actions;
-export const selectCrrentIP = (state: RootState) => state.currentIP.value;
 export default currentIPSlice.reducer;

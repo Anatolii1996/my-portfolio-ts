@@ -4,13 +4,14 @@ import { GET_COUNT_USERS } from "../redux/countUserSlice";
 import { setCountUser } from "../redux/countUserSlice";
 import { setCurrentIP } from "../redux/currentIPSlice";
 import { IIp } from "./types";
+import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
 export let visits: string[] = [];
 export let currentIP: string = "";
 
 function* getCountUserWorker(): any {
-  const payload = yield axios.get<string[]>("http://localhost:3002/visits");
+  const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
   // console.log("saga count worker");
   yield put(setCountUser(payload.data));
   const state = yield select();
@@ -19,7 +20,7 @@ function* getCountUserWorker(): any {
 }
 
 function* getCurrentIPWorker(): any {
-  const payload = yield axios.get<IIp>("http://localhost:3002/ip");
+  const payload = yield axios.get<IIp>(`${SERVER_URL}/ip`);
   // console.log("saga currentIP worker");
   yield put(setCurrentIP(payload.data.ipAddress));
   const state = yield select();
@@ -37,7 +38,7 @@ function* changeCountWorker(): any {
 
     const config = {
       method: "post",
-      url: "http://localhost:3002/new-visit",
+      url: `${SERVER_URL}/new-visit`,
       headers: {
         "Content-Type": "application/json",
       },

@@ -20,5 +20,4 @@ export const indexPrevPageSlice = createSlice({
   },
 });
 export const { setPrevPage } = indexPrevPageSlice.actions;
-export const selectPage = (state: RootState) => state.indexPrevPage.value;
 export default indexPrevPageSlice.reducer;

@@ -28,5 +28,4 @@ export const GET_COMMENTS = "chatSlice/getComments";
 export const getComments = createAction(GET_COMMENTS);
 
 export const { setComments, createComment } = chatSlice.actions;
-export const selectComments = (state: RootState) => state.comments;
 export default chatSlice.reducer;
