@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FC } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { getComments } from "../../redux/chatSlice";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import "./feedback.scss";
@@ -19,9 +18,7 @@ const Feedback: FC = () => {
     return handleUnmount;
   }, [dispatch]);
 
-  useEffect(()=>{
-    dispatch(getComments());
-  }, [])
+
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
   useEffect(() => {

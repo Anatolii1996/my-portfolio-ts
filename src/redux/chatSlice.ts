@@ -8,9 +8,7 @@ export const chatSlice = createSlice({
   initialState,
   reducers: {
     setComments: (state = initialState, action: PayloadAction<IComment[]>) => {
-      const uniqueCommentIds = new Set(state.map(comment => comment._id));
-      const uniqueComments = action.payload.filter(comment => !uniqueCommentIds.has(comment._id));
-      return [...state, ...uniqueComments];
+      return [...state, ...action.payload];
     },
     createComment: (state = initialState, action: PayloadAction<IMessage>) => {
       const newComment = {
@@ -24,8 +22,6 @@ export const chatSlice = createSlice({
   },
 });
 
-export const GET_COMMENTS = "chatSlice/getComments";
-export const getComments = createAction(GET_COMMENTS);
 
 export const { setComments, createComment } = chatSlice.actions;
 export default chatSlice.reducer;

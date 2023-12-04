@@ -4,6 +4,8 @@ import { GET_COUNT_USERS } from "../redux/countUserSlice";
 import { setCountUser } from "../redux/countUserSlice";
 import { setCurrentIP } from "../redux/currentIPSlice";
 import { IIp } from "./types";
+import { IComment } from "../redux/types";
+import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
@@ -54,11 +56,20 @@ function* changeCountWorker(): any {
   }
 }
 
+function* getCommentsWorker(): any {
+  const payload = yield axios.get<IComment[]>(`${SERVER_URL}/comments`);
+  console.log("saga comment worker");
+  // console.log(payload.data)
+  yield put(setComments(payload.data));
+}
+
 export default function* countUserSaga() {
   // console.log("Saga started");
 
   yield takeEvery(GET_COUNT_USERS, function* () {
     yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
     yield call(changeCountWorker);
+    yield call(getCommentsWorker);
   });
+  
 }
