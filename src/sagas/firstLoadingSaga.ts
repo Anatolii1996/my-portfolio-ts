@@ -14,7 +14,7 @@ export let visits: string[] = [];
 export let currentIP: string = "";
 
 function* getCountUserWorker(): any {
-  console.log("saga count worker");
+  // console.log("saga count worker");
   try {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
 
@@ -28,7 +28,7 @@ function* getCountUserWorker(): any {
 }
 
 function* getCurrentIPWorker(): any {
-  console.log("saga currentIP worker");
+  // console.log("saga currentIP worker");
   try {
     const payload = yield axios.get<IIp>(`${SERVER_URL}/ip`);
 
@@ -42,7 +42,7 @@ function* getCurrentIPWorker(): any {
 }
 
 function* changeCountWorker(): any {
-  console.log("changecount sags");
+  // console.log("changecount sags");
   if (!visits.includes(currentIP)) {
     const requestData = {
       ipAddress: currentIP,
@@ -70,7 +70,7 @@ function* changeCountWorker(): any {
 }
 
 function* getCommentsWorker(): any {
-  console.log("saga comment worker");
+  // console.log("saga comment worker");
   try {
     const payload = yield axios.get<IComment[]>(`${SERVER_URL}/comments`);
 
@@ -85,7 +85,7 @@ function* getCommentsWorker(): any {
 }
 
 export default function* countUserSaga() {
-  console.log("Saga started");
+  // console.log("Saga started");
 
   yield takeEvery(GET_COUNT_USERS, function* () {
     yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
