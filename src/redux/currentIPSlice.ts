@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICurrentIP } from "./types";
-import type { RootState } from "./store";
 
 const initialState: ICurrentIP = {
   value: "",

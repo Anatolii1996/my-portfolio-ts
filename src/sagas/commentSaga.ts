@@ -1,4 +1,4 @@
-import { put, takeEvery, takeLatest } from "redux-saga/effects";
+import {  takeLatest } from "redux-saga/effects";
 import {  CreateCommentAction } from "../redux/types";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
@@ -23,7 +23,7 @@ function* createCommentsWorker(action:CreateCommentAction) {
     },
     data: JSON.stringify(requestData), // Преобразуйте данные в JSON-строку
   };
-  axios(config).catch((error) => {
+  yield axios(config).catch((error) => {
     console.log(error);
   });
 }

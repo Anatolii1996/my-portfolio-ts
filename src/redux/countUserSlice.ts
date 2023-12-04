@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
 import { ICountState } from "./types";
-import type { RootState } from "./store";
 
 const initialState: ICountState = {
   values: [],

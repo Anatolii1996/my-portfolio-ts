@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IComment, IMessage } from "./types";
-import type { RootState } from "./store";
 
 const initialState: IComment[] = [];
 export const chatSlice = createSlice({
