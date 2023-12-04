@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPage } from "./types";
-import type { RootState } from "./store";
 
 const initialState: IPage = {
   value: 0,
@@ -20,5 +19,4 @@ export const indexPrevPageSlice = createSlice({
   },
 });
 export const { setPrevPage } = indexPrevPageSlice.actions;
-export const selectPage = (state: RootState) => state.indexPrevPage.value;
 export default indexPrevPageSlice.reducer;

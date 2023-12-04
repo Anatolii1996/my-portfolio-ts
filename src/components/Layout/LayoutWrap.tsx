@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme, Switch } from "antd";
 import { Icon } from "@iconify/react";
-import { visits } from "../../sagas/countUserSaga";
+import { visits } from "../../sagas/firstLoadingSaga";
 import { LanguageContext } from "../../context";
 import cn from "classnames";
 import "./layout.scss";

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ICurrentIP } from "./types";
-import type { RootState } from "./store";
 
 const initialState: ICurrentIP = {
   value: "",
@@ -20,5 +19,4 @@ export const currentIPSlice = createSlice({
 });
 
 export const { setCurrentIP } = currentIPSlice.actions;
-export const selectCrrentIP = (state: RootState) => state.currentIP.value;
 export default currentIPSlice.reducer;

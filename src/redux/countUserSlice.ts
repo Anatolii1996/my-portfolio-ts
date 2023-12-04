@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
 import { ICountState } from "./types";
-import type { RootState } from "./store";
 
 const initialState: ICountState = {
   values: [],
@@ -25,5 +24,4 @@ export const getCountUser = createAction(GET_COUNT_USERS, () => ({
 }));
 
 export const { setCountUser } = countUserSlice.actions;
-export const selectVisits = (state: RootState) => state.countUser.values;
 export default countUserSlice.reducer;
