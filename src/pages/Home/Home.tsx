@@ -23,10 +23,10 @@ const Home: FC = () => {
   const dispatch = useAppDispatch();
   const sertificats = [
     DevEducationSert,
-    BootstrapSert,
     JsSert,
-    HTMLSert,
     WebDesignSert,
+    HTMLSert,
+    BootstrapSert,
     EnglishSert,
   ];
 
@@ -49,10 +49,10 @@ const Home: FC = () => {
         <h1>Всім привіт!</h1>
         <h2>Давайте знайомитись</h2>
         <div className="empty"></div>
-        {sertificats.map((el)=>{
-          return <ImgWrap width={500} key={el} link={el}/>
+        {sertificats.map((el) => {
+          return <ImgWrap width={500} key={el} link={el} />;
         })}
-        
+
         <h3>Стек технологій</h3>
         <ul>
           <li>
