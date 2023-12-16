@@ -5,15 +5,30 @@ import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import myPhoto from "../../assets/my-photo.png";
 import ProgressWrap from "../../components/Progress/ProgressWrap";
 import { Icon } from "@iconify/react";
-import NestLogo from "../../assets/nestjs-icon-2048x2040-3rrvcej8.png"
-import NextLogo from "../../assets/next-js-icon-512x512-zuauazrk.png"
-import BunLogo from "../../assets/Bun.png"
-import GSAPLogo from "../../assets/gsap-greensock.svg"
+import NestLogo from "../../assets/nestjs-icon-2048x2040-3rrvcej8.png";
+import NextLogo from "../../assets/next-js-icon-512x512-zuauazrk.png";
+import BunLogo from "../../assets/Bun.png";
+import GSAPLogo from "../../assets/gsap-greensock.svg";
+import ImgWrap from "../../components/Images/ImgWrap";
+import BootstrapSert from "../../assets/Bootstrap certificate.jpg";
+import DevEducationSert from "../../assets/DevEducation.jpg";
+import JsSert from "../../assets/JS certificate.jpg";
+import HTMLSert from "../../assets/HTML certificate.jpg";
+import WebDesignSert from "../../assets/FreeCodeCamp - Web Design.jpg";
+import EnglishSert from "../../assets/certificate (3).png";
 import "./home.scss";
 
 const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
+  const sertificats = [
+    DevEducationSert,
+    BootstrapSert,
+    JsSert,
+    HTMLSert,
+    WebDesignSert,
+    EnglishSert,
+  ];
 
   useEffect(() => {
     const handleUnmount = () => {
@@ -33,6 +48,11 @@ const Home: FC = () => {
       <div className="description">
         <h1>Всім привіт!</h1>
         <h2>Давайте знайомитись</h2>
+        <div className="empty"></div>
+        {sertificats.map((el)=>{
+          return <ImgWrap width={500} key={el} link={el}/>
+        })}
+        
         <h3>Стек технологій</h3>
         <ul>
           <li>
@@ -147,48 +167,51 @@ const Home: FC = () => {
           <li>
             {" "}
             <div className="tech_name">
-           <img src={NestLogo} alt="Nest-logo" />
+              <img src={NestLogo} className="img_logo" alt="Nest-logo" />
               <p>Nest.js</p>
             </div>
           </li>
           <li>
             {" "}
             <div className="tech_name">
-            <img src={NextLogo} alt="Nest-logo" />
+              <img src={NextLogo} className="img_logo" alt="Nest-logo" />
               <p>Next.js</p>
             </div>
           </li>
           <li>
             {" "}
             <div className="tech_name">
-            <img src={BunLogo} alt="Nest-logo" />
+              <img src={BunLogo} className="img_logo" alt="Nest-logo" />
               <p>Bun.sh</p>
             </div>
           </li>
           <li>
             {" "}
             <div className="tech_name">
-            <img src={GSAPLogo} alt="Nest-logo" />
+              <img src={GSAPLogo} className="img_logo" alt="Nest-logo" />
               <p>GSAP</p>
             </div>
           </li>
           <li>
             {" "}
             <div className="tech_name">
-            <Icon icon="devicon:storybook" />
+              <Icon icon="devicon:storybook" />
               <p>Storybook</p>
             </div>
           </li>
           <li>
             {" "}
             <div className="tech_name">
-            <Icon icon="vscode-icons:file-type-eslint2" />
+              <Icon icon="vscode-icons:file-type-eslint2" />
               <p>Eslint</p>
             </div>
           </li>
         </ul>
       </div>
-      <img className="my_photo" src={myPhoto} alt="my-photo" />
+
+      <aside>
+        <img className="my_photo" src={myPhoto} alt="my-photo" />
+      </aside>
     </div>
   );
 };
