@@ -13,3 +13,13 @@ h2{
         }
     }
 }
+.techItem{
+display: flex;
+align-items: center;
+p{
+    padding-left: 10px;
+}
+img{
+    width: 14px;
+}
+}

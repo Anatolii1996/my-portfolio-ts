@@ -10,6 +10,7 @@ import TableImg from "../../assets/test-progect.jpg";
 import HotelImg from "../../assets/Hotel.jpg";
 import ChartImg from "../../assets/Providers.jpg";
 import PopoverWrap from "../../components/Popover/PopoverWrap";
+
 import "./galery.scss";
 
 const Galery: FC = () => {
@@ -28,6 +29,8 @@ const Galery: FC = () => {
   useEffect(() => {
     setPageAnimStyle(setPageAnimation("galery", 2, indexPrevPage));
   }, [indexPrevPage]);
+
+ 
 
   return (
     <div className={pageAnimStyle}>
@@ -77,7 +80,7 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
 
-        <PopoverWrap content={["React", "Ant Design",  "Netlify"]}>
+        <PopoverWrap content={["React", "Ant Design", "Netlify"]}>
           <div className="project_item">
             <a
               href="https://magical-rabanadas-39232e.netlify.app/"
@@ -88,7 +91,7 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
 
-        <PopoverWrap content={["React", "Ant Design",  "GitHub Pages"]}>
+        <PopoverWrap content={["React", "Ant Design", "GitHub Pages"]}>
           <div className="project_item">
             <a
               href="https://anatolii1996.github.io/test-project/"
@@ -99,7 +102,7 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
 
-        <PopoverWrap content={["JavaScript", "Chart.js",  "Netlify"]}>
+        <PopoverWrap content={["JavaScript", "Chart.js", "Netlify"]}>
           <div className="project_item">
             <a
               href="https://lovely-platypus-eb2746.netlify.app/"
