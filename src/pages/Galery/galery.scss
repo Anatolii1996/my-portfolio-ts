@@ -4,6 +4,7 @@ h2{
 .devEducation_projects, .test_projects{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     img{
         max-width: 350px;
         max-height: 485px;

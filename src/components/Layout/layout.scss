@@ -175,3 +175,7 @@ main {
 :where(.css-dev-only-do-not-override-3mqfnx).ant-switch:hover:not(.ant-switch-disabled){
   background: #4096ff
 }
+
+a, span{
+  background-color: inherit;
+}
