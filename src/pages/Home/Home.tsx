@@ -186,6 +186,13 @@ const Home: FC = () => {
               <p>Eslint</p>
             </div>
           </li>
+          <li>
+            {" "}
+            <div className="tech_name">
+            <Icon icon="tabler:brand-react-native" />
+              <p>React native</p>
+            </div>
+          </li>
         </ul>
       </div>
       <img className="my_photo" src={myPhoto} alt="my-photo" />
