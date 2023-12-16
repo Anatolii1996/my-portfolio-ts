@@ -1,0 +1,25 @@
+h2{
+    margin-bottom: 1rem;
+}
+.devEducation_projects, .test_projects{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    img{
+        max-width: 350px;
+        max-height: 485px;
+        &:hover{
+            transform: scale(105%);
+        }
+    }
+}
+.techItem{
+display: flex;
+align-items: center;
+p{
+    padding-left: 10px;
+}
+img{
+    width: 14px;
+}
+}

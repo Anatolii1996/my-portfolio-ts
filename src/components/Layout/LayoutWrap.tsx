@@ -164,24 +164,26 @@ const LayoutWrap: FC = () => {
           <div className="footer">
             <a
               href="https://www.instagram.com/a.tkachenko1996/"
+              aria-label="instagram"
               target="_blank"
             >
               {" "}
               <Icon icon="skill-icons:instagram" />
             </a>
-            <a href="mailto:anatoly.tka4enko2014@gmail.com" target="_blank">
+            <a href="mailto:anatoly.tka4enko2014@gmail.com" target="_blank" aria-label="gmail">
               <Icon icon="logos:google-gmail" />
             </a>
             <a
               href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127/"
               target="_blank"
+              aria-label="linkedin"
             >
               <Icon icon="devicon:linkedin" />
             </a>
-            <a href="https://github.com/Anatolii1996" target="_blank">
+            <a href="https://github.com/Anatolii1996" target="_blank" aria-label="github">
               <Icon icon="devicon:github" />
             </a>
-            <a href="https://t.me/Anatolii07007" target="_blank">
+            <a href="https://t.me/Anatolii07007" target="_blank"  aria-label="telegram">
               {" "}
               <Icon icon="logos:telegram" />
             </a>
