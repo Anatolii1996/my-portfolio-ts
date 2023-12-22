@@ -19,6 +19,8 @@ const PopoverWrap: FC<IPopover> = ({ content, children, comment }) => {
   };
 
   const popoverContent: Record<string, ReactNode> = {
+    HTML:<Icon icon="skill-icons:html" />,
+    Sass:<Icon icon="skill-icons:sass" />,
     JavaScript: <Icon icon="logos:javascript" />,
     React: <Icon icon="devicon:react" />,
     Redux: <Icon icon="logos:redux" />,

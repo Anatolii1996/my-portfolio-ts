@@ -9,6 +9,9 @@ import CrmImg from "../../assets/orders.jpg";
 import TableImg from "../../assets/test-progect.jpg";
 import HotelImg from "../../assets/Hotel.jpg";
 import ChartImg from "../../assets/Providers.jpg";
+import PaintImg from "../../assets/Paint.jpg";
+import ToDOImg from "../../assets/ToDo list.png";
+import CalcImg from "../../assets/calculator.png";
 import PopoverWrap from "../../components/Popover/PopoverWrap";
 
 import "./galery.scss";
@@ -109,6 +112,42 @@ const Galery: FC = () => {
               target="_blank"
             >
               <img src={ChartImg} alt="crm-img" />
+            </a>
+          </div>
+        </PopoverWrap>
+      </div>
+      <h2>Інші проєкти</h2>
+      <div className="other_projects">
+      <PopoverWrap content={["HTML", "Sass", "JavaScript", "Netlify"]}>
+          <div className="project_item">
+            {" "}
+            <a
+              href="https://extraordinary-jalebi-d2ba07.netlify.app/"
+              target="_blank"
+            >
+              <img src={PaintImg} alt="quiz-img" />
+            </a>
+          </div>
+        </PopoverWrap>
+        <PopoverWrap content={[ "React", "Firebase", "Netlify"]}>
+          <div className="project_item">
+            {" "}
+            <a
+              href="https://todo-list-with-firebase007.netlify.app/"
+              target="_blank"
+            >
+              <img src={ToDOImg} alt="quiz-img" />
+            </a>
+          </div>
+        </PopoverWrap>
+        <PopoverWrap content={[ "React", "Sass", "Netlify"]}>
+          <div className="project_item">
+            {" "}
+            <a
+              href="https://master--stirring-cuchufli-a6fee0.netlify.app/"
+              target="_blank"
+            >
+              <img src={CalcImg} alt="quiz-img" />
             </a>
           </div>
         </PopoverWrap>
