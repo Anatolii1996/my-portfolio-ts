@@ -53,171 +53,184 @@ const Home: FC = () => {
           return <ImgWrap width={500} key={el} link={el} />;
         })}
 
-        <h3>Стек технологій</h3>
-        <ul>
-          <li>
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-html" />
-              <p>HTML</p>
-            </div>
-            <ProgressWrap quantity={85} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-css" />
-              <p>CSS</p>
-            </div>
-            <ProgressWrap quantity={85} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-js-official" />
-              <p>JavaScript</p>
-            </div>
-            <ProgressWrap quantity={60} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="devicon:typescript" />
-              <p>TypeScript</p>
-            </div>
-            <ProgressWrap quantity={30} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="devicon:react" />
-              <p>React</p>
-            </div>
-            <ProgressWrap quantity={70} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:redux" />
-              <p>Redux</p>
-            </div>
-            <ProgressWrap quantity={50} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:firebase" />
-              <p>Firebase</p>
-            </div>
-            <ProgressWrap quantity={40} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-node" />
-              <p>Node.js</p>
-            </div>
-            <ProgressWrap quantity={30} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="skill-icons:expressjs-dark" />
-              <p>Express</p>
-            </div>
-            <ProgressWrap quantity={30} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-mongo" />
-              <p>MongoDB</p>
-            </div>
-            <ProgressWrap quantity={40} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:mysql" />
-              <p>MySQL</p>
-            </div>
-            <ProgressWrap quantity={20} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="devicon:git" />
-              <Icon icon="devicon:github" />
-              <p>Git/GitHub</p>
-            </div>
-            <ProgressWrap quantity={30} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:ant-design" />
-              <p>Ant Design</p>
-            </div>
-            <ProgressWrap quantity={40} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:sass" />
-              <p>Sass</p>
-            </div>
-            <ProgressWrap quantity={85} />
-          </li>
-          <li>
-            <div className="tech_name">
-              <Icon icon="logos:testing-library" />
-              <p>Testing library</p>
-            </div>
-            <ProgressWrap quantity={15} />
-          </li>
-        </ul>
         <h2>Технології для подальшого вивчення</h2>
         <ul>
           <li>
             {" "}
-            <div className="tech_name">
-              <img src={NestLogo} className="img_logo" alt="Nest-logo" />
-              <p>Nest.js</p>
-            </div>
+            <img src={NestLogo} className="img_logo" alt="Nest-logo" />
+            <p>Nest.js</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
-              <img src={NextLogo} className="img_logo" alt="Nest-logo" />
-              <p>Next.js</p>
-            </div>
+            <img src={NextLogo} className="img_logo" alt="Nest-logo" />
+            <p>Next.js</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
-              <img src={BunLogo} className="img_logo" alt="Nest-logo" />
-              <p>Bun.sh</p>
-            </div>
+            <img src={BunLogo} className="img_logo" alt="Nest-logo" />
+            <p>Bun.sh</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
-              <img src={GSAPLogo} className="img_logo" alt="Nest-logo" />
-              <p>GSAP</p>
-            </div>
+            <img src={GSAPLogo} className="img_logo" alt="Nest-logo" />
+            <p>GSAP</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
-              <Icon icon="devicon:storybook" />
-              <p>Storybook</p>
-            </div>
+            <Icon icon="devicon:storybook" />
+            <p>Storybook</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
-              <Icon icon="vscode-icons:file-type-eslint2" />
-              <p>Eslint</p>
-            </div>
+            <Icon icon="vscode-icons:file-type-eslint2" />
+            <p>Eslint</p>
           </li>
           <li>
             {" "}
-            <div className="tech_name">
             <Icon icon="tabler:brand-react-native" />
-              <p>React native</p>
-            </div>
+            <p>React native</p>
           </li>
         </ul>
       </div>
 
       <aside>
         <img className="my_photo" src={myPhoto} alt="my-photo" />
+        <div className="contacts">
+          <h3>Контакти:</h3>
+          <p>
+            <span>Tel:</span> +38(068)777-85-90{" "}
+          </p>
+          <p>
+            <span>Email:</span>
+            <a href="mailto: anatoly.tka4enko2014@gmail.com">
+              anatoly.tka4enko2014@gmail.com
+            </a>
+          </p>
+          <p>
+            <span>GitHub:</span>
+            <a href="https://github.com/Anatolii1996">
+              https://github.com/Anatolii1996
+            </a>{" "}
+          </p>
+          <p>
+            <span>Linkedin:</span>
+            <a href="www.linkedin.com/in/анатолій-ткаченко-5525a7127">
+              www.linkedin.com/in/анатолій-ткаченко-5525a7127
+            </a>
+          </p>
+        </div>
+
+        <div className="stack">
+          <h3>Стек технологій</h3>
+          <ul>
+            <li>
+              <div className="tech_name">
+                <Icon icon="vscode-icons:file-type-html" />
+                <p>HTML</p>
+              </div>
+              <ProgressWrap quantity={85} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="vscode-icons:file-type-css" />
+                <p>CSS</p>
+              </div>
+              <ProgressWrap quantity={85} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="vscode-icons:file-type-js-official" />
+                <p>JavaScript</p>
+              </div>
+              <ProgressWrap quantity={60} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="devicon:typescript" />
+                <p>TypeScript</p>
+              </div>
+              <ProgressWrap quantity={30} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="devicon:react" />
+                <p>React</p>
+              </div>
+              <ProgressWrap quantity={70} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:redux" />
+                <p>Redux</p>
+              </div>
+              <ProgressWrap quantity={50} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:firebase" />
+                <p>Firebase</p>
+              </div>
+              <ProgressWrap quantity={40} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="vscode-icons:file-type-node" />
+                <p>Node.js</p>
+              </div>
+              <ProgressWrap quantity={30} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="skill-icons:expressjs-dark" />
+                <p>Express</p>
+              </div>
+              <ProgressWrap quantity={30} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="vscode-icons:file-type-mongo" />
+                <p>MongoDB</p>
+              </div>
+              <ProgressWrap quantity={40} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:mysql" />
+                <p>MySQL</p>
+              </div>
+              <ProgressWrap quantity={20} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="devicon:git" />
+                <Icon icon="devicon:github" />
+                <p>Git/GitHub</p>
+              </div>
+              <ProgressWrap quantity={30} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:ant-design" />
+                <p>Ant Design</p>
+              </div>
+              <ProgressWrap quantity={40} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:sass" />
+                <p>Sass</p>
+              </div>
+              <ProgressWrap quantity={85} />
+            </li>
+            <li>
+              <div className="tech_name">
+                <Icon icon="logos:testing-library" />
+                <p>Testing library</p>
+              </div>
+              <ProgressWrap quantity={15} />
+            </li>
+          </ul>
+        </div>
       </aside>
     </div>
   );
