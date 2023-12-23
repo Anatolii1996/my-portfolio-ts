@@ -8,13 +8,21 @@ import "./chat.scss";
 
 const Chat: FC = () => {
   const comments = useAppSelector((state) => state.comments.messages);
+  const currentIp = useAppSelector((state) => state.currentIP.value);
+
+  const updatedComments = comments.map((comment) => {
+    // If the comment doesn't have an ipAddress, assign the current IP
+    return {
+      ...comment,
+      ipAddress: comment.ipAddress || currentIp,
+      date: comment.date || moment().format("DD.MM.YYYY HH:mm")
+    };
+  });
   // console.log(Boolean(comments) )
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
-      {comments.length ? (
-        comments.map((comment, index) => {
-          // console.log(comment)
-          // const messageId = comment._id;
+      {updatedComments.length ? (
+        updatedComments.map((comment, index) => {
           const messageClasses = cn("chat_message", {
             my_message: comment.ipAddress === process.env.REACT_APP_MY_IP,
             "animate__animated animate__fadeInRightBig": index === 0,
@@ -26,11 +34,7 @@ const Chat: FC = () => {
                   <p>{comment.name}</p>
                   <p>{comment.surname}</p>
                 </div>
-                <p>
-                  {comment.date
-                    ? comment.date
-                    : moment().format("DD.MM.YYYY HH:mm")}
-                </p>
+                <p>{comment.date}</p>
               </div>
               <p>{comment.comment}</p>
             </div>

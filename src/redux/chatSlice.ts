@@ -17,7 +17,6 @@ export const chatSlice = createSlice({
     },
     createComment: (state = initialState, action: PayloadAction<IMessage>) => {
       const newComment = {
-        ipAddress: process.env.REACT_APP_MY_IP,
         name: action.payload.name,
         surname: action.payload.surname,
         comment: action.payload.comment,

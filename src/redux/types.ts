@@ -16,9 +16,11 @@ export interface IMessage {
   name: string;
   surname: string;
   comment: string;
+  // currentIp?: string;
 }
 
 export interface IComment extends IMessage {
+  
   ipAddress?: string;
   date?: string;
   creatingTime?: string;
@@ -31,10 +33,5 @@ export interface ICommentStatee  {
 
 export interface CreateCommentAction {
   type: string;
-  payload: {
-    name: string;
-    surname: string;
-    comment: string;
-    
-  };
+  payload: IMessage;
 }
