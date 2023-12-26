@@ -123,7 +123,17 @@ const Technical: FC = () => {
         </li>
         <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
           <h2>Frontend частина</h2>
-
+          <p>
+            Frontend частина даного проєкту знаходиться в репозиторії на GitHub,
+            за адресою:{" "}
+            <a
+              href="https://github.com/Anatolii1996/my-portfolio-ts"
+              target="_blank"
+            >
+              https://github.com/Anatolii1996/my-portfolio-ts
+            </a>.
+          </p>
+          <p>Тут Ви знайдете всю кодову базу даного проєкту, окрім IP адрес моїх пристороїв, які я використовую для ідентифікації себе на ресурсі. Розумію, що даний спосіб можливо не найкращий. Хотів би дізнатися Вашу думку, як краще можна це зробити. Також, якщо в когось із розробників виникнуть ідєї з покращення якості коду, дуже хочу їх почути!</p>
           <div className="technical__label">
             <Icon icon="devicon:react" />
             <h3>React</h3>
@@ -161,6 +171,7 @@ const Technical: FC = () => {
             <Icon icon="logos:ant-design" />
             <h3>Ant.Design</h3>
           </div>
+          <p>Найбільший UI-фреймворк, що я бачив. Всі UI-компоненти в даному проєкті, взяті звідти. Живий продукт який постійно розвивається</p>
         </li>
         <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
           <div className="technical__label">
@@ -299,7 +310,17 @@ const Technical: FC = () => {
         </li>
         <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
           <h2>Backend частина</h2>
-
+          <p>
+          Backend частина даного проєкту знаходиться в репозиторії на GitHub,
+            за адресою:{" "}
+            <a
+              href="https://github.com/Anatolii1996/blog-backend2"
+              target="_blank"
+            >
+             https://github.com/Anatolii1996/blog-backend2
+            </a>.
+          </p>
+          <p>Тут Ви знайдете всю кодову базу даного проєкту, ключів до бази даних. Аналогічно, в разі виникнення ідєй з покращення якості коду, прошу зі мною поділитись. </p>
           <div className="technical__label">
             <Icon icon="vscode-icons:file-type-node" />
             <h3>Node.js</h3>
@@ -383,6 +404,7 @@ const Technical: FC = () => {
             <Icon icon="logos:testing-library" />
             <h3>Testing-library</h3>
           </div>
+          <p>На даний момент досить поверхнево знайомий з даною бібліотекою, та і з процесом написання тестів в цілому. Після розгоротання даного проєкту на хостингу буду поглиблено вивчати дану тему. Для більшої продуктивності праці буду шукати собі тестувальника, тому якщо хтось із починаючих тестувальників хочу приєднатись, зв'яжіться зі мною. Краще через особисті інстаграмму або на вайбер за номером телефону.</p>
         </li>
         <li className="wow" data-wow-delay="0.5s" data-wow-duration="2s">
           <div className="technical__label">
