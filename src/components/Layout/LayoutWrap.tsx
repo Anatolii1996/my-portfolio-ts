@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme, Switch } from "antd";
@@ -13,12 +13,10 @@ const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("ua");
 
   useEffect(() => {
-    navigate("/");
     dispatch(getCountUser());
   }, []);
 
