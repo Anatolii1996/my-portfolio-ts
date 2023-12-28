@@ -1,15 +1,16 @@
 import React, { useState, useEffect, FC } from "react";
+import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
-import myPhoto from "../../assets/my-photo.png";
-import ProgressWrap from "../../components/Progress/ProgressWrap";
 import { Icon } from "@iconify/react";
+import ProgressWrap from "../../components/Progress/ProgressWrap";
+import ImgWrap from "../../components/Images/ImgWrap";
 import NestLogo from "../../assets/nestjs-icon-2048x2040-3rrvcej8.png";
 import NextLogo from "../../assets/next-js-icon-512x512-zuauazrk.png";
 import BunLogo from "../../assets/Bun.png";
 import GSAPLogo from "../../assets/gsap-greensock.svg";
-import ImgWrap from "../../components/Images/ImgWrap";
+import myPhoto from "../../assets/my-photo.png";
 import BootstrapSert from "../../assets/Bootstrap certificate.jpg";
 import DevEducationSert from "../../assets/DevEducation.jpg";
 import JsSert from "../../assets/JS certificate.jpg";
@@ -54,7 +55,7 @@ const Home: FC = () => {
             Мене звати Анатолій. І вже пройшло більше року, як я поринув з головою у світ веб-розробки. 
           </p>
           <p>Даний ресурс є моїм Pet проектом, на якому я втілював свої ідеї, та прокачував свої навички.</p>
-          <p>Подорожуючи по розділам, ви можете розглянути портфоліо моїх робіт, детально ознайомитись з технічною частиною розробки даного проєкту, а також залишити зворотній зв'язок.</p>
+          <p>Подорожуючи по розділам, ви можете розглянути <Link to="/galery">портфоліо моїх робіт</Link>, детально ознайомитись з технічною частиною розробки даного проєкту, а також залишити зворотній зв'язок.</p>
           <p>Дуже прошу всіх небайдужих додати мене до своїх контактів на <a href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127">Linkedin</a>, а також підтвердити там мої навички. Буду щиро вдячний кожному, хто зрозуміє наскільки це важливо на етапі пошуку першої роботи розробника.</p>
           <p>Нижче наведено перелік моїх скромних досягнень, контактна інформація, а також мої плани стосовно подальшого розвитку.</p>
           <p>Окрім технологій, які я запланував освоїти найближчим часом, ставлю собі за мету - до кінця 2024 року підтягнути рівень англійської до В1.</p>
