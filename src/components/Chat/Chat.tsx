@@ -24,7 +24,7 @@ const Chat: FC = () => {
       {updatedComments.length ? (
         updatedComments.map((comment, index) => {
           const messageClasses = cn("chat_message", {
-            my_message: comment.ipAddress === process.env.REACT_APP_MY_IP,
+            my_message: comment.ipAddress === process.env.REACT_APP_MY_IP||comment.ipAddress === process.env.REACT_APP_MY_MOBILE_IP,
             "animate__animated animate__fadeInRightBig": index === 0,
           });
           return (
