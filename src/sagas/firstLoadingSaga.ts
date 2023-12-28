@@ -4,6 +4,7 @@ import { GET_COUNT_USERS } from "../redux/countUserSlice";
 import { setCountUser } from "../redux/countUserSlice";
 import { setCurrentIP } from "../redux/currentIPSlice";
 import { getCommentsFail } from "../redux/chatSlice";
+import { getBlockedUsers } from "../redux/blockUserSlice";
 import { IIp } from "./types";
 import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
@@ -80,9 +81,21 @@ function* getCommentsWorker(): any {
     yield put(getCommentsFail("Не вдалось завантажити коментарі"))
     console.error("Error fetching comments:", (error as Error).message);
   }
-  
-  
 }
+
+function* getBlockedUsersWorker(): any {
+  // console.log("blocked saga started");
+  try {
+    const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
+console.log(payload.data)
+    yield put(getBlockedUsers(payload.data));
+  
+  } catch (error) {
+    console.error("Error fetching current IP:", (error as Error).message);
+  }
+}
+
+
 
 export default function* countUserSaga() {
   // console.log("Saga started");
@@ -91,5 +104,6 @@ export default function* countUserSaga() {
     yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
     yield call(changeCountWorker);
     yield fork(getCommentsWorker);
+    yield fork(getBlockedUsersWorker);
   });
 }

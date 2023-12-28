@@ -4,6 +4,7 @@ import indexPrevPageReduser from "./indexPrevPageSlice";
 import countUserReduser from "./countUserSlice";
 import currentIPReduser from "./currentIPSlice";
 import commentsReducer from "./chatSlice";
+import blockedUsersReducer from "./blockUserSlice";
 import rootSaga from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -14,13 +15,14 @@ const store = configureStore({
     indexPrevPage: indexPrevPageReduser,
     countUser: countUserReduser,
     currentIP: currentIPReduser,
-    comments: commentsReducer
-
+    comments: commentsReducer,
+    blockedUsers: blockedUsersReducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({thunk: false}).concat(sagaMiddleware),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
