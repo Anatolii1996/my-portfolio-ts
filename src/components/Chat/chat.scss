@@ -29,6 +29,17 @@
           margin-left: 5px;
         }
       }
+      .massage_date {
+        display: flex;
+        align-items: center;
+        svg {
+          cursor: pointer;
+          margin-left: 0.5rem;
+          &:hover {
+            color: red;
+          }
+        }
+      }
     }
   }
   .my_message {

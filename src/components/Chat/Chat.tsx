@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Empty } from "antd";
 import cn from "classnames";
 import moment from "moment";
+import { Icon } from "@iconify/react";
 import "./chat.scss";
 
 const Chat: FC = () => {
@@ -15,7 +16,7 @@ const Chat: FC = () => {
     return {
       ...comment,
       ipAddress: comment.ipAddress || currentIp,
-      date: comment.date || moment().format("DD.MM.YYYY HH:mm")
+      date: comment.date || moment().format("DD.MM.YYYY HH:mm"),
     };
   });
   // console.log(Boolean(comments) )
@@ -24,7 +25,9 @@ const Chat: FC = () => {
       {updatedComments.length ? (
         updatedComments.map((comment, index) => {
           const messageClasses = cn("chat_message", {
-            my_message: comment.ipAddress === process.env.REACT_APP_MY_IP||comment.ipAddress === process.env.REACT_APP_MY_MOBILE_IP,
+            my_message:
+              comment.ipAddress === process.env.REACT_APP_MY_IP ||
+              comment.ipAddress === process.env.REACT_APP_MY_MOBILE_IP,
             "animate__animated animate__fadeInRightBig": index === 0,
           });
           return (
@@ -34,7 +37,24 @@ const Chat: FC = () => {
                   <p>{comment.name}</p>
                   <p>{comment.surname}</p>
                 </div>
-                <p>{comment.date}</p>
+                <div className="massage_date">
+                  <p>{comment.date}</p>
+                  {
+                    (function () {
+                      if (
+                        comment.ipAddress != process.env.REACT_APP_MY_IP &&
+                        comment.ipAddress != process.env.REACT_APP_MY_MOBILE_IP
+                      ) {
+                        if (
+                          currentIp === process.env.REACT_APP_MY_IP ||
+                          currentIp === process.env.REACT_APP_MY_MOBILE_IP
+                        ) {
+                          return <Icon icon="icomoon-free:cross" />;
+                        }
+                      }
+                    })()
+                  }
+                </div>
               </div>
               <p>{comment.comment}</p>
             </div>
