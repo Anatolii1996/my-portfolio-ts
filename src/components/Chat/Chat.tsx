@@ -59,7 +59,7 @@ const Chat: FC = () => {
                         return (
                           <Icon
                             icon="icomoon-free:cross"
-                            // onClick={() => blockUser(comment._id)}
+                            onClick={() => blockUser(comment._id)}
                           />
                         );
                       }

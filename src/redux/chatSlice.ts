@@ -12,7 +12,7 @@ export const chatSlice = createSlice({
     setComments: (state = initialState, action: PayloadAction<IComment[]>) => {
       state.messages = action.payload;
     },
-    getCommentsFail:(state = initialState, action: PayloadAction<string>)=>{
+    getCommentsFail: (state = initialState, action: PayloadAction<string>) => {
       state.errors = action.payload;
     },
     createComment: (state = initialState, action: PayloadAction<IMessage>) => {
@@ -20,12 +20,15 @@ export const chatSlice = createSlice({
         name: action.payload.name,
         surname: action.payload.surname,
         comment: action.payload.comment,
+        _id:""
       };
-      state.messages=[newComment, ...state.messages]
-     
+
+      
+      state.messages = [newComment, ...state.messages];
     },
   },
 });
 
-export const { setComments, createComment,getCommentsFail } = chatSlice.actions;
+export const { setComments, createComment, getCommentsFail } =
+  chatSlice.actions;
 export default chatSlice.reducer;

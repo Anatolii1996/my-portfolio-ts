@@ -2,6 +2,7 @@ export interface FormValues {
     name: string;
     surname: string;
     comment: string;
+    _id: string;
   }
   
   export interface ErrorValues {

@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+// import { ObjectId } from "mongodb";
 
 export interface IPage {
   value: number;
@@ -16,6 +16,7 @@ export interface IMessage {
   name: string;
   surname: string;
   comment: string;
+  _id: string;
   // currentIp?: string;
 }
 
@@ -24,7 +25,7 @@ export interface IComment extends IMessage {
   ipAddress?: string;
   date?: string;
   creatingTime?: string;
-  _id?: ObjectId;
+  
 }
 export interface ICommentStatee  {
   messages: IComment[],
