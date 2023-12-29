@@ -1,28 +1,40 @@
 import React, { FC, useEffect, useState } from "react";
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme, Switch } from "antd";
 import { Icon } from "@iconify/react";
 import { visits } from "../../sagas/firstLoadingSaga";
 import { LanguageContext } from "../../context";
+import { changeBlockedStatus } from "../../redux/blockUserSlice";
 import cn from "classnames";
 import "./layout.scss";
 
 const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
+  const countVisit = useAppSelector((state) => state.countUser.values);
+  const currentIP = useAppSelector((state) => state.currentIP.value);
+  const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
+
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("ua");
 
   useEffect(() => {
+    // console.log(isBlocked)
+    if (isBlocked) {
+      dispatch(changeBlockedStatus(false)); // Сброс флага
+      navigate('noAccess');
+    }
+  }, [isBlocked, dispatch, navigate]);
+
+  useEffect(() => {
     dispatch(getCountUser());
   }, []);
-
-  const dispatch = useAppDispatch();
-  const countVisit = useAppSelector((state) => state.countUser.values);
-  const currentIP = useAppSelector((state) => state.currentIP.value);
 
   useEffect(() => {
     if (countVisit && currentIP) {
@@ -58,7 +70,7 @@ const LayoutWrap: FC = () => {
   };
 
   return (
-    <LanguageContext.Provider value={language} >
+    <LanguageContext.Provider value={language}>
       <Layout className="layout">
         <Header style={{ display: "flex", alignItems: "center" }}>
           <Menu
@@ -168,7 +180,11 @@ const LayoutWrap: FC = () => {
               {" "}
               <Icon icon="skill-icons:instagram" />
             </a>
-            <a href="mailto:anatoly.tka4enko2014@gmail.com" target="_blank" aria-label="gmail">
+            <a
+              href="mailto:anatoly.tka4enko2014@gmail.com"
+              target="_blank"
+              aria-label="gmail"
+            >
               <Icon icon="logos:google-gmail" />
             </a>
             <a
@@ -178,10 +194,18 @@ const LayoutWrap: FC = () => {
             >
               <Icon icon="devicon:linkedin" />
             </a>
-            <a href="https://github.com/Anatolii1996" target="_blank" aria-label="github">
+            <a
+              href="https://github.com/Anatolii1996"
+              target="_blank"
+              aria-label="github"
+            >
               <Icon icon="devicon:github" />
             </a>
-            <a href="https://t.me/Anatolii07007" target="_blank"  aria-label="telegram">
+            <a
+              href="https://t.me/Anatolii07007"
+              target="_blank"
+              aria-label="telegram"
+            >
               {" "}
               <Icon icon="logos:telegram" />
             </a>

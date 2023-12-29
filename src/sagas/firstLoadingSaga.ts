@@ -10,6 +10,7 @@ import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export let visits: string[] = [];
 export let currentIP: string = "";
@@ -87,11 +88,14 @@ function* getBlockedUsersWorker(): any {
   // console.log("blocked saga started");
   try {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
-console.log(payload.data)
+// console.log(payload.data)
     yield put(getBlockedUsers(payload.data));
-  
+    
+    if(payload.data.includes(currentIP)){
+      yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
+    }
   } catch (error) {
-    console.error("Error fetching current IP:", (error as Error).message);
+    console.error("Error fetching blockedUsers:", (error as Error).message);
   }
 }
 
@@ -103,7 +107,7 @@ export default function* countUserSaga() {
   yield takeEvery(GET_COUNT_USERS, function* () {
     yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
     yield call(changeCountWorker);
+    yield call(getBlockedUsersWorker);
     yield fork(getCommentsWorker);
-    yield fork(getBlockedUsersWorker);
   });
 }

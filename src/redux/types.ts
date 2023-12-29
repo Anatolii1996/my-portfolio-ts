@@ -35,3 +35,8 @@ export interface CreateCommentAction {
   type: string;
   payload: IMessage;
 }
+
+export interface IBlockedUser {
+values: string[],
+isBlocked: boolean
+}

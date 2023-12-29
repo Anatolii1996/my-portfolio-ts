@@ -13,12 +13,13 @@ const App: FC = () => {
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />
-      <Route path="/noAcces" element={<NoAcces />}/>
+      <Route path="noAccess" element={<NoAcces />}/>
       <Route path="/" element={<LayoutWrap />}>
         <Route path="/" element={<Home />} />
         <Route path="/galery" element={<Galery />} />
         <Route path="/technical" element={<Technical />} />
         <Route path="/feedback" element={<Feedback />} />
+       
       </Route>
     </Routes>
   );
