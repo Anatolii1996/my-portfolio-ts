@@ -20,19 +20,18 @@ export const chatSlice = createSlice({
         name: action.payload.name,
         surname: action.payload.surname,
         comment: action.payload.comment,
-        _id:""
+        _id: "",
       };
 
-      
       state.messages = [newComment, ...state.messages];
     },
     deleteComment: (state = initialState, action: PayloadAction<string>) => {
-      console.log(action.payload)
+      // console.log(action.payload);
       state.messages = state.messages.filter((el) => el._id !== action.payload);
     },
   },
 });
 
-export const { setComments, createComment, getCommentsFail,deleteComment } =
+export const { setComments, createComment, getCommentsFail, deleteComment } =
   chatSlice.actions;
 export default chatSlice.reducer;

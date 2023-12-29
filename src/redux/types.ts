@@ -36,6 +36,10 @@ export interface CreateCommentAction {
   type: string;
   payload: IMessage;
 }
+export interface DeleteCommentAction {
+  type: string;
+  payload: string;
+}
 
 export interface IBlockedUser {
 values: IComment[],
