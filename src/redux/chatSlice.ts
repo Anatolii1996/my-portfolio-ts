@@ -25,9 +25,9 @@ export const chatSlice = createSlice({
 
       state.messages = [newComment, ...state.messages];
     },
-    deleteComment: (state = initialState, action: PayloadAction<string>) => {
+    deleteComment: (state = initialState, action: PayloadAction<IComment>) => {
       // console.log(action.payload);
-      state.messages = state.messages.filter((el) => el._id !== action.payload);
+      state.messages = state.messages.filter((el) => el._id !== action.payload._id);
     },
   },
 });

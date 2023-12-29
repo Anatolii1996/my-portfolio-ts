@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks";
+import { IComment } from "../../redux/types";
 import { v4 as uuidv4 } from "uuid";
 import { Empty } from "antd";
 import cn from "classnames";
 import moment from "moment";
 import { Icon } from "@iconify/react";
-import {  deleteComment } from "../../redux/chatSlice" ;
+import { deleteComment } from "../../redux/chatSlice";
 import "./chat.scss";
 
 const Chat: FC = () => {
@@ -23,8 +24,8 @@ const Chat: FC = () => {
     };
   });
   // console.log(Boolean(comments) )
-  const blockUser = (_id: string) => {
-    dispatch(deleteComment(_id));
+  const blockUser = (comment: IComment) => {
+    dispatch(deleteComment(comment));
   };
 
   return (
@@ -58,7 +59,7 @@ const Chat: FC = () => {
                         return (
                           <Icon
                             icon="icomoon-free:cross"
-                            onClick={() => blockUser(comment._id)}
+                            onClick={() => blockUser(comment)}
                           />
                         );
                       }

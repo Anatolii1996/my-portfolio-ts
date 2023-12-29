@@ -1,5 +1,9 @@
-import { takeEvery } from "redux-saga/effects";
-import { CreateCommentAction, DeleteCommentAction } from "../redux/types";
+import { takeEvery, call } from "redux-saga/effects";
+import {
+  BlockUserAction,
+  CreateCommentAction,
+  DeleteCommentAction,
+} from "../redux/types";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
@@ -26,10 +30,26 @@ function* createCommentsWorker(action: CreateCommentAction) {
   });
 }
 
-function* blockUserWorker(action: DeleteCommentAction) {
-  console.log("saga DeleteCommentAction worker");
-  // const data = action.payload;
-  // console.log(data)
+function* blockUserWorker(action: BlockUserAction) {
+  console.log("saga BlockCommentAction worker");
+  // console.log(action.payload);
+
+  const config = {
+    method: "post",
+    url: `${SERVER_URL}/addBlockedUsers`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify(action.payload), // Преобразуйте данные в JSON-строку
+  };
+  yield axios(config).catch((error) => {
+    console.log(error);
+  });
+}
+
+function* deleteCommentWorker(action: DeleteCommentAction) {
+  // console.log("saga DeleteCommentAction worker");
+  // console.log(action.payload)
   const requestData = {
     ipAddress: action.payload,
   };
@@ -47,8 +67,16 @@ function* blockUserWorker(action: DeleteCommentAction) {
   });
 }
 
+function* deleteAndBlockCommentWorker(action: any) {
+  // Вызываем deleteCommentWorker и ждем, пока он завершится
+  yield call(deleteCommentWorker, action);
+
+  // После того, как deleteCommentWorker завершится, вызываем blockUserWorker
+  yield call(blockUserWorker, action);
+}
+
 export default function* commentSaga() {
   // console.log("commentSaga started");
   yield takeEvery("comments/createComment", createCommentsWorker);
-  yield takeEvery("comments/deleteComment", blockUserWorker);
+  yield takeEvery("comments/deleteComment", deleteAndBlockCommentWorker);
 }
