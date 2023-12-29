@@ -37,6 +37,6 @@ export interface CreateCommentAction {
 }
 
 export interface IBlockedUser {
-values: string[],
+values: IComment[],
 isBlocked: boolean
 }

@@ -1,13 +1,17 @@
 import React, { FC } from "react";
-import { useAppSelector } from "../../hooks";
+import { useAppSelector, useAppDispatch } from "../../hooks";
 import { v4 as uuidv4 } from "uuid";
 import { Empty } from "antd";
 import cn from "classnames";
 import moment from "moment";
 import { Icon } from "@iconify/react";
+import { toBlockUser } from "../../redux/blockUserSlice";
+import { ObjectId } from "mongodb";
 import "./chat.scss";
 
 const Chat: FC = () => {
+  const dispatch = useAppDispatch();
+
   const comments = useAppSelector((state) => state.comments.messages);
   const currentIp = useAppSelector((state) => state.currentIP.value);
 
@@ -20,6 +24,10 @@ const Chat: FC = () => {
     };
   });
   // console.log(Boolean(comments) )
+  const blockUser = (_id: string) => {
+    dispatch(toBlockUser(_id));
+  };
+
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
       {updatedComments.length ? (
@@ -39,21 +47,24 @@ const Chat: FC = () => {
                 </div>
                 <div className="massage_date">
                   <p>{comment.date}</p>
-                  {
-                    (function () {
+                  {(function () {
+                    if (
+                      comment.ipAddress != process.env.REACT_APP_MY_IP &&
+                      comment.ipAddress != process.env.REACT_APP_MY_MOBILE_IP
+                    ) {
                       if (
-                        comment.ipAddress != process.env.REACT_APP_MY_IP &&
-                        comment.ipAddress != process.env.REACT_APP_MY_MOBILE_IP
+                        currentIp === process.env.REACT_APP_MY_IP ||
+                        currentIp === process.env.REACT_APP_MY_MOBILE_IP
                       ) {
-                        if (
-                          currentIp === process.env.REACT_APP_MY_IP ||
-                          currentIp === process.env.REACT_APP_MY_MOBILE_IP
-                        ) {
-                          return <Icon icon="icomoon-free:cross" />;
-                        }
+                        return (
+                          <Icon
+                            icon="icomoon-free:cross"
+                            // onClick={() => blockUser(comment._id)}
+                          />
+                        );
                       }
-                    })()
-                  }
+                    }
+                  })()}
                 </div>
               </div>
               <p>{comment.comment}</p>

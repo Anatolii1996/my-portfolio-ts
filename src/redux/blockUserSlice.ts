@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBlockedUser } from "./types";
+import { IBlockedUser, IComment } from "./types";
 
 const initialState: IBlockedUser = {
   values: [],
@@ -12,7 +12,7 @@ export const blockedUsersSlice = createSlice({
   reducers: {
     getBlockedUsers: (
       state = initialState,
-      action: PayloadAction<string[]>
+      action: PayloadAction<IComment[]>
     ) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
@@ -26,9 +26,12 @@ export const blockedUsersSlice = createSlice({
     ) => {
       state.isBlocked = action.payload;
     },
+    toBlockUser: (state = initialState, action: PayloadAction<string>) => {
+      // state.values = state.values.filter((el) => el._id !== action.payload);
+    },
   },
 });
 
-export const { getBlockedUsers, changeBlockedStatus } =
+export const { getBlockedUsers, changeBlockedStatus, toBlockUser } =
   blockedUsersSlice.actions;
 export default blockedUsersSlice.reducer;
