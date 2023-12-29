@@ -25,13 +25,11 @@ export const blockedUsersSlice = createSlice({
       action: PayloadAction<boolean>
     ) => {
       state.isBlocked = action.payload;
-    },
-    toBlockUser: (state = initialState, action: PayloadAction<string>) => {
-      // state.values = state.values.filter((el) => el._id !== action.payload);
-    },
+    }
+    
   },
 });
 
-export const { getBlockedUsers, changeBlockedStatus, toBlockUser } =
+export const { getBlockedUsers, changeBlockedStatus } =
   blockedUsersSlice.actions;
 export default blockedUsersSlice.reducer;

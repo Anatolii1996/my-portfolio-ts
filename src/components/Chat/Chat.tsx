@@ -5,8 +5,7 @@ import { Empty } from "antd";
 import cn from "classnames";
 import moment from "moment";
 import { Icon } from "@iconify/react";
-import { toBlockUser } from "../../redux/blockUserSlice";
-import { ObjectId } from "mongodb";
+import {  deleteComment } from "../../redux/chatSlice" ;
 import "./chat.scss";
 
 const Chat: FC = () => {
@@ -25,7 +24,7 @@ const Chat: FC = () => {
   });
   // console.log(Boolean(comments) )
   const blockUser = (_id: string) => {
-    dispatch(toBlockUser(_id));
+    dispatch(deleteComment(_id));
   };
 
   return (
