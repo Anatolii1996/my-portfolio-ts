@@ -80,18 +80,18 @@ const LayoutWrap: FC = () => {
             className={`nav-menu `}
           >
             <Menu.Item key="/">
-              {" "}
-              <Link to="/">Головна</Link>
+              {language=="ua"? <Link to="/">Головна</Link>:<Link to="/">Main</Link>}
+             
             </Menu.Item>
             <Menu.Item key="/galery">
-              {" "}
-              <Link to="/galery">Галерея робіт</Link>
+              {language=="ua"? <Link to="/galery">Галерея робіт</Link>:<Link to="/galery">Gallery of works</Link>}
             </Menu.Item>
             <Menu.Item key="/technical">
-              <Link to="/technical">Технічна частина</Link>
+            {language=="ua"?  <Link to="/technical">Технічна частина</Link>:<Link to="/technical">Technical part</Link>}
+             
             </Menu.Item>
             <Menu.Item key="/feedback">
-              <Link to="/feedback">Зворотній зв'язок</Link>
+            {language=="ua"?  <Link to="/feedback">Зворотній зв'язок</Link>: <Link to="/feedback">Feedback</Link>}
             </Menu.Item>
           </Menu>
           <Switch
