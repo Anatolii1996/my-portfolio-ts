@@ -1,7 +1,9 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useContext } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
+import { LanguageContext } from "../../context";
+
 import NotesImg from "../../assets/Notes.jpg";
 import QuizImg from "../../assets/quiz.jpg";
 import NewsImg from "../../assets/Request.jpg";
@@ -12,13 +14,16 @@ import ChartImg from "../../assets/Providers.jpg";
 import PaintImg from "../../assets/Paint.jpg";
 import ToDOImg from "../../assets/ToDo list.png";
 import CalcImg from "../../assets/calculator.png";
+
 import PopoverWrap from "../../components/Popover/PopoverWrap";
 
 import "./galery.scss";
 
+
 const Galery: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
+  const language = useContext(LanguageContext);
 
   useEffect(() => {
     const handleUnmount = () => {
@@ -37,7 +42,8 @@ const Galery: FC = () => {
 
   return (
     <div className={pageAnimStyle}>
-      <h2>Випускні роботи DevEducation</h2>
+      {language=="ua"?  <h2>Випускні роботи DevEducation</h2>:<h2>Graduation works DevEducation</h2>}
+     
       <div className="devEducation_projects">
         <PopoverWrap content={["React", "Bootstrap", "Firebase", "Netlify"]}>
           <div className="project_item">
@@ -73,7 +79,7 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
       </div>
-      <h2>Тестові завдання</h2>
+      {language=="ua"?<h2>Тестові завдання</h2>:<h2>Test tasks</h2>}
       <div className="test_projects">
         <PopoverWrap content={["React", "Redux", "IndexedDB", "GitHub Pages"]}>
           <div className="project_item">
@@ -116,7 +122,8 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
       </div>
-      <h2>Інші проєкти</h2>
+      {language === "ua"?  <h2>Інші проєкти</h2>:  <h2>Other projects</h2> }
+    
       <div className="other_projects">
       <PopoverWrap content={["HTML", "Sass", "JavaScript", "Netlify"]}>
           <div className="project_item">
@@ -154,6 +161,7 @@ const Galery: FC = () => {
       </div>
     </div>
   );
+
 };
 
 export default Galery;
