@@ -1,9 +1,10 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useContext } from "react";
 import { useAppDispatch } from "../../hooks";
-import { createComment } from "../../redux/chatSlice";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";
 import cn from "classnames";
 import { message } from "antd";
+import { LanguageContext } from "../../context";
+import { createComment } from "../../redux/chatSlice";
 import { FormValues, ErrorValues } from "./types";
 import "./form.scss";
 
@@ -15,6 +16,7 @@ const FormWrap: FC = () => {
   });
 
   const dispatch = useAppDispatch();
+  const language = useContext(LanguageContext);
 
   const resolver: Resolver<FormValues> = async (values) => {
     const errors: Partial<ErrorValues> = {};
@@ -83,7 +85,7 @@ const FormWrap: FC = () => {
         surname: "",
         comment: "",
       });
-    }, 800);  
+    }, 800);
   };
 
   const infoClasses = {
@@ -119,7 +121,12 @@ const FormWrap: FC = () => {
             value={formState.name}
             onChange={handleFormChange}
           />
-          <label className={infoClasses.name}>* Ім'я:</label>
+          {language == "ua" ? (
+            <label className={infoClasses.name}>* Ім'я:</label>
+          ) : (
+            <label className={infoClasses.name}>* Name:</label>
+          )}
+
           {errors?.name && <p>{errors.name.message}</p>}
         </div>
         <div className="user-box">
@@ -130,7 +137,11 @@ const FormWrap: FC = () => {
             value={formState.surname}
             onChange={handleFormChange}
           />
-          <label className={infoClasses.surname}>* Прізвище:</label>
+          {language == "ua" ? (
+            <label className={infoClasses.surname}>* Прізвище:</label>
+          ) : (
+            <label className={infoClasses.surname}>* Surname:</label>
+          )}
           <p>{errors.surname?.message}</p>
         </div>
         <div className="user-box">
@@ -141,12 +152,17 @@ const FormWrap: FC = () => {
             value={formState.comment}
             onChange={handleFormChange}
           />
-          <label className={infoClasses.comment}>* Ваш коментар:</label>
+          {language == "ua" ? (
+            <label className={infoClasses.comment}>* Ваш коментар:</label>
+          ) : (
+            <label className={infoClasses.comment}>* Your comment:</label>
+          )}
           <p>{errors.comment?.message}</p>
         </div>
         <center>
           <button type="submit">
-            ВІДПРАВИТИ
+            {language == "ua" ? "ВІДПРАВИТИ" : "SEND"}
+
             <span></span>
           </button>
         </center>
