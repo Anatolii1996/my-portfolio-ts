@@ -121,7 +121,7 @@ const FormWrap: FC = () => {
             value={formState.name}
             onChange={handleFormChange}
           />
-          {language == "ua" ? (
+          {language === "ua" ? (
             <label className={infoClasses.name}>* Ім'я:</label>
           ) : (
             <label className={infoClasses.name}>* Name:</label>
@@ -137,7 +137,7 @@ const FormWrap: FC = () => {
             value={formState.surname}
             onChange={handleFormChange}
           />
-          {language == "ua" ? (
+          {language === "ua" ? (
             <label className={infoClasses.surname}>* Прізвище:</label>
           ) : (
             <label className={infoClasses.surname}>* Surname:</label>
@@ -152,7 +152,7 @@ const FormWrap: FC = () => {
             value={formState.comment}
             onChange={handleFormChange}
           />
-          {language == "ua" ? (
+          {language === "ua" ? (
             <label className={infoClasses.comment}>* Ваш коментар:</label>
           ) : (
             <label className={infoClasses.comment}>* Your comment:</label>
@@ -161,7 +161,7 @@ const FormWrap: FC = () => {
         </div>
         <center>
           <button type="submit">
-            {language == "ua" ? "ВІДПРАВИТИ" : "SEND"}
+            {language === "ua" ? "ВІДПРАВИТИ" : "SEND"}
 
             <span></span>
           </button>

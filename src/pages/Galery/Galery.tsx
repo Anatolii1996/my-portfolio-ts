@@ -19,7 +19,6 @@ import PopoverWrap from "../../components/Popover/PopoverWrap";
 
 import "./galery.scss";
 
-
 const Galery: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
@@ -38,12 +37,14 @@ const Galery: FC = () => {
     setPageAnimStyle(setPageAnimation("galery", 2, indexPrevPage));
   }, [indexPrevPage]);
 
- 
-
   return (
     <div className={pageAnimStyle}>
-      {language=="ua"?  <h2>Випускні роботи DevEducation</h2>:<h2>Graduation works DevEducation</h2>}
-     
+      {language === "ua" ? (
+        <h2>Випускні роботи DevEducation</h2>
+      ) : (
+        <h2>Graduation works DevEducation</h2>
+      )}
+
       <div className="devEducation_projects">
         <PopoverWrap content={["React", "Bootstrap", "Firebase", "Netlify"]}>
           <div className="project_item">
@@ -79,7 +80,7 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
       </div>
-      {language=="ua"?<h2>Тестові завдання</h2>:<h2>Test tasks</h2>}
+      {language === "ua" ? <h2>Тестові завдання</h2> : <h2>Test tasks</h2>}
       <div className="test_projects">
         <PopoverWrap content={["React", "Redux", "IndexedDB", "GitHub Pages"]}>
           <div className="project_item">
@@ -122,10 +123,10 @@ const Galery: FC = () => {
           </div>
         </PopoverWrap>
       </div>
-      {language === "ua"?  <h2>Інші проєкти</h2>:  <h2>Other projects</h2> }
-    
+      {language === "ua" ? <h2>Інші проєкти</h2> : <h2>Other projects</h2>}
+
       <div className="other_projects">
-      <PopoverWrap content={["HTML", "Sass", "JavaScript", "Netlify"]}>
+        <PopoverWrap content={["HTML", "Sass", "JavaScript", "Netlify"]}>
           <div className="project_item">
             {" "}
             <a
@@ -136,7 +137,7 @@ const Galery: FC = () => {
             </a>
           </div>
         </PopoverWrap>
-        <PopoverWrap content={[ "React", "Firebase", "Netlify"]}>
+        <PopoverWrap content={["React", "Firebase", "Netlify"]}>
           <div className="project_item">
             {" "}
             <a
@@ -147,7 +148,7 @@ const Galery: FC = () => {
             </a>
           </div>
         </PopoverWrap>
-        <PopoverWrap content={[ "React", "Sass", "Netlify"]}>
+        <PopoverWrap content={["React", "Sass", "Netlify"]}>
           <div className="project_item">
             {" "}
             <a
@@ -161,7 +162,6 @@ const Galery: FC = () => {
       </div>
     </div>
   );
-
 };
 
 export default Galery;

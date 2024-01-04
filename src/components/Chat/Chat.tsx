@@ -49,8 +49,8 @@ const Chat: FC = () => {
                   <p>{comment.date}</p>
                   {(function () {
                     if (
-                      comment.ipAddress != process.env.REACT_APP_MY_IP &&
-                      comment.ipAddress != process.env.REACT_APP_MY_MOBILE_IP
+                      comment.ipAddress !== process.env.REACT_APP_MY_IP &&
+                      comment.ipAddress !== process.env.REACT_APP_MY_MOBILE_IP
                     ) {
                       if (
                         currentIp === process.env.REACT_APP_MY_IP ||

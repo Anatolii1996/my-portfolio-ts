@@ -28,13 +28,13 @@ const LayoutWrap: FC = () => {
     // console.log(isBlocked)
     if (isBlocked) {
       dispatch(changeBlockedStatus(false)); // Сброс флага
-      navigate('noAccess');
+      navigate("noAccess");
     }
   }, [isBlocked, dispatch, navigate]);
 
   useEffect(() => {
     dispatch(getCountUser());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (countVisit && currentIP) {
@@ -80,18 +80,32 @@ const LayoutWrap: FC = () => {
             className={`nav-menu `}
           >
             <Menu.Item key="/">
-              {language=="ua"? <Link to="/">Головна</Link>:<Link to="/">Main</Link>}
-             
+              {language === "ua" ? (
+                <Link to="/">Головна</Link>
+              ) : (
+                <Link to="/">Main</Link>
+              )}
             </Menu.Item>
             <Menu.Item key="/galery">
-              {language=="ua"? <Link to="/galery">Галерея робіт</Link>:<Link to="/galery">Gallery of works</Link>}
+              {language === "ua" ? (
+                <Link to="/galery">Галерея робіт</Link>
+              ) : (
+                <Link to="/galery">Gallery of works</Link>
+              )}
             </Menu.Item>
             <Menu.Item key="/technical">
-            {language=="ua"?  <Link to="/technical">Технічна частина</Link>:<Link to="/technical">Technical part</Link>}
-             
+              {language === "ua" ? (
+                <Link to="/technical">Технічна частина</Link>
+              ) : (
+                <Link to="/technical">Technical part</Link>
+              )}
             </Menu.Item>
             <Menu.Item key="/feedback">
-            {language=="ua"?  <Link to="/feedback">Зворотній зв'язок</Link>: <Link to="/feedback">Feedback</Link>}
+              {language === "ua" ? (
+                <Link to="/feedback">Зворотній зв'язок</Link>
+              ) : (
+                <Link to="/feedback">Feedback</Link>
+              )}
             </Menu.Item>
           </Menu>
           <Switch

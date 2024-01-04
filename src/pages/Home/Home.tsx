@@ -52,7 +52,7 @@ const Home: FC = () => {
   return (
     <div className={pageAnimStyle}>
       <div className="description">
-        {language == "ua" ? (
+        {language === "ua" ? (
           <div className="description_title">
             <h1>Вітаю кожного, хто зазирнув на мою сторінку!</h1>
             <h2>Давайте знайомитись</h2>
@@ -63,7 +63,7 @@ const Home: FC = () => {
             <h2>Let's get to know each other</h2>
           </div>
         )}
-        {language == "ua" ? (
+        {language === "ua" ? (
           <div className="description_text">
             <p>
               Мене звати Анатолій. І вже пройшло більше року, як я поринув з
@@ -191,7 +191,7 @@ const Home: FC = () => {
         {sertificats.map((el) => {
           return <ImgWrap width={500} key={el} link={el} />;
         })}
-        {language == "ua" ? (
+        {language === "ua" ? (
           <h2>Технології для подальшого вивчення</h2>
         ) : (
           <h2>Technologies for further study</h2>
@@ -238,9 +238,8 @@ const Home: FC = () => {
       <aside>
         <img className="my_photo" src={myPhoto} alt="my-photo" />
         <div className="contacts">
-      
-          {language=="ua" ?  <h3>Контакти:</h3>: <h3>Contacts:</h3>}
-        
+          {language === "ua" ? <h3>Контакти:</h3> : <h3>Contacts:</h3>}
+
           <p>
             <span>Tel:</span> +38(068)777-85-90{" "}
           </p>
@@ -268,7 +267,11 @@ const Home: FC = () => {
         </div>
 
         <div className="stack">
-          {language=="ua"?<h3>Стек технологій</h3>:<h3>Technology stack</h3>}
+          {language === "ua" ? (
+            <h3>Стек технологій</h3>
+          ) : (
+            <h3>Technology stack</h3>
+          )}
           <ul>
             <li>
               <div className="tech_name">
@@ -326,7 +329,7 @@ const Home: FC = () => {
               </div>
               <ProgressWrap quantity={30} />
             </li>
-           
+
             <li>
               <div className="tech_name">
                 <Icon icon="vscode-icons:file-type-mongo" />

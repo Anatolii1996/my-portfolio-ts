@@ -29,7 +29,7 @@ const Feedback: FC = () => {
 
   return (
     <div className={pageAnimStyle}>
-      {language == "ua" ? (
+      {language === "ua" ? (
         <div className="feedback_warning">
           <p>
             В даному розділі виможете залишити свою думку стосовно створеного
