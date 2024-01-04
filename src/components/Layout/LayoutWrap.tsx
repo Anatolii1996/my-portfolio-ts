@@ -190,6 +190,7 @@ const LayoutWrap: FC = () => {
               href="https://www.instagram.com/a.tkachenko1996/"
               aria-label="instagram"
               target="_blank"
+              rel="noreferrer"
             >
               {" "}
               <Icon icon="skill-icons:instagram" />
@@ -197,6 +198,7 @@ const LayoutWrap: FC = () => {
             <a
               href="mailto:anatoly.tka4enko2014@gmail.com"
               target="_blank"
+              rel="noreferrer"
               aria-label="gmail"
             >
               <Icon icon="logos:google-gmail" />
@@ -204,6 +206,7 @@ const LayoutWrap: FC = () => {
             <a
               href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127/"
               target="_blank"
+              rel="noreferrer"
               aria-label="linkedin"
             >
               <Icon icon="devicon:linkedin" />
@@ -211,6 +214,7 @@ const LayoutWrap: FC = () => {
             <a
               href="https://github.com/Anatolii1996"
               target="_blank"
+              rel="noreferrer"
               aria-label="github"
             >
               <Icon icon="devicon:github" />
@@ -218,6 +222,7 @@ const LayoutWrap: FC = () => {
             <a
               href="https://t.me/Anatolii07007"
               target="_blank"
+              rel="noreferrer"
               aria-label="telegram"
             >
               {" "}

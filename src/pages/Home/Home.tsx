@@ -236,7 +236,7 @@ const Home: FC = () => {
       </div>
 
       <aside>
-        <img className="my_photo" src={myPhoto} alt="my-photo" />
+        <img className="my_photo" src={myPhoto} alt="my_photo" />
         <div className="contacts">
           {language === "ua" ? <h3>Контакти:</h3> : <h3>Contacts:</h3>}
 
@@ -251,7 +251,11 @@ const Home: FC = () => {
           </p>
           <p>
             <span>GitHub:</span>
-            <a href="https://github.com/Anatolii1996" target="_blank">
+            <a
+              href="https://github.com/Anatolii1996"
+              target="_blank"
+              rel="noreferrer"
+            >
               https://github.com/Anatolii1996
             </a>{" "}
           </p>
@@ -260,6 +264,7 @@ const Home: FC = () => {
             <a
               href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127"
               target="_blank"
+              rel="noreferrer"
             >
               linkedin.com/in/анатолій-ткаченко-5525a7127
             </a>

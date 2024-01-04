@@ -49,7 +49,11 @@ const Galery: FC = () => {
         <PopoverWrap content={["React", "Bootstrap", "Firebase", "Netlify"]}>
           <div className="project_item">
             {" "}
-            <a href="https://network-requst.netlify.app/" target="_blank">
+            <a
+              href="https://network-requst.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={NewsImg} alt="news-img" />
             </a>
           </div>
@@ -63,6 +67,7 @@ const Galery: FC = () => {
             <a
               href="https://lustrous-kataifi-f520ba.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={HotelImg} alt="hotel-img" />
             </a>
@@ -74,6 +79,7 @@ const Galery: FC = () => {
             <a
               href="https://illustrious-crepe-bfac6b.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={QuizImg} alt="quiz-img" />
             </a>
@@ -84,7 +90,11 @@ const Galery: FC = () => {
       <div className="test_projects">
         <PopoverWrap content={["React", "Redux", "IndexedDB", "GitHub Pages"]}>
           <div className="project_item">
-            <a href="https://anatolii1996.github.io/notes/#/" target="_blank">
+            <a
+              href="https://anatolii1996.github.io/notes/#/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={NotesImg} alt="notes-img" />
             </a>
           </div>
@@ -95,6 +105,7 @@ const Galery: FC = () => {
             <a
               href="https://magical-rabanadas-39232e.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={CrmImg} alt="crm-img" />
             </a>
@@ -106,6 +117,7 @@ const Galery: FC = () => {
             <a
               href="https://anatolii1996.github.io/test-project/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={TableImg} alt="crm-img" />
             </a>
@@ -117,6 +129,7 @@ const Galery: FC = () => {
             <a
               href="https://lovely-platypus-eb2746.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={ChartImg} alt="crm-img" />
             </a>
@@ -132,6 +145,7 @@ const Galery: FC = () => {
             <a
               href="https://extraordinary-jalebi-d2ba07.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={PaintImg} alt="quiz-img" />
             </a>
@@ -143,6 +157,7 @@ const Galery: FC = () => {
             <a
               href="https://todo-list-with-firebase007.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={ToDOImg} alt="quiz-img" />
             </a>
@@ -154,6 +169,7 @@ const Galery: FC = () => {
             <a
               href="https://master--stirring-cuchufli-a6fee0.netlify.app/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={CalcImg} alt="quiz-img" />
             </a>

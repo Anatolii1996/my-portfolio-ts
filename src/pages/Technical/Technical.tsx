@@ -200,6 +200,7 @@ const Technical: FC = () => {
             <a
               href="https://github.com/Anatolii1996/my-portfolio-ts"
               target="_blank"
+              rel="noreferrer"
             >
               https://github.com/Anatolii1996/my-portfolio-ts
             </a>
@@ -433,6 +434,7 @@ const Technical: FC = () => {
             <a
               href="https://github.com/Anatolii1996/blog-backend2"
               target="_blank"
+              rel="noreferrer"
             >
               https://github.com/Anatolii1996/blog-backend2
             </a>
