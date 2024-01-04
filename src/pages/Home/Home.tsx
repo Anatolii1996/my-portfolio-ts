@@ -142,11 +142,11 @@ const Home: FC = () => {
             </p>
             <p>
               I would like to ask everyone who cares to add me to their contacts
-              on
+              on{" "}
               <a href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127">
-                Linkedin
-              </a>
-              and confirm my skills there. I will be sincerely grateful to
+                 Linkedin 
+              </a>{" "}
+               and confirm my skills there. I will be sincerely grateful to
               everyone who understands how important this is when looking for a
               first job as a developer.
             </p>
