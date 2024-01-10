@@ -76,16 +76,16 @@ function* deleteAndBlockCommentWorker(action: any) {
   yield call(blockUserWorker, action);
 }
 
-function* notNewMessageWorker() {
+function* createNewMessageWorker(action: any) {
   // Вызываем deleteCommentWorker и ждем, пока он завершится
   // console.log("notNewMessageWorker");
+  yield call(createCommentsWorker, action);
   yield delay(2000);
   yield put(isNotNewMessage());
 }
 
 export default function* commentSaga() {
-  // console.log("commentSaga started");
-  yield takeEvery("comments/createComment", createCommentsWorker);
-  yield takeEvery("comments/createComment", notNewMessageWorker);
+  // // console.log("commentSaga started");
+  yield takeEvery("comments/createComment", createNewMessageWorker);
   yield takeEvery("comments/deleteComment", deleteAndBlockCommentWorker);
 }

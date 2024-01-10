@@ -28,7 +28,6 @@ export const chatSlice = createSlice({
       state.isNewMessage = true;
     },
     isNotNewMessage: (state, action: PayloadAction<undefined>) => {
-      console.log("isNotNewMessage action")
       state.isNewMessage = false;
     },
 
