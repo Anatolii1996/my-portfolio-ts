@@ -27,7 +27,8 @@ export const chatSlice = createSlice({
       state.messages = [newComment, ...state.messages];
       state.isNewMessage = true;
     },
-    isNotNewMessage: (state, action: PayloadAction<boolean>) => {
+    isNotNewMessage: (state, action: PayloadAction<undefined>) => {
+      console.log("isNotNewMessage action")
       state.isNewMessage = false;
     },
 
@@ -40,6 +41,6 @@ export const chatSlice = createSlice({
   },
 });
 
-export const { setComments, createComment, getCommentsFail, deleteComment } =
+export const { setComments, createComment, getCommentsFail, deleteComment, isNotNewMessage } =
   chatSlice.actions;
 export default chatSlice.reducer;

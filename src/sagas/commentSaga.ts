@@ -1,9 +1,10 @@
-import { takeEvery, call } from "redux-saga/effects";
+import { takeEvery, call, put, delay } from "redux-saga/effects";
 import {
   BlockUserAction,
   CreateCommentAction,
   DeleteCommentAction,
 } from "../redux/types";
+import { isNotNewMessage } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
@@ -75,8 +76,16 @@ function* deleteAndBlockCommentWorker(action: any) {
   yield call(blockUserWorker, action);
 }
 
+function* notNewMessageWorker() {
+  // Вызываем deleteCommentWorker и ждем, пока он завершится
+  // console.log("notNewMessageWorker");
+  yield delay(2000);
+  yield put(isNotNewMessage());
+}
+
 export default function* commentSaga() {
   // console.log("commentSaga started");
   yield takeEvery("comments/createComment", createCommentsWorker);
+  yield takeEvery("comments/createComment", notNewMessageWorker);
   yield takeEvery("comments/deleteComment", deleteAndBlockCommentWorker);
 }
