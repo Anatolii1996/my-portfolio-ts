@@ -66,6 +66,10 @@
     font-size: 25px;
     filter: drop-shadow(0 0 0.75rem rgba(255, 172, 51, 0.9));
   }
+  p{
+    display: inline-block;
+    width: 2rem;
+  }
 }
 .icon__wrap {
   line-height: initial;
