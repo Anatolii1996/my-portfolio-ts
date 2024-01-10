@@ -9,7 +9,7 @@ export const indexPrevPageSlice = createSlice({
   name: "indexPrevPage",
   initialState,
   reducers: {
-    setPrevPage: (state = initialState, action: PayloadAction<number>) => {
+    setPrevPage: (state, action: PayloadAction<number>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new

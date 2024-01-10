@@ -11,7 +11,7 @@ export const blockedUsersSlice = createSlice({
   initialState,
   reducers: {
     getBlockedUsers: (
-      state = initialState,
+      state,
       action: PayloadAction<IComment[]>
     ) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -21,7 +21,7 @@ export const blockedUsersSlice = createSlice({
       state.values = action.payload;
     },
     changeBlockedStatus: (
-      state = initialState,
+      state,
       action: PayloadAction<boolean>
     ) => {
       state.isBlocked = action.payload;

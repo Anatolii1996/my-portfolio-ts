@@ -9,13 +9,13 @@ export const chatSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
-    setComments: (state = initialState, action: PayloadAction<IComment[]>) => {
+    setComments: (state, action: PayloadAction<IComment[]>) => {
       state.messages = action.payload;
     },
-    getCommentsFail: (state = initialState, action: PayloadAction<string>) => {
+    getCommentsFail: (state , action: PayloadAction<string>) => {
       state.errors = action.payload;
     },
-    createComment: (state = initialState, action: PayloadAction<IMessage>) => {
+    createComment: (state, action: PayloadAction<IMessage>) => {
       const newComment = {
         name: action.payload.name,
         surname: action.payload.surname,
@@ -25,7 +25,7 @@ export const chatSlice = createSlice({
 
       state.messages = [newComment, ...state.messages];
     },
-    deleteComment: (state = initialState, action: PayloadAction<IComment>) => {
+    deleteComment: (state, action: PayloadAction<IComment>) => {
       // console.log(action.payload);
       state.messages = state.messages.filter((el) => el._id !== action.payload._id);
     },
