@@ -4,6 +4,7 @@ import { IComment, IMessage, ICommentStatee } from "./types";
 const initialState: ICommentStatee = {
   messages: [],
   errors: "",
+  isNewMessage: false,
 };
 export const chatSlice = createSlice({
   name: "comments",
@@ -12,7 +13,7 @@ export const chatSlice = createSlice({
     setComments: (state, action: PayloadAction<IComment[]>) => {
       state.messages = action.payload;
     },
-    getCommentsFail: (state , action: PayloadAction<string>) => {
+    getCommentsFail: (state, action: PayloadAction<string>) => {
       state.errors = action.payload;
     },
     createComment: (state, action: PayloadAction<IMessage>) => {
@@ -24,10 +25,17 @@ export const chatSlice = createSlice({
       };
 
       state.messages = [newComment, ...state.messages];
+      state.isNewMessage = true;
     },
+    isNotNewMessage: (state, action: PayloadAction<boolean>) => {
+      state.isNewMessage = false;
+    },
+
     deleteComment: (state, action: PayloadAction<IComment>) => {
       // console.log(action.payload);
-      state.messages = state.messages.filter((el) => el._id !== action.payload._id);
+      state.messages = state.messages.filter(
+        (el) => el._id !== action.payload._id
+      );
     },
   },
 });

@@ -14,6 +14,7 @@ const Chat: FC = () => {
 
   const comments = useAppSelector((state) => state.comments.messages);
   const currentIp = useAppSelector((state) => state.currentIP.value);
+  const isNewMessage = useAppSelector((state) => state.comments.isNewMessage);
 
   const updatedComments = comments.map((comment) => {
     // If the comment doesn't have an ipAddress, assign the current IP
@@ -36,7 +37,8 @@ const Chat: FC = () => {
             my_message:
               comment.ipAddress === process.env.REACT_APP_MY_IP ||
               comment.ipAddress === process.env.REACT_APP_MY_MOBILE_IP,
-            "animate__animated animate__fadeInRightBig": index === 0,
+            "animate__animated animate__fadeInRightBig":
+              index === 0 && isNewMessage,
           });
           return (
             <div key={uuidv4()} className={messageClasses}>

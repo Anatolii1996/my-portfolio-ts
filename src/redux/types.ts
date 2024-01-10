@@ -25,6 +25,7 @@ export interface IComment extends IMessage {
 export interface ICommentStatee {
   messages: IComment[];
   errors: string;
+  isNewMessage: boolean;
 }
 
 export interface CreateCommentAction {
