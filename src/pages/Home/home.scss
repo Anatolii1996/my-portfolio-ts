@@ -29,7 +29,7 @@
       }
 
       &_text {
-        padding-bottom: 5px;
+        padding-bottom: 0.5rem;
       }
     }
     aside {
@@ -38,22 +38,22 @@
       flex-direction: column;
       align-items: center;
       .my_photo {
-        width: min(320px, 100%);
+        width: min(20rem, 100%);
         background-color: gray;
-        margin-bottom: 20px;
+        margin-bottom: 1.2rem;
       }
       br {
         display: none;
       }
       .contacts {
-        margin-bottom: 20px;
+        margin-bottom: 1.2rem;
         p {
           display: flex;
-          padding-top: 10px;
+          padding-top: 0.6rem;
         }
         span {
           font-weight: 600;
-          padding-right: 10px;
+          padding-right: 0.6rem;
         }
       }
 
@@ -68,13 +68,13 @@
             justify-content: center;
             align-items: center;
             .tech_name {
-              width: 150px;
+              width: 9.4rem;
               display: flex;
               justify-content: flex-end;
               align-items: center;
             }
             p {
-              padding: 0 10px;
+              padding: 0 0.6rem 0 0.3rem;
             }
           }
           &:nth-of-type(2) {
@@ -94,7 +94,7 @@
       display: flex;
       align-items: center;
       p {
-        padding-left: 5px;
+        padding-left: 0.3rem;
       }
       .img_logo {
         width: 1rem;
@@ -145,11 +145,11 @@
             li {
               :where(.css-dev-only-do-not-override-2q8sxy).ant-progress
                 .ant-progress-steps-item {
-                width: 30px !important;
+                width: 1.8rem !important;
               }
               .tech_name {
                 width: 2rem;
-                padding-right: 5px;
+                padding-right: 0.5rem;
                 svg {
                   font-size: 2rem;
                 }
@@ -165,7 +165,7 @@
     .future_footer {
       svg {
         g {
-          width: 14px;
+          width: 1rem;
         }
       }
     }

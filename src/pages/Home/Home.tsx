@@ -223,7 +223,7 @@ const Home: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                linkedin.com/inанатолій-/<br/>ткаченко-5525a7127
+                linkedin.com/in/анатолій-<br/>ткаченко-5525a7127
               </a>
             </p>
           </div>
