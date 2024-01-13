@@ -786,7 +786,7 @@ const Technical: FC = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  https://github.com/Anatolii1996/blog-backend2
+                  https://github.com/Anatolii1996/<br/>blog-backend2
                 </a>
                 .
               </p>

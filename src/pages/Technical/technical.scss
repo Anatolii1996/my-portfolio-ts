@@ -1,5 +1,8 @@
 .tech_page {
   text-align: justify;
+  br{
+    display: none;
+  }
   p {
     text-indent: 25px;
   }
@@ -16,17 +19,15 @@
       }
       &:nth-child(odd) {
         .technical__label {
-          justify-content: flex-start;      
+          justify-content: flex-start;
         }
       }
       &:nth-child(even) {
         .technical__label {
-          justify-content: flex-end;         
+          justify-content: flex-end;
         }
       }
-
     }
-   
   }
 }
 
@@ -43,8 +44,28 @@
     width: 25px;
     height: 25px;
   }
-  img{
-    width:75px;
-    
+  img {
+    width: 75px;
   }
 }
+
+@media (min-width: 1900px) {
+  .tech_page {
+    text-align: justify;
+    h3{
+      font-size: 2rem;
+    }
+    p, ol {
+     font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width:550px) {
+  .tech_page {
+   br{
+    display: inherit;
+   }
+  }
+}
+

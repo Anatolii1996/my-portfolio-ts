@@ -183,3 +183,18 @@ main {
 a, span{
   background-color: inherit;
 }
+
+@media (min-width: 1900px) {
+  :where(.css-dev-only-do-not-override-2q8sxy).ant-menu .ant-menu-title-content{
+    font-size:1.5rem;
+  }
+  :where(.css-dev-only-do-not-override-2q8sxy).ant-layout .ant-layout-header{
+    height: 4.4rem;
+  }
+}
+
+@media (max-width: 550px) {
+ main{
+  padding: 0 1rem!important;
+ }
+}
