@@ -115,3 +115,12 @@
     background: linear-gradient(90deg, transparent, #03f40f);
     animation: btn-anim1 2s linear infinite;
   }
+
+  @media (max-width: 460px) {
+    .login-box {
+      width: min(90%, 25rem);
+     form button{
+        font-size: 0.6rem;
+      }
+    }
+  }

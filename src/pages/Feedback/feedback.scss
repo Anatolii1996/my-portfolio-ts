@@ -1,12 +1,9 @@
-
 .feedback_warning {
   margin-bottom: 20px;
 
   p {
-  
     text-align: justify;
     padding-bottom: 10px;
-    
   }
   p:nth-child(2) {
     background-color: #dcdcaa;
@@ -29,4 +26,12 @@
   display: flex;
 }
 
-
+@media (max-width: 1025px) {
+  .fedback_place {
+    flex-direction: column;
+    align-items: center;
+    .login-box {
+      margin-bottom: 2rem;
+    }
+  }
+}

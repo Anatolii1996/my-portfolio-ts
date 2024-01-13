@@ -1,7 +1,4 @@
 .chat_wrap {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   padding: 20px;
   width: 60%;
   height: 500px;
@@ -50,4 +47,33 @@
 :where(.css-dev-only-do-not-override-2q8sxy).ant-empty {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 825px) {
+  .chat_wrap {
+    .chat_message {
+      width: 80%;
+    }
+    .my_message {
+      margin-left: 20%;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .chat_wrap {
+    width: max(80%, 25rem);
+    .chat_message {
+      width: 100%;
+    }
+    .my_message {
+      margin: 0.6rem auto;
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  .chat_wrap {
+    width: min(90%, 25rem);
+  }
 }
