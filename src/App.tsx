@@ -4,7 +4,7 @@ import "animate.css";
 import NotFound from "./pages/NotFound/NotFound";
 import LayoutWrap from "./components/Layout/LayoutWrap";
 import Home from "./pages/Home/Home";
-import Galery from "./pages/Galery/Galery";
+import Galery from "./pages/Gallery/Gallery";
 import Technical from "./pages/Technical/Technical";
 import Feedback from "./pages/Feedback/Feedback";
 import NoAcces from "./pages/NoAcces/NoAcces";

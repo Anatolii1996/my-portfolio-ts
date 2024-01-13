@@ -17,7 +17,7 @@ import CalcImg from "../../assets/calculator.png";
 
 import PopoverWrap from "../../components/Popover/PopoverWrap";
 
-import "./galery.scss";
+import "./gallery.scss";
 
 const Galery: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
