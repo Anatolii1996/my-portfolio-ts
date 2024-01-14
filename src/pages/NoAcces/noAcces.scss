@@ -1,0 +1,16 @@
+.noAcces_page{
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(220,53,69);
+    p{
+        font-size: 1.5rem;
+        font-weight: 600;
+        padding: 30px 0;
+        text-align: center;
+    }
+    p+p{
+        border-top: 3px solid #ffc107;
+    }
+}
