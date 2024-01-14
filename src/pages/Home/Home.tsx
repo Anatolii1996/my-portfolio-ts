@@ -29,10 +29,11 @@ const Home: FC = () => {
   const language = useContext(LanguageContext);
   const sertificats = [
     DevEducationSert,
-    JsSert,
-    WebDesignSert,
     HTMLSert,
     BootstrapSert,
+    JsSert,
+    WebDesignSert,
+    
     EnglishSert,
   ];
 
