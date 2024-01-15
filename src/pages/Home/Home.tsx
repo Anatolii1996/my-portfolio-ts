@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect, FC, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";

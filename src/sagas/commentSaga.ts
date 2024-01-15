@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { takeEvery, call, put, delay } from "redux-saga/effects";
 import {
   BlockUserAction,

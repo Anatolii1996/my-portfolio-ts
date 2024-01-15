@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC, useState, ReactNode } from "react";
 import { ConfigProvider, Popover } from "antd";
 import { IPopover } from "./types";

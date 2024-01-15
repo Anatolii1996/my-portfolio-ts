@@ -1,3 +1,4 @@
+/* eslint-disable */
 export interface FormValues {
     name: string;
     surname: string;

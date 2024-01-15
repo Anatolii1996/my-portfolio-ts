@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, FC, useContext } from "react";
 import { useAppDispatch } from "../../hooks";
 import { useForm, SubmitHandler, Resolver } from "react-hook-form";

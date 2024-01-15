@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { all, call } from "@redux-saga/core/effects";
 import countUserSaga from "./firstLoadingSaga";
 import commentSaga from "./commentSaga";

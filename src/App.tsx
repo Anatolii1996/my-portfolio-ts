@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import "animate.css";

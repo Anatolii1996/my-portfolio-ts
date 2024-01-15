@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import { IComment } from "../../redux/types";

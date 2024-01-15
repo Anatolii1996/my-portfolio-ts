@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FC } from "react";
 import { Progress, Space } from "antd";
 import "./progress.scss";

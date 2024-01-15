@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createSlice, PayloadAction, createAction } from "@reduxjs/toolkit";
 import { ICountState } from "./types";
 

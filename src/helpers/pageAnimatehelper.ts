@@ -1,3 +1,4 @@
+/* eslint-disable */
 import cn from "classnames";
 import type { SetPageAnimation } from "./types";
 

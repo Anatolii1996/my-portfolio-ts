@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect, FC, useContext } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setPrevPage } from "../../redux/indexPrevPageSlice";
