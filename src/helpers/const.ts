@@ -1,1 +1,1 @@
-export const SERVER_URL="https://jade-lily-37e2ab.netlify.app/";
+export const SERVER_URL="https://my-portfolio-backend-xeat.onrender.com";
