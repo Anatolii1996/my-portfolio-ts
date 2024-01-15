@@ -1,1 +1,1 @@
-export const SERVER_URL="http://localhost:3002";
+export const SERVER_URL="https://jade-lily-37e2ab.netlify.app/";
