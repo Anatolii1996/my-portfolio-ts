@@ -39,7 +39,7 @@ const LayoutWrap: FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (countVisit) {
+    if (countVisit > 0) {
       setLoading(false);
     }
   }, [countVisit]);

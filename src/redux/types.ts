@@ -3,12 +3,22 @@ export interface IPage {
   value: number;
 }
 
+
+
 export interface IOwnState {
   value: boolean;
 }
 
+export interface INewUserState {
+  isNewUser:IOwnState
+}
+
 export interface ICountUsers {
   value: number;
+}
+
+export interface ICurrentCountUsers {
+  countUsers:ICountUsers
 }
 
 export interface IMessage {
