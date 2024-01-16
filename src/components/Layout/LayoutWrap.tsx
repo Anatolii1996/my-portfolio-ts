@@ -2,11 +2,14 @@
 import React, { FC, useEffect, useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { Layout, Menu, theme, Switch } from "antd";
-import { Icon } from "@iconify/react";
+
+import { getCountUser } from "../../redux/countUserSlice";
 import { visits } from "../../sagas/firstLoadingSaga";
 import { LanguageContext } from "../../context";
 import { changeBlockedStatus } from "../../redux/blockUserSlice";
+
+import { Layout, Menu, theme, Switch } from "antd";
+import { Icon } from "@iconify/react";
 import cn from "classnames";
 import "./layout.scss";
 
@@ -31,9 +34,9 @@ const LayoutWrap: FC = () => {
     }
   }, [isBlocked, dispatch, navigate]);
 
-  // useEffect(() => {
-  //   dispatch(getCountUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getCountUser());
+  }, [dispatch]);
 
   // useEffect(() => {
   //   if (countVisit && currentIP) {

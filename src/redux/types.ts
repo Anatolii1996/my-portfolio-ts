@@ -7,10 +7,6 @@ export interface IOwnState {
   value: boolean;
 }
 
-export interface ICurrentIP {
-  value: string;
-}
-
 export interface IMessage {
   name: string;
   surname: string;
