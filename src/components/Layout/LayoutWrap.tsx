@@ -3,8 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 
-import { getCountUser } from "../../redux/countUserSlice";
-import { visits } from "../../sagas/firstLoadingSaga";
+import { firstLoading } from "../../redux/countUserSlice";
 import { LanguageContext } from "../../context";
 import { changeBlockedStatus } from "../../redux/blockUserSlice";
 
@@ -16,7 +15,7 @@ import "./layout.scss";
 const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
-  // const countVisit = useAppSelector((state) => state.countUser.values);
+  const countVisit = useAppSelector((state) => state.countUsers.value);
   const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
 
   const location = useLocation();
@@ -35,14 +34,14 @@ const LayoutWrap: FC = () => {
   }, [isBlocked, dispatch, navigate]);
 
   useEffect(() => {
-    dispatch(getCountUser());
+    dispatch(firstLoading());
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (countVisit && currentIP) {
-  //     setLoading(false);
-  //   }
-  // }, [countVisit]);
+  useEffect(() => {
+    if (countVisit) {
+      setLoading(false);
+    }
+  }, [countVisit]);
 
   const {
     token: { colorBgContainer },
@@ -126,9 +125,11 @@ const LayoutWrap: FC = () => {
             </div>
             <p>
               :
-              {/* {!loading && (
-                <span className={countClasses}>{countVisit.length}</span>
-              )} */}
+              {!loading && (
+                <span
+                //  className={countClasses}
+                 >{countVisit}</span>
+              )}
             </p>
           </div>
         </Header>

@@ -1,9 +1,13 @@
 /* eslint-disable */
 import { call, put, takeEvery, all, select, fork } from "redux-saga/effects";
+
 import { GET_COUNT_USERS } from "../redux/countUserSlice";
-// import { setCurrentIP } from "../redux/currentIPSlice";
+import { getCountUsers } from "../redux/countUserSlice";
+import { getOwns } from "../redux/isOwnerSlice";
 import { getCommentsFail } from "../redux/chatSlice";
 import { getBlockedUsers } from "../redux/blockUserSlice";
+import { setUserStatus } from "../redux/isNewUser";
+
 import { IIp } from "./types";
 import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
@@ -11,36 +15,34 @@ import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export let visits: string[] = [];
-export let currentIP: string = "";
+function* getCountUserWorker(): any {
+  console.log("saga count worker");
+  try {
+    const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
+    // console.log(payload.data.length)
+    yield put(getCountUsers(payload.data.length));
+  } catch (error) {
+    console.error("Error fetching count user:", (error as Error).message);
+  }
+  // console.log(visits);
+}
 
-// function* getCountUserWorker(): any {
-//   // console.log("saga count worker");
-//   try {
-//     const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
+function* getOwnsWorker(): any {
+  console.log("saga owns worker");
 
-//     yield put(setCountUser(payload.data));
-//     const state = yield select();
-//     visits = state.countUser.values;
-//   } catch (error) {
-//     console.error("Error fetching count user:", (error as Error).message);
-//   }
-//   // console.log(visits);
-// }
-
-// function* getCurrentIPWorker(): any {
-//   // console.log("saga currentIP worker");
-//   try {
-//     const payload = yield axios.get<IIp>(`${SERVER_URL}/ip`);
-
-//     yield put(setCurrentIP(payload.data.ipAddress));
-//     const state = yield select();
-//     currentIP = state.currentIP.value;
-//   } catch (error) {
-//     console.error("Error fetching current IP:", (error as Error).message);
-//   }
-//   // console.log(currentIP);
-// }
+  if (localStorage.getItem("isOwner") === null) {
+    // Если записи нет, устанавливаем значение "isOwner" в false
+    yield put(setUserStatus(true));
+    localStorage.setItem("isOwner", "false");
+  } else {
+    // Если запись существует, проверяем соответствие значения true
+    const isOwnerValue = localStorage.getItem("isOwner");
+    if (isOwnerValue === "true") {
+      // Ваш код, который выполняется, если значение "isOwner" равно true
+      yield put(getOwns(true));
+    }
+  }
+}
 
 // function* changeCountWorker(): any {
 //   // console.log("changecount sags");
@@ -75,38 +77,36 @@ function* getCommentsWorker(): any {
   try {
     const payload = yield axios.get<IComment[]>(`${SERVER_URL}/comments`);
 
-  // console.log(payload.data)
-  yield put(setComments(payload.data));
+    // console.log(payload.data)
+    yield put(setComments(payload.data));
   } catch (error) {
-    yield put(getCommentsFail("Не вдалось завантажити коментарі"))
+    yield put(getCommentsFail("Не вдалось завантажити коментарі"));
     console.error("Error fetching comments:", (error as Error).message);
   }
 }
 
-function* getBlockedUsersWorker(): any {
-  // console.log("blocked saga started");
-  try {
-    const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
-// console.log(payload.data)
-    yield put(getBlockedUsers(payload.data));
-    
-    if(payload.data.includes(currentIP)){
-      yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
-    }
-  } catch (error) {
-    console.error("Error fetching blockedUsers:", (error as Error).message);
-  }
-}
+// function* getBlockedUsersWorker(): any {
+//   // console.log("blocked saga started");
+//   try {
+//     const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
+// // console.log(payload.data)
+//     yield put(getBlockedUsers(payload.data));
 
-
+//     if(payload.data.includes(currentIP)){
+//       yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
+//     }
+//   } catch (error) {
+//     console.error("Error fetching blockedUsers:", (error as Error).message);
+//   }
+// }
 
 export default function* countUserSaga() {
-  // console.log("Saga started");
+  console.log("Saga started");
 
   yield takeEvery(GET_COUNT_USERS, function* () {
-    // yield all([call(getCountUserWorker), call(getCurrentIPWorker)]);
+    yield all([call(getCountUserWorker), call(getOwnsWorker)]);
     // yield call(changeCountWorker);
-    yield call(getBlockedUsersWorker);
+    // yield call(getBlockedUsersWorker);
     yield fork(getCommentsWorker);
   });
 }

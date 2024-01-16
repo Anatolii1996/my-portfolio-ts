@@ -7,6 +7,10 @@ export interface IOwnState {
   value: boolean;
 }
 
+export interface ICountUsers {
+  value: number;
+}
+
 export interface IMessage {
   name: string;
   surname: string;
