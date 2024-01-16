@@ -17,6 +17,7 @@ const { Header, Content, Footer } = Layout;
 const LayoutWrap: FC = () => {
   const countVisit = useAppSelector((state) => state.countUsers.value);
   const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
+  const isNewUser = useAppSelector((state) => state.isNewUser.value);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -47,23 +48,21 @@ const LayoutWrap: FC = () => {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  // const iconWrapClasses = cn("icon__wrap", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__rotateIn":
-  //     visits && !visits.includes(currentIP),
-  // });
+  const iconWrapClasses = cn("icon__wrap", {
+    // Используем classNames для условных классов
+    "animate__animated animate__rotateIn": isNewUser,
+  });
 
-  // const headerIconClasses = cn("header__icon", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__zoomIn": visits && !visits.includes(currentIP),
-  // });
+  const headerIconClasses = cn("header__icon", {
+    // Используем classNames для условных классов
+    "animate__animated animate__zoomIn": isNewUser,
+  });
 
-  // const countClasses = cn("header__count", {
-  //   // Используем classNames для условных классов
-  //   "animate__animated animate__bounceInDown":
-  //     visits && !visits.includes(currentIP),
-  //   "animate__animated animate__fadeIn": visits && visits.includes(currentIP),
-  // });
+  const countClasses = cn("header__count", {
+    // Используем classNames для условных классов
+    "animate__animated animate__bounceInDown": isNewUser,
+    "animate__animated animate__fadeIn": !isNewUser,
+  });
 
   const handleSwitchChange = (checked: boolean) => {
     // Update the language state based on the checked value
@@ -116,20 +115,11 @@ const LayoutWrap: FC = () => {
             defaultChecked
           />
           <div className="header__visitors">
-            <div 
-            // className={iconWrapClasses}
-            >
-              <Icon icon="twemoji:star"
-              //  className={headerIconClasses}
-                />
+            <div className={iconWrapClasses}>
+              <Icon icon="twemoji:star" className={headerIconClasses} />
             </div>
             <p>
-              :
-              {!loading && (
-                <span
-                //  className={countClasses}
-                 >{countVisit}</span>
-              )}
+              :{!loading && <span className={countClasses}>{countVisit}</span>}
             </p>
           </div>
         </Header>
