@@ -2,7 +2,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { getCountUser } from "../../redux/countUserSlice";
 import { Layout, Menu, theme, Switch } from "antd";
 import { Icon } from "@iconify/react";
 import { visits } from "../../sagas/firstLoadingSaga";
@@ -14,8 +13,7 @@ import "./layout.scss";
 const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
-  const countVisit = useAppSelector((state) => state.countUser.values);
-  const currentIP = useAppSelector((state) => state.currentIP.value);
+  // const countVisit = useAppSelector((state) => state.countUser.values);
   const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
 
   const location = useLocation();
@@ -33,37 +31,37 @@ const LayoutWrap: FC = () => {
     }
   }, [isBlocked, dispatch, navigate]);
 
-  useEffect(() => {
-    dispatch(getCountUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getCountUser());
+  // }, [dispatch]);
 
-  useEffect(() => {
-    if (countVisit && currentIP) {
-      setLoading(false);
-    }
-  }, [countVisit, currentIP]);
+  // useEffect(() => {
+  //   if (countVisit && currentIP) {
+  //     setLoading(false);
+  //   }
+  // }, [countVisit]);
 
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const iconWrapClasses = cn("icon__wrap", {
-    // Используем classNames для условных классов
-    "animate__animated animate__rotateIn":
-      visits && !visits.includes(currentIP),
-  });
+  // const iconWrapClasses = cn("icon__wrap", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__rotateIn":
+  //     visits && !visits.includes(currentIP),
+  // });
 
-  const headerIconClasses = cn("header__icon", {
-    // Используем classNames для условных классов
-    "animate__animated animate__zoomIn": visits && !visits.includes(currentIP),
-  });
+  // const headerIconClasses = cn("header__icon", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__zoomIn": visits && !visits.includes(currentIP),
+  // });
 
-  const countClasses = cn("header__count", {
-    // Используем classNames для условных классов
-    "animate__animated animate__bounceInDown":
-      visits && !visits.includes(currentIP),
-    "animate__animated animate__fadeIn": visits && visits.includes(currentIP),
-  });
+  // const countClasses = cn("header__count", {
+  //   // Используем classNames для условных классов
+  //   "animate__animated animate__bounceInDown":
+  //     visits && !visits.includes(currentIP),
+  //   "animate__animated animate__fadeIn": visits && visits.includes(currentIP),
+  // });
 
   const handleSwitchChange = (checked: boolean) => {
     // Update the language state based on the checked value
@@ -116,14 +114,18 @@ const LayoutWrap: FC = () => {
             defaultChecked
           />
           <div className="header__visitors">
-            <div className={iconWrapClasses}>
-              <Icon icon="twemoji:star" className={headerIconClasses} />
+            <div 
+            // className={iconWrapClasses}
+            >
+              <Icon icon="twemoji:star"
+              //  className={headerIconClasses}
+                />
             </div>
             <p>
               :
-              {!loading && (
+              {/* {!loading && (
                 <span className={countClasses}>{countVisit.length}</span>
-              )}
+              )} */}
             </p>
           </div>
         </Header>

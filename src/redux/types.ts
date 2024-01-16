@@ -3,8 +3,8 @@ export interface IPage {
   value: number;
 }
 
-export interface ICountState {
-  values: string[];
+export interface IOwnState {
+  value: boolean;
 }
 
 export interface ICurrentIP {

@@ -14,14 +14,16 @@ const Chat: FC = () => {
   const dispatch = useAppDispatch();
 
   const comments = useAppSelector((state) => state.comments.messages);
-  const currentIp = useAppSelector((state) => state.currentIP.value);
+  // const currentIp = useAppSelector((state) => state.currentIP.value);
   const isNewMessage = useAppSelector((state) => state.comments.isNewMessage);
 
   const updatedComments = comments.map((comment) => {
     // If the comment doesn't have an ipAddress, assign the current IP
     return {
       ...comment,
-      ipAddress: comment.ipAddress || currentIp,
+      ipAddress: comment.ipAddress
+      //  ||       currentIp
+       ,
       date: comment.date || moment().format("DD.MM.YYYY HH:mm"),
     };
   });
@@ -50,7 +52,7 @@ const Chat: FC = () => {
                 </div>
                 <div className="massage_date">
                   <p>{comment.date}</p>
-                  {(function () {
+                  {/* {(function () {
                     if (
                       comment.ipAddress !== process.env.REACT_APP_MY_IP &&
                       comment.ipAddress !== process.env.REACT_APP_MY_MOBILE_IP
@@ -67,7 +69,7 @@ const Chat: FC = () => {
                         );
                       }
                     }
-                  })()}
+                  })()} */}
                 </div>
               </div>
               <p>{comment.comment}</p>

@@ -1,15 +1,16 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICurrentIP } from "./types";
+import { IOwnState } from "./types";
 
-const initialState: ICurrentIP = {
-  value: "",
+const initialState: IOwnState = {
+  value: false,
 };
-export const currentIPSlice = createSlice({
-  name: "currentIP",
+
+export const isOwnSlice = createSlice({
+  name: "isOwner",
   initialState,
   reducers: {
-    setCurrentIP: (state, action: PayloadAction<string>) => {
+    getOwns: (state, action: PayloadAction<boolean>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
@@ -18,6 +19,5 @@ export const currentIPSlice = createSlice({
     },
   },
 });
-
-export const { setCurrentIP } = currentIPSlice.actions;
-export default currentIPSlice.reducer;
+export const { getOwns } = isOwnSlice.actions;
+export default isOwnSlice.reducer;

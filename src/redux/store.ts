@@ -2,8 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import indexPrevPageReduser from "./indexPrevPageSlice";
-import countUserReduser from "./countUserSlice";
-import currentIPReduser from "./currentIPSlice";
+import isOwnReducer from "./isOwnerSlice"
 import commentsReducer from "./chatSlice";
 import blockedUsersReducer from "./blockUserSlice";
 import rootSaga from "../sagas";
@@ -14,8 +13,7 @@ const store = configureStore({
   devTools: true,
   reducer: {
     indexPrevPage: indexPrevPageReduser,
-    countUser: countUserReduser,
-    currentIP: currentIPReduser,
+    isOwner: isOwnReducer,
     comments: commentsReducer,
     blockedUsers: blockedUsersReducer
   },
