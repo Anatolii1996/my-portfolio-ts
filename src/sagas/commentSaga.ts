@@ -1,23 +1,32 @@
 /* eslint-disable */
-import { takeEvery, call, put, delay } from "redux-saga/effects";
+import { takeEvery, call, put, delay, select } from "redux-saga/effects";
 import {
   BlockUserAction,
   CreateCommentAction,
   DeleteCommentAction,
 } from "../redux/types";
+import { ICommentData } from "./types";
 import { isNotNewMessage } from "../redux/chatSlice";
+import { isCurrentOwner } from "../redux/isOwnerSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
-function* createCommentsWorker(action: CreateCommentAction) {
-  // console.log("saga Createcomment worker");
+function* createCommentsWorker(action: CreateCommentAction): any {
+  console.log("saga Createcomment worker");
   const data = action.payload;
+  const isOwner = yield select(isCurrentOwner);
   // console.log(data)
-  const requestData = {
+  const requestData:ICommentData = {
     name: data.name,
     surname: data.surname, // Другие данные...
-    comment: data.comment, // Другие данные...
+    comment: data.comment,
+    
   };
+
+  if (isOwner) {
+    requestData.isOwnerAuthor = true;
+  }
+
 
   const config = {
     method: "post",

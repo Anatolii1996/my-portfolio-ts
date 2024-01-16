@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IOwnState } from "./types";
+import { IOwnState, ICurrentOwner } from "./types";
 
 const initialState: IOwnState = {
   value: false,
@@ -19,5 +19,7 @@ export const isOwnSlice = createSlice({
     },
   },
 });
+
+export const isCurrentOwner = (state:ICurrentOwner) => state.isOwner.value;
 export const { getOwns } = isOwnSlice.actions;
 export default isOwnSlice.reducer;

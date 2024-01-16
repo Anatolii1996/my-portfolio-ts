@@ -9,6 +9,10 @@ export interface IOwnState {
   value: boolean;
 }
 
+export interface ICurrentOwner {
+  isOwner: IOwnState;
+}
+
 export interface INewUserState {
   isNewUser:IOwnState
 }

@@ -9,7 +9,6 @@ import { getBlockedUsers } from "../redux/blockUserSlice";
 import { isNewUser, isNewUserValue } from "../redux/isNewUser";
 import { currentCountUser } from "../redux/countUserSlice";
 
-import { IIp } from "./types";
 import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
