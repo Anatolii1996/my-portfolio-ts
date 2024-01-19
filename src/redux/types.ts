@@ -30,10 +30,11 @@ export interface IMessage {
   surname: string;
   comment: string;
   _id: string;
+  isOwnerAuthor?: boolean;
 }
 
 export interface IComment extends IMessage {
-  ipAddress?: string;
+  
   date?: string;
   creatingTime?: string;
 }

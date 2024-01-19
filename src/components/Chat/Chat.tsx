@@ -14,32 +14,20 @@ const Chat: FC = () => {
   const dispatch = useAppDispatch();
 
   const comments = useAppSelector((state) => state.comments.messages);
-  // const currentIp = useAppSelector((state) => state.currentIP.value);
+  const isOwner = useAppSelector((state) => state.isOwner.value);
+
   const isNewMessage = useAppSelector((state) => state.comments.isNewMessage);
 
-  const updatedComments = comments.map((comment) => {
-    // If the comment doesn't have an ipAddress, assign the current IP
-    return {
-      ...comment,
-      ipAddress: comment.ipAddress
-      //  ||       currentIp
-       ,
-      date: comment.date || moment().format("DD.MM.YYYY HH:mm"),
-    };
-  });
-  // console.log(Boolean(comments) )
   const blockUser = (comment: IComment) => {
     dispatch(deleteComment(comment));
   };
 
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
-      {updatedComments.length ? (
-        updatedComments.map((comment, index) => {
+      {comments.length ? (
+        comments.map((comment, index) => {
           const messageClasses = cn("chat_message", {
-            my_message:
-              comment.ipAddress === process.env.REACT_APP_MY_IP ||
-              comment.ipAddress === process.env.REACT_APP_MY_MOBILE_IP,
+            my_message:comment.isOwnerAuthor,              
             "animate__animated animate__fadeInRightBig":
               index === 0 && isNewMessage,
           });
