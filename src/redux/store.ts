@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 
 import indexPrevPageReduser from "./indexPrevPageSlice";
-import isOwnReducer from "./isOwnerSlice"
+import userRedecer from "./userSlice";
 import commentsReducer from "./chatSlice";
 import blockedUsersReducer from "./blockUserSlice";
 import countUserReducer from "./countUserSlice";
@@ -17,7 +17,7 @@ const store = configureStore({
   devTools: true,
   reducer: {
     indexPrevPage: indexPrevPageReduser,
-    isOwner: isOwnReducer,
+    currentUser: userRedecer,
     isNewUser: isNewUserReducer,
     countUsers: countUserReducer,
     comments: commentsReducer,

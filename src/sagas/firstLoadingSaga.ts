@@ -3,7 +3,7 @@ import { call, put, takeEvery, all, select, fork } from "redux-saga/effects";
 
 import { GET_COUNT_USERS } from "../redux/countUserSlice";
 import { getCountUsers, incrementCountUser } from "../redux/countUserSlice";
-import { getOwns } from "../redux/isOwnerSlice";
+import { getOwns } from "../redux/userSlice";
 import { getCommentsFail } from "../redux/chatSlice";
 import { getBlockedUsers } from "../redux/blockUserSlice";
 import { isNewUser, isNewUserValue } from "../redux/isNewUser";
@@ -13,14 +13,14 @@ import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
-import {v4} from 'uuid';
+import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
 function* getCountUserWorker(): any {
   // console.log("saga count worker");
   try {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
-    // console.log(payload.data.length)
+    // console.log(payload)
     yield put(getCountUsers(payload.data.count));
   } catch (error) {
     console.error("Error fetching count user:", (error as Error).message);
@@ -29,7 +29,7 @@ function* getCountUserWorker(): any {
 }
 
 function* getOwnsWorker(): any {
-  console.log("saga owns worker");
+  // console.log("saga owns worker");
 
   if (localStorage.getItem("isOwner") === null) {
     // Если записи нет, устанавливаем значение "isOwner" в false
@@ -65,8 +65,9 @@ function* changeCountWorker(): any {
     };
 
     try {
-      yield axios(config);
-      
+      const payload = yield axios(config);
+      console.log(payload.data.userId);
+
       yield put(incrementCountUser());
     } catch (error) {
       console.error("Error posting new visit:", (error as Error).message);
@@ -87,20 +88,20 @@ function* getCommentsWorker(): any {
   }
 }
 
-// function* getBlockedUsersWorker(): any {
-//   // console.log("blocked saga started");
-//   try {
-//     const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
-// // console.log(payload.data)
-//     yield put(getBlockedUsers(payload.data));
+function* getBlockedUsersWorker(): any {
+  // console.log("blocked saga started");
+  try {
+    const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
+    // console.log(payload.data);
+    yield put(getBlockedUsers(payload.data));
 
-//     if(payload.data.includes(currentIP)){
-//       yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
-//     }
-//   } catch (error) {
-//     console.error("Error fetching blockedUsers:", (error as Error).message);
-//   }
-// }
+    // if(payload.data.includes(currentIP)){
+    //   yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
+    // }
+  } catch (error) {
+    console.error("Error fetching blockedUsers:", (error as Error).message);
+  }
+}
 
 export default function* countUserSaga() {
   // console.log("Saga started");
@@ -109,7 +110,7 @@ export default function* countUserSaga() {
     yield all([call(getCountUserWorker), call(getOwnsWorker)]);
     yield call(changeCountWorker);
 
-    // yield call(getBlockedUsersWorker);
+    yield call(getBlockedUsersWorker);
     yield fork(getCommentsWorker);
   });
 }

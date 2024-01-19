@@ -3,6 +3,12 @@ export interface IPage {
   value: number;
 }
 
+export interface IUserState {
+  isBlocked: boolean;
+  isOwner: boolean,
+  isNewUser: boolean,
+}
+
 export interface IOwnState {
   value: boolean;
 }

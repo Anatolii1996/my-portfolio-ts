@@ -7,12 +7,12 @@ import {
 } from "../redux/types";
 import { ICommentData } from "./types";
 import { isNotNewMessage } from "../redux/chatSlice";
-import { isCurrentOwner } from "../redux/isOwnerSlice";
+import { isCurrentOwner } from "../redux/userSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
 function* createCommentsWorker(action: CreateCommentAction): any {
-  console.log("saga Createcomment worker");
+  // console.log("saga Createcomment worker");
   const data = action.payload;
   const isOwner = yield select(isCurrentOwner);
   // console.log(data)

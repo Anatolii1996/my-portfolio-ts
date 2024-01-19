@@ -1,0 +1,38 @@
+/* eslint-disable */
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IUserState} from "./types";
+
+const initialState: IUserState = {
+  isBlocked: false,
+  isOwner: false,
+  isNewUser: false,
+};
+
+export const usersSlice = createSlice({
+  name: "currentUser",
+  initialState,
+  reducers: {
+    getOwns: (state, action: PayloadAction<boolean>) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.isOwner = action.payload;
+    },
+    changeBlockedStatus: (
+      state,
+      action: PayloadAction<boolean>
+    ) => {
+      state.isBlocked = action.payload;
+    }
+    
+  },
+});
+
+export const isCurrentOwner = (state:any) => state.currentUser.isOwner;
+
+export const {  changeBlockedStatus, getOwns } =
+usersSlice.actions;
+
+
+export default usersSlice.reducer;

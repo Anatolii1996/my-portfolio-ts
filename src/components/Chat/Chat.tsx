@@ -14,7 +14,7 @@ const Chat: FC = () => {
   const dispatch = useAppDispatch();
 
   const comments = useAppSelector((state) => state.comments.messages);
-  const isOwner = useAppSelector((state) => state.isOwner.value);
+  const isOwner = useAppSelector((state) => state.currentUser.isOwner);
 
   const isNewMessage = useAppSelector((state) => state.comments.isNewMessage);
 

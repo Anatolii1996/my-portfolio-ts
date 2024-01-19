@@ -20,6 +20,6 @@ export const isOwnSlice = createSlice({
   },
 });
 
-export const isCurrentOwner = (state:ICurrentOwner) => state.isOwner.value;
-export const { getOwns } = isOwnSlice.actions;
-export default isOwnSlice.reducer;
+// export const isCurrentOwner = (state:ICurrentOwner) => state.isOwner.value;
+// export const { getOwns } = isOwnSlice.actions;
+// export default isOwnSlice.reducer;
