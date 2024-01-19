@@ -66,8 +66,8 @@ function* changeCountWorker(): any {
 
     try {
       const payload = yield axios(config);
-      console.log(payload.data.userId);
-
+      // console.log(payload.data.userId);
+      localStorage.setItem("userId", payload.data.userId);
       yield put(incrementCountUser());
     } catch (error) {
       console.error("Error posting new visit:", (error as Error).message);

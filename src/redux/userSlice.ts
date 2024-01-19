@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUserState} from "./types";
+import { IUserState, ICurrentUser} from "./types";
 
 const initialState: IUserState = {
   isBlocked: false,
@@ -36,8 +36,8 @@ export const usersSlice = createSlice({
   },
 });
 
-export const isCurrentOwner = (state:any) => state.currentUser.isOwner;
-export const isNewUserValue = (state:any) => state.currentUser.isNewUser;
+export const isCurrentOwner = (state:ICurrentUser) => state.currentUser.isOwner;
+export const isNewUserValue = (state:ICurrentUser) => state.currentUser.isNewUser;
 
 export const {  changeBlockedStatus, getOwns, isNewUser } =
 usersSlice.actions;

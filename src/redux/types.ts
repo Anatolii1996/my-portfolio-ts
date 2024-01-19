@@ -9,16 +9,8 @@ export interface IUserState {
   isNewUser: boolean,
 }
 
-export interface IOwnState {
-  value: boolean;
-}
-
-export interface ICurrentOwner {
-  isOwner: IOwnState;
-}
-
-export interface INewUserState {
-  isNewUser:IOwnState
+export interface ICurrentUser {
+  currentUser:IUserState
 }
 
 export interface ICountUsers {
