@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 
 import { firstLoading } from "../../redux/countUserSlice";
 import { LanguageContext } from "../../context";
-import { changeBlockedStatus } from "../../redux/blockUserSlice";
 
 import { Layout, Menu, theme, Switch } from "antd";
 import { Icon } from "@iconify/react";
@@ -16,7 +15,7 @@ const { Header, Content, Footer } = Layout;
 
 const LayoutWrap: FC = () => {
   const countVisit = useAppSelector((state) => state.countUsers.value);
-  const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
+  const isBlocked = useAppSelector((state) => state.currentUser.isBlocked);
   const isNewUser = useAppSelector((state) => state.currentUser.isNewUser);
 
   const location = useLocation();
@@ -33,7 +32,6 @@ const LayoutWrap: FC = () => {
   useEffect(() => {
     // console.log(isBlocked)
     if (isBlocked) {
-      dispatch(changeBlockedStatus(false)); // Сброс флага
       navigate("noAccess");
     }
   }, [isBlocked, dispatch, navigate]);

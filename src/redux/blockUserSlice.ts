@@ -21,16 +21,11 @@ export const blockedUsersSlice = createSlice({
       // immutable state based off those changes
       state.values = action.payload;
     },
-    changeBlockedStatus: (
-      state,
-      action: PayloadAction<boolean>
-    ) => {
-      state.isBlocked = action.payload;
-    }
+   
     
   },
 });
 
-export const { getBlockedUsers, changeBlockedStatus } =
+export const { getBlockedUsers } =
   blockedUsersSlice.actions;
 export default blockedUsersSlice.reducer;

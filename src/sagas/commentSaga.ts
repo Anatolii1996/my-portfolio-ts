@@ -15,9 +15,9 @@ function* createCommentsWorker(action: CreateCommentAction): any {
   // console.log("saga Createcomment worker");
   const data = action.payload;
   const isOwner = yield select(isCurrentOwner);
-  const userId=localStorage.getItem("userId");
+  const userId = localStorage.getItem("userId");
   // console.log(data)
-  const requestData:ICommentData = {
+  const requestData: ICommentData = {
     name: data.name,
     surname: data.surname, // Другие данные...
     comment: data.comment,
@@ -27,7 +27,6 @@ function* createCommentsWorker(action: CreateCommentAction): any {
   if (isOwner) {
     requestData.isOwnerAuthor = true;
   }
-  
 
   const config = {
     method: "post",

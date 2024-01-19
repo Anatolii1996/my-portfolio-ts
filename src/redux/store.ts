@@ -5,7 +5,6 @@ import createSagaMiddleware from "redux-saga";
 import indexPrevPageReduser from "./indexPrevPageSlice";
 import userRedecer from "./userSlice";
 import commentsReducer from "./chatSlice";
-import blockedUsersReducer from "./blockUserSlice";
 import countUserReducer from "./countUserSlice";
 
 import rootSaga from "../sagas";
@@ -19,7 +18,6 @@ const store = configureStore({
     currentUser: userRedecer,
     countUsers: countUserReducer,
     comments: commentsReducer,
-    blockedUsers: blockedUsersReducer,
     
   },
   middleware: (getDefaultMiddleware) =>

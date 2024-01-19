@@ -7,7 +7,7 @@ import { getOwns } from "../redux/userSlice";
 import { getCommentsFail } from "../redux/chatSlice";
 import { getBlockedUsers } from "../redux/blockUserSlice";
 import { isNewUser, isNewUserValue } from "../redux/userSlice";
-import { currentCountUser } from "../redux/countUserSlice";
+import { changeBlockedStatus } from "../redux/userSlice";
 
 import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
@@ -94,10 +94,11 @@ function* getBlockedUsersWorker(): any {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
     // console.log(payload.data);
     yield put(getBlockedUsers(payload.data));
-
-    // if(payload.data.includes(currentIP)){
-    //   yield put({ type: 'blockedUsers/changeBlockedStatus', payload: true });
-    // }
+    const userId = localStorage.getItem("userId");
+    if(payload.data.includes(userId)){
+      console.log("blocked user")
+      yield put(changeBlockedStatus(true));
+    }
   } catch (error) {
     console.error("Error fetching blockedUsers:", (error as Error).message);
   }
