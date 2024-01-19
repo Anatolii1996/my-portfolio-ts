@@ -7,7 +7,6 @@ import userRedecer from "./userSlice";
 import commentsReducer from "./chatSlice";
 import blockedUsersReducer from "./blockUserSlice";
 import countUserReducer from "./countUserSlice";
-import isNewUserReducer from "./isNewUser";
 
 import rootSaga from "../sagas";
 
@@ -18,7 +17,6 @@ const store = configureStore({
   reducer: {
     indexPrevPage: indexPrevPageReduser,
     currentUser: userRedecer,
-    isNewUser: isNewUserReducer,
     countUsers: countUserReducer,
     comments: commentsReducer,
     blockedUsers: blockedUsersReducer,

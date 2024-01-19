@@ -6,7 +6,7 @@ import { getCountUsers, incrementCountUser } from "../redux/countUserSlice";
 import { getOwns } from "../redux/userSlice";
 import { getCommentsFail } from "../redux/chatSlice";
 import { getBlockedUsers } from "../redux/blockUserSlice";
-import { isNewUser, isNewUserValue } from "../redux/isNewUser";
+import { isNewUser, isNewUserValue } from "../redux/userSlice";
 import { currentCountUser } from "../redux/countUserSlice";
 
 import { IComment } from "../redux/types";

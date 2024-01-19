@@ -17,7 +17,7 @@ const { Header, Content, Footer } = Layout;
 const LayoutWrap: FC = () => {
   const countVisit = useAppSelector((state) => state.countUsers.value);
   const isBlocked = useAppSelector((state) => state.blockedUsers.isBlocked);
-  const isNewUser = useAppSelector((state) => state.isNewUser.value);
+  const isNewUser = useAppSelector((state) => state.currentUser.isNewUser);
 
   const location = useLocation();
   const navigate = useNavigate();
