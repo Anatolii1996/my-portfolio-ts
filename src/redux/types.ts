@@ -3,8 +3,6 @@ export interface IPage {
   value: number;
 }
 
-
-
 export interface IOwnState {
   value: boolean;
 }
@@ -33,8 +31,7 @@ export interface IMessage {
   isOwnerAuthor?: boolean;
 }
 
-export interface IComment extends IMessage {
-  
+export interface IComment extends IMessage {  
   date?: string;
   creatingTime?: string;
 }

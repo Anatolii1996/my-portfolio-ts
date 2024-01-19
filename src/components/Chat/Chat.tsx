@@ -2,12 +2,12 @@
 import React, { FC } from "react";
 import { useAppSelector, useAppDispatch } from "../../hooks";
 import { IComment } from "../../redux/types";
+import { deleteComment } from "../../redux/chatSlice";
+
 import { v4 as uuidv4 } from "uuid";
 import { Empty } from "antd";
 import cn from "classnames";
-// import moment from "moment";
 import { Icon } from "@iconify/react";
-import { deleteComment } from "../../redux/chatSlice";
 import "./chat.scss";
 
 const Chat: FC = () => {
