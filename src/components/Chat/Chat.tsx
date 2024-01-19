@@ -40,14 +40,12 @@ const Chat: FC = () => {
                 </div>
                 <div className="massage_date">
                   <p>{comment.date}</p>
-                  {/* {(function () {
+                  {(function () {
                     if (
-                      comment.ipAddress !== process.env.REACT_APP_MY_IP &&
-                      comment.ipAddress !== process.env.REACT_APP_MY_MOBILE_IP
+                      !comment.isOwnerAuthor
                     ) {
                       if (
-                        currentIp === process.env.REACT_APP_MY_IP ||
-                        currentIp === process.env.REACT_APP_MY_MOBILE_IP
+                       isOwner
                       ) {
                         return (
                           <Icon
@@ -57,7 +55,7 @@ const Chat: FC = () => {
                         );
                       }
                     }
-                  })()} */}
+                  })()}
                 </div>
               </div>
               <p>{comment.comment}</p>
