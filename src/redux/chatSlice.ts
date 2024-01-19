@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IComment, IMessage, ICommentStatee } from "./types";
+import { useAppSelector } from "../hooks";
 
 const initialState: ICommentStatee = {
   messages: [],
@@ -18,12 +19,15 @@ export const chatSlice = createSlice({
       state.errors = action.payload;
     },
     createComment: (state, action: PayloadAction<IMessage>) => {
+      const isOwner = useAppSelector((state) => state.isOwner.value);
+
       const newComment = {
         name: action.payload.name,
         surname: action.payload.surname,
         comment: action.payload.comment,
         _id: "",
       };
+      
 
       state.messages = [newComment, ...state.messages];
       state.isNewMessage = true;
@@ -41,6 +45,11 @@ export const chatSlice = createSlice({
   },
 });
 
-export const { setComments, createComment, getCommentsFail, deleteComment, isNotNewMessage } =
-  chatSlice.actions;
+export const {
+  setComments,
+  createComment,
+  getCommentsFail,
+  deleteComment,
+  isNotNewMessage,
+} = chatSlice.actions;
 export default chatSlice.reducer;

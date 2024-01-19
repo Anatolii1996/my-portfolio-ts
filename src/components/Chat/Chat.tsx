@@ -5,7 +5,7 @@ import { IComment } from "../../redux/types";
 import { v4 as uuidv4 } from "uuid";
 import { Empty } from "antd";
 import cn from "classnames";
-import moment from "moment";
+// import moment from "moment";
 import { Icon } from "@iconify/react";
 import { deleteComment } from "../../redux/chatSlice";
 import "./chat.scss";
@@ -22,12 +22,14 @@ const Chat: FC = () => {
     dispatch(deleteComment(comment));
   };
 
+ 
+
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
       {comments.length ? (
         comments.map((comment, index) => {
           const messageClasses = cn("chat_message", {
-            my_message:comment.isOwnerAuthor,              
+            my_message: comment.isOwnerAuthor,
             "animate__animated animate__fadeInRightBig":
               index === 0 && isNewMessage,
           });
@@ -41,12 +43,8 @@ const Chat: FC = () => {
                 <div className="massage_date">
                   <p>{comment.date}</p>
                   {(function () {
-                    if (
-                      !comment.isOwnerAuthor
-                    ) {
-                      if (
-                       isOwner
-                      ) {
+                    if (!comment.isOwnerAuthor) {
+                      if (isOwner) {
                         return (
                           <Icon
                             icon="icomoon-free:cross"
