@@ -27,6 +27,10 @@ const LayoutWrap: FC = () => {
   const [language, setLanguage] = useState("ua");
 
   useEffect(() => {
+    navigate("/");
+  }, []);
+
+  useEffect(() => {
     // console.log(isBlocked)
     if (isBlocked) {
       dispatch(changeBlockedStatus(false)); // Сброс флага
