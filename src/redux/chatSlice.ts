@@ -19,7 +19,6 @@ export const chatSlice = createSlice({
       state.errors = action.payload;
     },
     createComment: (state, action: PayloadAction<IMessage>) => {
-      const isOwner = useAppSelector((state) => state.isOwner.value);
 
       const newComment = {
         name: action.payload.name,

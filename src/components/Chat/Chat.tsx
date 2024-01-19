@@ -22,12 +22,19 @@ const Chat: FC = () => {
     dispatch(deleteComment(comment));
   };
 
- 
+  const updatedComment = comments.map((comment) => {
+    const isOwnerAuthor = comment.isOwnerAuthor ?? isOwner;
+
+    return {
+      ...comment,
+      isOwnerAuthor,
+    };
+  });
 
   return (
     <div className="chat_wrap animate__animated animate__fadeInRightBig">
-      {comments.length ? (
-        comments.map((comment, index) => {
+      {updatedComment.length ? (
+        updatedComment.map((comment, index) => {
           const messageClasses = cn("chat_message", {
             my_message: comment.isOwnerAuthor,
             "animate__animated animate__fadeInRightBig":
