@@ -305,16 +305,9 @@ const Technical: FC = () => {
                 .
               </p>
               <p>
-                Тут Ви знайдете всю кодову базу даного проєкту, окрім IP адрес
-                моїх пристороїв, які я використовую для ідентифікації себе на
-                ресурсі. Розумію, що даний спосіб можливо не найкращий. В
-                наступній версії проєкту (якщо вона буде) планую впровадити JWT
-                авторизацію. Хоча принцип розпізнавання не зміниться, це буде IP
-                адреса, обробка IP перейде повністю на бекенд, це дозволить
-                скоротити код фронтенду, а розпізнавання напряму буде не за IP,
-                а за токеном авторизації. Хотів би дізнатися Вашу думку, як
-                краще можна це зробити. Також, якщо в когось із розробників
-                виникнуть ідєї з покращення якості коду, дуже хочу їх почути!
+                Тут Ви знайдете всю кодову базу даного проєкту. Також, якщо в
+                когось із розробників виникнуть ідєї з покращення якості коду,
+                дуже хочу їх почути!
               </p>
             </>
           ) : (
@@ -333,18 +326,9 @@ const Technical: FC = () => {
                 .
               </p>
               <p>
-                Here you will find the entire codebase of this project, except
-                for the IP addresses of my devices, which I use to identify
-                myself on the resource. I realize that this method may not be
-                the best. In the next version of the project (if there is one),
-                I plan to implement JWT authorization. Although the principle of
-                recognition will not change, it will be IP address, IP
-                processing will be completely moved to the backend, this will
-                reduce the frontend code, and recognition will be directly based
-                on the authorization token, not IP. I would like to know your
-                opinion on how to do this better. Also, if any of the developers
-                have ideas on how to improve the quality of the code, I would
-                love to hear them!
+                Here you will find the entire code base of this project. Also,
+                if any of the developers have any ideas on how to improve the
+                quality of the code, I would love to hear them!
               </p>
             </>
           )}
@@ -787,7 +771,9 @@ const Technical: FC = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  https://github.com/Anatolii1996/<br/>blog-backend2
+                  https://github.com/Anatolii1996/
+                  <br />
+                  blog-backend2
                 </a>
                 .
               </p>
@@ -809,7 +795,9 @@ const Technical: FC = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  https://github.com/Anatolii1996/<br/>blog-backend2
+                  https://github.com/Anatolii1996/
+                  <br />
+                  blog-backend2
                 </a>
                 .
               </p>
@@ -829,31 +817,31 @@ const Technical: FC = () => {
             <>
               <p>
                 За допомогою Node.js написаний backend додатку. На backend-і
-                відбувається отримання ip-адреси нового користувача, запис її в
-                базу даних MongoDB та отримання з БД ip-адрес всіх користувачів,
-                що раніше записані, а також обробка повідомлень в чаті. Дуже
-                цікава та функціональна технологія. Розумію, що вивчати тут мені
-                ще доведеться дуже багато, але обов'язково буду цим займатись. В
-                якості Node.js фреймворку взято Express через його простоту та
-                популярність. Код дуже схожий на звичайний Node.js, тому період
-                звикання мінімальний. В майбутньому все ж планую перейти на
-                Nest. Хто пише backend, що про це думаєте?
+                ідентифікація нового користувача, запис його в базу даних
+                MongoDB та отримання з БД всіх користувачів, що раніше записані,
+                а також обробка повідомлень в чаті. Дуже цікава та функціональна
+                технологія. Розумію, що вивчати тут мені ще доведеться дуже
+                багато, але обов'язково буду цим займатись. В якості Node.js
+                фреймворку взято Express через його простоту та популярність.
+                Код дуже схожий на звичайний Node.js, тому період звикання
+                мінімальний. В майбутньому все ж планую перейти на Nest. Хто
+                пише backend, що про це думаєте?
               </p>
             </>
           ) : (
             <>
               <p>
-                The backend of the application is written using Node.js. The
-                code on the backend determines the IP address of a new user,
-                writes it to the MongoDB database, and retrieves the IP
-                addresses of all users who have been recorded before, as well as
-                processes chat messages. This is a very interesting and
-                functional technology. I realize that I still have a lot to
-                learn here, but I will definitely do it. I chose Express as a
-                Node.js framework because of its simplicity and popularity. The
-                code is very similar to regular Node.js, so the period of
-                getting used to it is minimal. I plan to switch to Nest in the
-                future. Who writes the backend, what do you think of it?
+                The backend of the application is written using Node.js. On the
+                backend identifying a new user, writing it to the MongoDB
+                database and retrieving all users from the database, previously
+                recorded, as well as processing chat messages. This is a very
+                interesting and functional technology. I realize that I still
+                have a lot to learn here, but I will definitely do it. I chose
+                Express as a Node.js framework because of its simplicity and
+                popularity. The code is very similar to regular Node.js, so the
+                period of getting used to it is minimal. I plan to switch to
+                Nest in the future. Who writes the backend, what do you think of
+                it?
               </p>
             </>
           )}
@@ -1043,23 +1031,53 @@ const Technical: FC = () => {
             <>
               {" "}
               <p>
-                Дуже функціональний безкоштовний хостинг. Має великий
-                функціонал, розгортає проєкти прямо з репозиторію на льоту, може
-                хостити backend додатки. Для початківця - те що треба. Для
-                комерційної роботи не взяв би через ціну. Цікаво, який хостинг
-                Ви вважаєте найкращим?
+                Дуже функціональний безкоштовний хостинг. Тут розміщена frontend
+                частина. Має великий функціонал, розгортає проєкти прямо з
+                репозиторію на льоту, може хостити backend додатки. Проте для
+                роботи з backend-ом досить складний, потребує детального
+                вивчення документації та налаштування конфігурації.
+              </p>
+              <p>
+                Для розміщення backend-у не віддав би перевагу іншому хостингу.
+                Для frontend частини підійде, розгорнути проєкт прямо з
+                репозиторію GitHub досить просто.
+              </p>
+              <p>
+                Для комерційної роботи не взяв би через ціну. Цікаво, який
+                хостинг Ви вважаєте найкращим?
               </p>
             </>
           ) : (
             <>
               {" "}
               <p>
-                Very functional free hosting. It has great functionality,
-                deploys projects directly from the repository on the fly, and
-                can host backend applications. For a beginner, this is what you
-                need. I wouldn't use it for commercial work because of the
-                price. I wonder which hosting you consider the best?
+              Very functional free hosting. It hosts the front-end part. It has great functionality, deploys projects directly from the repository on the fly, and can also host backend applications. However, it is rather complicated to work with the backend, requiring a detailed study of the documentation and configuration settings.
               </p>
+              <p>For the backend, I would prefer another hosting service. For the frontend, everything is great, it's easy enough to deploy a project directly from the GitHub repository.</p>
+              <p>I wouldn't use it for commercial work because of the price. I wonder which hosting you think is the best?</p>
+            </>
+          )}
+        </li>
+        <li>
+          <div className="technical__label">
+            <h3>Render.com</h3>
+          </div>
+          {language === "ua" ? (
+            <>
+              {" "}
+              <p>
+                Ще один безкоштовний хостинг, на якому розміщена серверна
+                частина додатку. Набагато простіше за Netlify дозволяє
+                розгортати backend. Даний хостинг став для мене відкриттям уже
+                на фінальному етапі роботи над даним проєктом.
+              </p>
+              <p>Інколи буває, що сервер на декілька хвилин перестає відповідати. Думаю це через безкоштовний пакет. Досить просто та зрозуміло працювати. Також розгортає проєкт прямо з репозитрію.</p>
+            </>
+          ) : (
+            <>
+              {" "}
+              <p>Another free hosting service that hosts the server side of the application. It is much easier to deploy the backend than Netlify. I discovered this hosting at the final stage of the project.</p>
+              <p>Sometimes the server stops responding for a few minutes. I think this is because the package is free. Working with it is quite simple and straightforward. It also deploys the project directly from the repository.</p>
             </>
           )}
         </li>
