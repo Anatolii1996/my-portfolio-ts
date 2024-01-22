@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React, { FC } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { FC, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "animate.css";
 import NotFound from "./pages/NotFound/NotFound";
 import LayoutWrap from "./components/Layout/LayoutWrap";
@@ -11,6 +11,12 @@ import Feedback from "./pages/Feedback/Feedback";
 import NoAcces from "./pages/NoAcces/NoAcces";
 
 const App: FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/");
+  }, []);
+
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />

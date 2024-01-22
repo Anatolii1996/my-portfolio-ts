@@ -25,9 +25,7 @@ const LayoutWrap: FC = () => {
   const [loading, setLoading] = useState(true);
   const [language, setLanguage] = useState("ua");
 
-  useEffect(() => {
-    navigate("/");
-  }, []);
+ 
 
   useEffect(() => {
     // console.log(isBlocked)
