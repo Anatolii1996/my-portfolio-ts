@@ -14,18 +14,22 @@ import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 import { v4 } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { isBoolean } from "lodash";
 
 function* getCountUserWorker(): any {
-  // console.log("saga count worker");
+  console.log("saga count worker");
   try {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
-    // console.log(payload)
-    yield put(getCountUsers(payload.data.count));
+    // console.log(isBoolean(payload.data.count) )
+    if(payload.data.count){
+       yield put(getCountUsers(payload.data.count));
+    }else{
+      changeCountWorker()
+    }
+   
   } catch (error) {
     console.error("Error fetching count user:", (error as Error).message);
   }
-  // console.log(visits);
 }
 
 function* getOwnsWorker(): any {
