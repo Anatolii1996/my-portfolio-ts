@@ -1035,7 +1035,7 @@ const Technical: FC = () => {
                 частина. Має великий функціонал, розгортає проєкти прямо з
                 репозиторію на льоту, може хостити backend додатки. Проте для
                 роботи з backend-ом досить складний, потребує детального
-                вивчення документації та налаштування конфігурації.
+                вивчення документації та налаштування конфігурації. А ще Netlify інколи самим неочікуваним чином ламає стилі - така особливість.
               </p>
               <p>
                 Для розміщення backend-у не віддав би перевагу іншому хостингу.
@@ -1051,7 +1051,7 @@ const Technical: FC = () => {
             <>
               {" "}
               <p>
-              Very functional free hosting. It hosts the front-end part. It has great functionality, deploys projects directly from the repository on the fly, and can also host backend applications. However, it is rather complicated to work with the backend, requiring a detailed study of the documentation and configuration settings.
+              Very functional free hosting. It hosts the front-end part. It has great functionality, deploys projects directly from the repository on the fly, and can also host backend applications. However, it is rather complicated to work with the backend, requiring a detailed study of the documentation and configuration settings. And Netlify sometimes breaks styles in the most unexpected way - this is a feature.
               </p>
               <p>For the backend, I would prefer another hosting service. For the frontend, everything is great, it's easy enough to deploy a project directly from the GitHub repository.</p>
               <p>I wouldn't use it for commercial work because of the price. I wonder which hosting you think is the best?</p>
@@ -1082,6 +1082,19 @@ const Technical: FC = () => {
           )}
         </li>
       </ul>
+      <div className="next_development">
+        <h3>Плани на подальшу розробку</h3>
+        <p>Один з видатних програмістів сучасності Роберт Мартін якось сказав: "Коли ти перестаєш працювати над своїм кодом - він вмирає". Мої плани подальшої роботи над даним проєктом виглядають приблизно так:</p>
+        <ol>
+          <li>Спершу я планую переписати фронтенд частину на Vite. Дужу вже сильно хочеться спробувати нову збірку.</li>
+          <li>Після того як представлю даний проект на публіку, планую зібрати зворотній зв'язок, та покрити кодову базу тестами (для цього ще треба знайти собі тестувальника)</li>
+          <li>Далі хочу впровадити JWT авторизацію для ідентифікації користувачів. Поточний спосіб досить примітивний і категорично мене не влаштовує, проте працює і дозволяє мені викотити проєкт досить швидко. Освоєння JWT авторизації вимагає додаткового вивчення та затрат часу, проте я від цього не відмовляюсь. </li>
+          <li>Підозрюю, що після реалізації попереднього пункту кодова база backend-у суттєво виросте. Після цього планую переписати backend на Nest, що також потребуватиме додаткового часу на вивчення.</li>
+         <p>На даний момент не можу сказати навіть приблизно, скільки часу займе реалізація даних пунктів, беручи до уваги мою поточну зайнятість та те, що наближчим часом планую почати активно вивчати англійську.</p>
+          <p>Проте дану роботу по можливості все одно буду виконувати, оскільки перш за все самому цікаво, що з цього всього вийде!)</p>
+          <p>Про всі кардинальні зміни в даному проєкті буду повідомляти в соцережах на своїх сторінках в Linkedin та Instagram.</p>
+        </ol>
+      </div>
     </div>
   );
 };

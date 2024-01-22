@@ -16,7 +16,7 @@ import axios from "axios";
 import { v4 } from "uuid";
 
 function* getCountUserWorker(): any {
-  console.log("saga count worker");
+  // console.log("saga count worker");
   try {
     const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
     // console.log(isBoolean(payload.data.count) )
