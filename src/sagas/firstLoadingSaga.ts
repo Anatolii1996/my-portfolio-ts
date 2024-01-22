@@ -14,7 +14,6 @@ import { setComments } from "../redux/chatSlice";
 import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 import { v4 } from "uuid";
-import { isBoolean } from "lodash";
 
 function* getCountUserWorker(): any {
   console.log("saga count worker");
