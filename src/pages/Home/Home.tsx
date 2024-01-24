@@ -185,7 +185,7 @@ const Home: FC = () => {
             </div>
           )}
           {sertificats.map((el) => {
-            return <ImgWrap width={500} key={el} link={el} />;
+            return <ImgWrap  width={500} key={el} link={el} />;
           })}
         
         </div>
