@@ -72,7 +72,10 @@ const Technical: FC = () => {
             можливості розробника. Вміле використання стеку MERN, напевно вже
             щось говорить про рівень розробника, і для мене це вміння, хоч і на
             базовому рівні, стало певним досягненням або навіть невеличким
-            приводом для гордості =){" "}
+            приводом для гордості =) Принцип розробки Desktop First (бо мені так
+            зручніше). Це означає, що насамперед ресурс створено для перегляду
+            на екрані ноутбука (1440px), проте я доклав усіх зусиль для того щоб
+            моя верстка не розпадалась на маленьких екранах.
           </p>
         </>
       ) : (
@@ -120,7 +123,11 @@ const Technical: FC = () => {
             significantly expands the developer's capabilities. The skillful use
             of the MERN stack probably already says something about the level of
             the developer, and for me, this skill, even at the basic level, has
-            become a certain achievement or even a small reason to be proud =){" "}
+            become a certain achievement or even a small reason to be proud =)
+            Desktop First design principle (because it's more convenient for
+            me). This means that the resource is primarily designed to be viewed
+            on a laptop screen (1440px), but I made every effort to ensure that
+            my layout does not fall apart on small screens.
           </p>
         </>
       )}
@@ -1035,7 +1042,8 @@ const Technical: FC = () => {
                 частина. Має великий функціонал, розгортає проєкти прямо з
                 репозиторію на льоту, може хостити backend додатки. Проте для
                 роботи з backend-ом досить складний, потребує детального
-                вивчення документації та налаштування конфігурації. А ще Netlify інколи самим неочікуваним чином ламає стилі - така особливість.
+                вивчення документації та налаштування конфігурації. А ще Netlify
+                інколи самим неочікуваним чином ламає стилі - така особливість.
               </p>
               <p>
                 Для розміщення backend-у не віддав би перевагу іншому хостингу.
@@ -1051,10 +1059,23 @@ const Technical: FC = () => {
             <>
               {" "}
               <p>
-              Very functional free hosting. It hosts the front-end part. It has great functionality, deploys projects directly from the repository on the fly, and can also host backend applications. However, it is rather complicated to work with the backend, requiring a detailed study of the documentation and configuration settings. And Netlify sometimes breaks styles in the most unexpected way - this is a feature.
+                Very functional free hosting. It hosts the front-end part. It
+                has great functionality, deploys projects directly from the
+                repository on the fly, and can also host backend applications.
+                However, it is rather complicated to work with the backend,
+                requiring a detailed study of the documentation and
+                configuration settings. And Netlify sometimes breaks styles in
+                the most unexpected way - this is a feature.
               </p>
-              <p>For the backend, I would prefer another hosting service. For the frontend, everything is great, it's easy enough to deploy a project directly from the GitHub repository.</p>
-              <p>I wouldn't use it for commercial work because of the price. I wonder which hosting you think is the best?</p>
+              <p>
+                For the backend, I would prefer another hosting service. For the
+                frontend, everything is great, it's easy enough to deploy a
+                project directly from the GitHub repository.
+              </p>
+              <p>
+                I wouldn't use it for commercial work because of the price. I
+                wonder which hosting you think is the best?
+              </p>
             </>
           )}
         </li>
@@ -1071,29 +1092,73 @@ const Technical: FC = () => {
                 розгортати backend. Даний хостинг став для мене відкриттям уже
                 на фінальному етапі роботи над даним проєктом.
               </p>
-              <p>Інколи буває, що сервер на декілька хвилин перестає відповідати. Думаю це через безкоштовний пакет. Досить просто та зрозуміло працювати. Також розгортає проєкт прямо з репозитрію.</p>
+              <p>
+                Інколи буває, що сервер на декілька хвилин перестає відповідати.
+                Думаю це через безкоштовний пакет. Досить просто та зрозуміло
+                працювати. Також розгортає проєкт прямо з репозитрію.
+              </p>
             </>
           ) : (
             <>
               {" "}
-              <p>Another free hosting service that hosts the server side of the application. It is much easier to deploy the backend than Netlify. I discovered this hosting at the final stage of the project.</p>
-              <p>Sometimes the server stops responding for a few minutes. I think this is because the package is free. Working with it is quite simple and straightforward. It also deploys the project directly from the repository.</p>
+              <p>
+                Another free hosting service that hosts the server side of the
+                application. It is much easier to deploy the backend than
+                Netlify. I discovered this hosting at the final stage of the
+                project.
+              </p>
+              <p>
+                Sometimes the server stops responding for a few minutes. I think
+                this is because the package is free. Working with it is quite
+                simple and straightforward. It also deploys the project directly
+                from the repository.
+              </p>
             </>
           )}
         </li>
       </ul>
       <div className="next_development">
-        <h3>Плани на подальшу розробку</h3>
-        <p>Один з видатних програмістів сучасності Роберт Мартін якось сказав: "Коли ти перестаєш працювати над своїм кодом - він вмирає". Мої плани подальшої роботи над даним проєктом виглядають приблизно так:</p>
-        <ol>
-          <li>Спершу я планую переписати фронтенд частину на Vite. Дужу вже сильно хочеться спробувати нову збірку.</li>
-          <li>Після того як представлю даний проект на публіку, планую зібрати зворотній зв'язок, та покрити кодову базу тестами (для цього ще треба знайти собі тестувальника)</li>
-          <li>Далі хочу впровадити JWT авторизацію для ідентифікації користувачів. Поточний спосіб досить примітивний і категорично мене не влаштовує, проте працює і дозволяє мені викотити проєкт досить швидко. Освоєння JWT авторизації вимагає додаткового вивчення та затрат часу, проте я від цього не відмовляюсь. </li>
-          <li>Підозрюю, що після реалізації попереднього пункту кодова база backend-у суттєво виросте. Після цього планую переписати backend на Nest, що також потребуватиме додаткового часу на вивчення.</li>
-         <p>На даний момент не можу сказати навіть приблизно, скільки часу займе реалізація даних пунктів, беручи до уваги мою поточну зайнятість та те, що наближчим часом планую почати активно вивчати англійську.</p>
-          <p>Проте дану роботу по можливості все одно буду виконувати, оскільки перш за все самому цікаво, що з цього всього вийде!)</p>
-          <p>Про всі кардинальні зміни в даному проєкті буду повідомляти в соцережах на своїх сторінках в Linkedin та Instagram.</p>
-        </ol>
+        {language === "ua" ? (
+          <>
+            <h2>Подальші плани</h2>
+            <p>
+              Після деплою даного додатку, планую розпочати роботу над іншим
+              проєктом, який можливо навіть стане комерційним, тому активну
+              роботу над даним ресурсом напевно завершу. Все залежить від того
+              який зворотній зв'язок я зберу, та наскільки він буде професійним.
+              Однозначно не залишу без уваги виправлення знайдених багів та
+              слушні пропозиції по дизайну. Маю певні ідеї стосовно подальшого
+              розвитку ресурсу, які далі не хочу впроваджувати сам.
+            </p>
+            <p>
+              Всі сили та час націлю на новий проєкт, там однозначно використаю
+              Vite а також запроваджу JWT авторизацію, також для backend-у хочу
+              взяти Nest, проте не певен наскільки багато часу знадобиться для
+              вивчення нового фреймворку.
+            </p>
+
+            <p>
+              Про всі кардинальні зміни в даному, та інших проєктах буду
+              повідомляти в соцережах на своїх сторінках в Linkedin та
+              Instagram.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2>Future plans</h2>
+            <p>
+              After the deployment of this application, I plan to start working
+              on another project, which may even become commercial, so this will
+              probably be the end of my active work on this resource. It all
+              depends on what kind of feedback I get and how professional it
+              will be. I definitely won't ignore bug fixes and reasonable design
+              suggestions. I have a few ideas for further development of the
+              resource that I don't want to implement myself.
+            </p>
+            <p>I will be focusing all my time and energy on the new project and will definitely be using Vite and will also implement JWT authorization and want to use Nest for the backend, but I'm not sure how long it will take to learn the new framework.</p>
+            <p>I will inform you about all the fundamental changes in this and other projects I will inform you about all the major changes in this and other projects on my Linkedin and Instagram.</p>
+          </>
+        )}
       </div>
     </div>
   );

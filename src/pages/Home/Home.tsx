@@ -74,7 +74,7 @@ const Home: FC = () => {
               </p>
               <p>
                 Даний ресурс є моїм Pet проектом, на якому я втілював свої ідеї,
-                та прокачував свої навички.
+                та прокачував свої навички. Планую в подальшому його використовувать як власний сайт-візитку.
               </p>
               <p>
                 Подорожуючи по розділам, ви можете розглянути{" "}
@@ -106,10 +106,7 @@ const Home: FC = () => {
                 колег, починаючих розробників/дизайнерів/тестувальників, хоче
                 долучитись до спільної подальшої роботи, ласкаво прошу.
               </p>
-              <p>
-                Після розгортання даного ресурсу на хостингу, почну роботу над
-                написанням тестів.
-              </p>
+             
               <p>
                 Буду безмежно вдячний кожному хто залишить, в останньому розділі
                 свою думку, стосовно даного ресурсу!
@@ -135,7 +132,7 @@ const Home: FC = () => {
               </p>
               <p>
                 This resource is my Pet project, where I implemented my ideas, and
-                improved my skills.
+                improved my skills. In the future, I plan to use it as my own business card site.
               </p>
               <p>
                 Travelling through the sections, you can view
@@ -168,10 +165,7 @@ const Home: FC = () => {
                 developers/designers/testers would like to contribute to the
                 future work, please feel free to do so.
               </p>
-              <p>
-                After the deployment of this resource on the hosting, I will start
-                working on the creation of tests.
-              </p>
+             
               <p>
                 I will be infinitely grateful to everyone who leaves their opinion
                 in the last section of this resource!
