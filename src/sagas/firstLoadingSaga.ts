@@ -107,24 +107,7 @@ function* getBlockedUsersWorker(): any {
   }
 }
 
-function* fakeRecordWorker(): any {
-  // console.log(" fakeRecord saga started");
-  const config = {
-    method: "post",
-    url: `${SERVER_URL}/start-record`,
-    headers: {
-      "Content-Type": "application/json",
-    } // Преобразуйте данные в JSON-строку
-  };
 
-  try {
-     yield axios(config);
-    // console.log(payload.data.userId);
-   
-  } catch (error) {
-    console.error("Error:", (error as Error).message);
-  }
-}
 
 export default function* countUserSaga() {
   // console.log("Saga started");
@@ -132,7 +115,6 @@ export default function* countUserSaga() {
   yield takeEvery(GET_COUNT_USERS, function* () {
     yield all([call(getCountUserWorker), call(getOwnsWorker)]);
     yield call(changeCountWorker);
-    yield call(fakeRecordWorker);
     yield call(getBlockedUsersWorker);
     yield fork(getCommentsWorker);
   });
