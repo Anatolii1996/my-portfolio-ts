@@ -1106,10 +1106,7 @@ const Technical: FC = () => {
                 project.
               </p>
               <p>
-                Sometimes the server stops responding for a few minutes. I think
-                this is because the package is free. Working with it is quite
-                simple and straightforward. It also deploys the project directly
-                from the repository.
+              It is easy and fast to deploy a project directly from the repository.
               </p>
             </>
           )}
