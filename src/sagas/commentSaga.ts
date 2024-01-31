@@ -8,11 +8,10 @@ import {
 import { ICommentData } from "./types";
 import { isNotNewMessage } from "../redux/chatSlice";
 import { isCurrentOwner } from "../redux/userSlice";
-import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 
 function* createCommentsWorker(action: CreateCommentAction): any {
-  // console.log("saga Createcomment worker");
+  
   const data = action.payload;
   const isOwner = yield select(isCurrentOwner);
   const userId = localStorage.getItem("userId");
@@ -30,7 +29,7 @@ function* createCommentsWorker(action: CreateCommentAction): any {
 
   const config = {
     method: "post",
-    url: `${SERVER_URL}/new-comment`,
+    url: `${process.env.REACT_APP_SERVER_URL}/new-comment`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -47,7 +46,7 @@ function* blockUserWorker(action: BlockUserAction) {
 
   const config = {
     method: "post",
-    url: `${SERVER_URL}/addBlockedUsers`,
+    url: `${process.env.REACT_APP_SERVER_URL}/addBlockedUsers`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -67,7 +66,7 @@ function* deleteCommentWorker(action: DeleteCommentAction) {
 
   const config = {
     method: "delete",
-    url: `${SERVER_URL}/delete-comment`,
+    url: `${process.env.REACT_APP_SERVER_URL}/delete-comment`,
     headers: {
       "Content-Type": "application/json",
     },

@@ -24,8 +24,11 @@ const Feedback: FC = () => {
   }, [dispatch]);
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
+
+  const indexPage = 4;
+
   useEffect(() => {
-    setPageAnimStyle(setPageAnimation("feedback", 4, indexPrevPage));
+    setPageAnimStyle(setPageAnimation("feedback", indexPage, indexPrevPage));
   }, [indexPrevPage]);
 
   return (

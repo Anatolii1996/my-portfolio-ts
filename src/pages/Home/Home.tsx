@@ -28,13 +28,13 @@ const Home: FC = () => {
   const indexPrevPage = useAppSelector((state) => state.indexPrevPage.value);
   const dispatch = useAppDispatch();
   const language = useContext(LanguageContext);
+
   const sertificats = [
     DevEducationSert,
     HTMLSert,
     BootstrapSert,
     JsSert,
     WebDesignSert,
-    
     EnglishSert,
   ];
 
@@ -47,8 +47,11 @@ const Home: FC = () => {
   }, [dispatch]);
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
+
+  const indexPage = 1;
+
   useEffect(() => {
-    setPageAnimStyle(setPageAnimation("home", 1, indexPrevPage));
+    setPageAnimStyle(setPageAnimation("home", indexPage, indexPrevPage));
   }, [indexPrevPage]);
 
   return (
@@ -74,22 +77,23 @@ const Home: FC = () => {
               </p>
               <p>
                 Даний ресурс є моїм Pet проектом, на якому я втілював свої ідеї,
-                та прокачував свої навички. Планую в подальшому його використовувать як власний сайт-візитку.
+                та прокачував свої навички. Планую в подальшому його
+                використовувать як власний сайт-візитку.
               </p>
               <p>
                 Подорожуючи по розділам, ви можете розглянути{" "}
                 <Link to="/galery">портфоліо моїх робіт</Link>, детально
-                ознайомитись з технічною частиною розробки даного проєкту, а також
-                надати зворотній зв'язок..
+                ознайомитись з технічною частиною розробки даного проєкту, а
+                також надати зворотній зв'язок..
               </p>
               <p>
                 Дуже прошу всіх небайдужих додати мене до своїх контактів на{" "}
                 <a href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127">
                   Linkedin
                 </a>
-                , а також підтвердити там мої навички. Буду щиро вдячний кожному,
-                хто зрозуміє наскільки це важливо на етапі пошуку першої роботи
-                розробника.
+                , а також підтвердити там мої навички. Буду щиро вдячний
+                кожному, хто зрозуміє наскільки це важливо на етапі пошуку
+                першої роботи розробника.
               </p>
               <p>
                 Нижче наведено перелік моїх скромних досягнень, контактна
@@ -101,12 +105,12 @@ const Home: FC = () => {
                 англійської до В1.
               </p>
               <p>
-                Маю ідеї стосовно розширення даного ресурсу, було би цікаво додати
-                профілі більшої кількості користувачів. Тому якщо хтось із моїх
-                колег, починаючих розробників/дизайнерів/тестувальників, хоче
-                долучитись до спільної подальшої роботи, ласкаво прошу.
+                Маю ідеї стосовно розширення даного ресурсу, було би цікаво
+                додати профілі більшої кількості користувачів. Тому якщо хтось
+                із моїх колег, починаючих розробників/дизайнерів/тестувальників,
+                хоче долучитись до спільної подальшої роботи, ласкаво прошу.
               </p>
-             
+
               <p>
                 Буду безмежно вдячний кожному хто залишить, в останньому розділі
                 свою думку, стосовно даного ресурсу!
@@ -131,8 +135,9 @@ const Home: FC = () => {
                 plunged into the world of web development.
               </p>
               <p>
-                This resource is my Pet project, where I implemented my ideas, and
-                improved my skills. In the future, I plan to use it as my own business card site.
+                This resource is my Pet project, where I implemented my ideas,
+                and improved my skills. In the future, I plan to use it as my
+                own business card site.
               </p>
               <p>
                 Travelling through the sections, you can view
@@ -141,14 +146,14 @@ const Home: FC = () => {
                 of this project in detail, and provide feedback.
               </p>
               <p>
-                I would like to ask everyone who cares to add me to their contacts
-                on{" "}
+                I would like to ask everyone who cares to add me to their
+                contacts on{" "}
                 <a href="https://www.linkedin.com/in/анатолій-ткаченко-5525a7127">
-                   Linkedin
+                  Linkedin
                 </a>{" "}
-                 and confirm my skills there. I will be sincerely grateful to
-                everyone who understands how important this is when looking for a
-                first job as a developer.
+                and confirm my skills there. I will be sincerely grateful to
+                everyone who understands how important this is when looking for
+                a first job as a developer.
               </p>
               <p>
                 Below you will find a list of my modest achievements, contact
@@ -156,38 +161,37 @@ const Home: FC = () => {
               </p>
               <p>
                 In addition to the technologies I plan to learn in the near
-                future, my goal is to improve my English to B1 level by the end of
-                2024.
+                future, my goal is to improve my English to B1 level by the end
+                of 2024.
               </p>
               <p>
-                I have ideas for expanding this resource, it would be interesting
-                to add profiles of more users. So, if any of my fellow aspiring
-                developers/designers/testers would like to contribute to the
-                future work, please feel free to do so.
+                I have ideas for expanding this resource, it would be
+                interesting to add profiles of more users. So, if any of my
+                fellow aspiring developers/designers/testers would like to
+                contribute to the future work, please feel free to do so.
               </p>
-             
+
               <p>
-                I will be infinitely grateful to everyone who leaves their opinion
-                in the last section of this resource!
+                I will be infinitely grateful to everyone who leaves their
+                opinion in the last section of this resource!
               </p>
               <h3>Previous experience</h3>
               <p>
-                Here I will give a few lines of boring information that is usually
-                included in a CV.
+                Here I will give a few lines of boring information that is
+                usually included in a CV.
               </p>
               <p>
                 In 2018, I graduated from Kryvyi Rih National University with a
                 degree in Mineral Processing, after which I worked in the mining
                 industry for 5 years. Now I have found myself in a different
-                industry, but my dream is to work as a developer, and I am making
-                every effort to achieve this goal.
+                industry, but my dream is to work as a developer, and I am
+                making every effort to achieve this goal.
               </p>
             </div>
           )}
           {sertificats.map((el) => {
-            return <ImgWrap  width={500} key={el} link={el} />;
+            return <ImgWrap width={500} key={el} link={el} />;
           })}
-        
         </div>
         <aside>
           <img className="my_photo" src={myPhoto} alt="my_photo" />
@@ -199,7 +203,9 @@ const Home: FC = () => {
             <p>
               <span>Email:</span>
               <a href="mailto: anatoly.tka4enko2014@gmail.com">
-                anatoly.tka4enko<br/>2014@gmail.com
+                anatoly.tka4enko
+                <br />
+                2014@gmail.com
               </a>
             </p>
             <p>
@@ -209,7 +215,9 @@ const Home: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                https://github.com/<br/>Anatolii1996
+                https://github.com/
+                <br />
+                Anatolii1996
               </a>{" "}
             </p>
             <p>
@@ -219,7 +227,9 @@ const Home: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                linkedin.com/in/анатолій-<br/>ткаченко-5525a7127
+                linkedin.com/in/анатолій-
+                <br />
+                ткаченко-5525a7127
               </a>
             </p>
           </div>
@@ -336,47 +346,47 @@ const Home: FC = () => {
 
       <div className="future_footer">
         {language === "ua" ? (
-            <h2>Технології для подальшого вивчення</h2>
-          ) : (
-            <h2>Technologies for further study</h2>
-          )}
-          <ul className="future_tech">
-            <li>
-              {" "}
-              <img src={NestLogo} className="img_logo" alt="Nest-logo" />
-              <p>Nest.js</p>
-            </li>
-            <li>
-              {" "}
-              <img src={NextLogo} className="img_logo" alt="Nest-logo" />
-              <p>Next.js</p>
-            </li>
-            <li>
-              {" "}
-              <img src={BunLogo} className="img_logo" alt="Nest-logo" />
-              <p>Bun.sh</p>
-            </li>
-            <li>
-              {" "}
-              <img src={GSAPLogo} className="img_logo" alt="Nest-logo" />
-              <p>GSAP</p>
-            </li>
-            <li>
-              {" "}
-              <Icon icon="devicon:storybook" />
-              <p>Storybook</p>
-            </li>
-            <li>
-              {" "}
-              <Icon icon="vscode-icons:file-type-eslint2" />
-              <p>Eslint</p>
-            </li>
-            <li>
-              {" "}
-              <Icon icon="tabler:brand-react-native" />
-              <p>React native</p>
-            </li>
-          </ul>
+          <h2>Технології для подальшого вивчення</h2>
+        ) : (
+          <h2>Technologies for further study</h2>
+        )}
+        <ul className="future_tech">
+          <li>
+            {" "}
+            <img src={NestLogo} className="img_logo" alt="Nest-logo" />
+            <p>Nest.js</p>
+          </li>
+          <li>
+            {" "}
+            <img src={NextLogo} className="img_logo" alt="Nest-logo" />
+            <p>Next.js</p>
+          </li>
+          <li>
+            {" "}
+            <img src={BunLogo} className="img_logo" alt="Nest-logo" />
+            <p>Bun.sh</p>
+          </li>
+          <li>
+            {" "}
+            <img src={GSAPLogo} className="img_logo" alt="Nest-logo" />
+            <p>GSAP</p>
+          </li>
+          <li>
+            {" "}
+            <Icon icon="devicon:storybook" />
+            <p>Storybook</p>
+          </li>
+          <li>
+            {" "}
+            <Icon icon="vscode-icons:file-type-eslint2" />
+            <p>Eslint</p>
+          </li>
+          <li>
+            {" "}
+            <Icon icon="tabler:brand-react-native" />
+            <p>React native</p>
+          </li>
+        </ul>
       </div>
     </div>
   );

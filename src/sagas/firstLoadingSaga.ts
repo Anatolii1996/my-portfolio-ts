@@ -11,14 +11,12 @@ import { changeBlockedStatus } from "../redux/userSlice";
 
 import { IComment } from "../redux/types";
 import { setComments } from "../redux/chatSlice";
-import { SERVER_URL } from "../helpers/const";
 import axios from "axios";
 import { v4 } from "uuid";
 
 function* getCountUserWorker(): any {
-  // console.log("saga count worker");
   try {
-    const payload = yield axios.get<string[]>(`${SERVER_URL}/visits`);
+    const payload = yield axios.get<string[]>(`${process.env.REACT_APP_SERVER_URL}/visits`);
     // console.log(isBoolean(payload.data.count) )
     if(payload.data.count){
        yield put(getCountUsers(payload.data.count));
@@ -60,7 +58,7 @@ function* changeCountWorker(): any {
 
     const config = {
       method: "post",
-      url: `${SERVER_URL}/new-visit`,
+      url: `${process.env.REACT_APP_SERVER_URL}/new-visit`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -81,7 +79,7 @@ function* changeCountWorker(): any {
 function* getCommentsWorker(): any {
   // console.log("saga comment worker");
   try {
-    const payload = yield axios.get<IComment[]>(`${SERVER_URL}/comments`);
+    const payload = yield axios.get<IComment[]>(`${process.env.REACT_APP_SERVER_URL}/comments`);
 
     // console.log(payload.data)
     yield put(setComments(payload.data));
@@ -94,7 +92,7 @@ function* getCommentsWorker(): any {
 function* getBlockedUsersWorker(): any {
   // console.log("blocked saga started");
   try {
-    const payload = yield axios.get<string[]>(`${SERVER_URL}/getBlockedUsers`);
+    const payload = yield axios.get<string[]>(`${process.env.REACT_APP_SERVER_URL}/getBlockedUsers`);
     // console.log(payload.data);
     yield put(getBlockedUsers(payload.data));
     const userId = localStorage.getItem("userId");

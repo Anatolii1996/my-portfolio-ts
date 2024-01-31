@@ -34,8 +34,11 @@ const Galery: FC = () => {
   }, [dispatch]);
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
+
+  const indexPage = 2;
+
   useEffect(() => {
-    setPageAnimStyle(setPageAnimation("galery", 2, indexPrevPage));
+    setPageAnimStyle(setPageAnimation("galery", indexPage, indexPrevPage));
   }, [indexPrevPage]);
 
   return (

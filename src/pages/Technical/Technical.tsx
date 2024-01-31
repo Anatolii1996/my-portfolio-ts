@@ -22,8 +22,11 @@ const Technical: FC = () => {
   }, [dispatch]);
 
   const [pageAnimStyle, setPageAnimStyle] = useState("");
+
+  const indexPage = 3;
+
   useEffect(() => {
-    setPageAnimStyle(setPageAnimation("tech", 3, indexPrevPage));
+    setPageAnimStyle(setPageAnimation("tech", indexPage, indexPrevPage));
   }, [indexPrevPage]);
 
   return (
