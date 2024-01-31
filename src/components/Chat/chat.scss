@@ -20,15 +20,22 @@
     .message_author {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 10px;
       .author_name {
         display: flex;
         p + p {
-          margin-left: 5px;
+          padding-left: 5px;
         }
       }
       .massage_date {
         display: flex;
         align-items: center;
+        p {
+          &:nth-child(2) {
+            padding-left: 10px;
+          }
+        }
+
         svg {
           cursor: pointer;
           margin-left: 0.5rem;
@@ -60,7 +67,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 850px) {
   .chat_wrap {
     width: max(80%, 25rem);
     .chat_message {
@@ -75,5 +82,11 @@
 @media (max-width: 460px) {
   .chat_wrap {
     width: min(90%, 25rem);
+  }
+  .massage_date, .author_name {
+    flex-direction: column;
+  }
+  .chat_wrap .chat_message .message_author .author_name p + p{
+    padding: 0;
   }
 }

@@ -40,6 +40,10 @@ const Chat: FC = () => {
             "animate__animated animate__fadeInRightBig":
               index === 0 && isNewMessage,
           });
+
+          const commentDate = comment.date?.split(" ")[0];
+          const commentTime = comment.date?.split(" ")[1];
+
           return (
             <div key={uuidv4()} className={messageClasses}>
               <div className="message_author">
@@ -48,7 +52,8 @@ const Chat: FC = () => {
                   <p>{comment.surname}</p>
                 </div>
                 <div className="massage_date">
-                  <p>{comment.date}</p>
+                  <p>{commentDate}</p>
+                  <p>{commentTime}</p>
                   {(function () {
                     if (!comment.isOwnerAuthor) {
                       if (isOwner) {
