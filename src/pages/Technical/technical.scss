@@ -14,7 +14,7 @@
     padding-left: 1.5rem;
   }
 
-  ul {
+ ul {
     list-style: none;
 
     li {
@@ -29,6 +29,16 @@
           justify-content: flex-end;
         }
       }
+    }
+  }
+}
+
+.history_updates{
+  ul{
+    
+    li::before {
+      content: "-"; /* устанавливаем желаемый маркер */
+      margin-right: 0.5em; /* добавляем немного отступа между маркером и текстом */
     }
   }
 }
