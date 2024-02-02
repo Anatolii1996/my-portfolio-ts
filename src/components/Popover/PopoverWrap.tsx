@@ -3,7 +3,7 @@ import React, { FC, useState, ReactNode } from "react";
 import { ConfigProvider, Popover } from "antd";
 import { IPopover } from "./types";
 import { Icon } from "@iconify/react";
-import chartLogo from "../../assets/chartJS.png";
+import chartLogo from "../../assets/converted/chartJS.webp";
 import "./popover.scss";
 
 const text = <span>Technologies:</span>;

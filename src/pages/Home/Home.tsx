@@ -10,17 +10,17 @@ import { LanguageContext } from "../../context";
 import ProgressWrap from "../../components/Progress/ProgressWrap";
 import ImgWrap from "../../components/Images/ImgWrap";
 
-import NestLogo from "../../assets/nestjs-icon-2048x2040-3rrvcej8.png";
-import NextLogo from "../../assets/next-js-icon-512x512-zuauazrk.png";
-import BunLogo from "../../assets/Bun.png";
-import GSAPLogo from "../../assets/gsap-greensock.svg";
-import myPhoto from "../../assets/my-photo.png";
-import BootstrapSert from "../../assets/Bootstrap certificate.jpg";
-import DevEducationSert from "../../assets/DevEducation.jpg";
-import JsSert from "../../assets/JS certificate.jpg";
-import HTMLSert from "../../assets/HTML certificate.jpg";
-import WebDesignSert from "../../assets/FreeCodeCamp - Web Design.jpg";
-import EnglishSert from "../../assets/certificate (3).png";
+import NestLogo from "../../assets/converted/nestjs-icon-2048x2040-3rrvcej8.webp";
+import NextLogo from "../../assets/converted/next-js-icon-512x512-zuauazrk.webp";
+import BunLogo from "../../assets/converted/Bun.webp";
+import GSAPLogo from "../../assets/original/gsap-greensock.svg";
+import myPhoto from "../../assets/converted/my-photo.webp";
+import BootstrapSert from "../../assets/converted/Bootstrap certificate.webp";
+import DevEducationSert from "../../assets/converted/DevEducation.webp";
+import JsSert from "../../assets/converted/JS certificate.webp";
+import HTMLSert from "../../assets/converted/HTML certificate.webp";
+import WebDesignSert from "../../assets/converted/FreeCodeCamp - Web Design.webp";
+import EnglishSert from "../../assets/converted/certificate (3).webp";
 
 import "./home.scss";
 

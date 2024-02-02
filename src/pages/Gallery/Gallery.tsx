@@ -5,16 +5,16 @@ import { setPrevPage } from "../../redux/indexPrevPageSlice";
 import { setPageAnimation } from "../../helpers/pageAnimatehelper";
 import { LanguageContext } from "../../context";
 
-import NotesImg from "../../assets/Notes.jpg";
-import QuizImg from "../../assets/quiz.jpg";
-import NewsImg from "../../assets/Request.jpg";
-import CrmImg from "../../assets/orders.jpg";
-import TableImg from "../../assets/test-progect.jpg";
-import HotelImg from "../../assets/Hotel.jpg";
-import ChartImg from "../../assets/Providers.jpg";
-import PaintImg from "../../assets/Paint.jpg";
-import ToDOImg from "../../assets/ToDo list.png";
-import CalcImg from "../../assets/calculator.png";
+import NotesImg from "../../assets/converted/Notes.webp";
+import QuizImg from "../../assets/converted/quiz.webp";
+import NewsImg from "../../assets/converted/Request.webp";
+import CrmImg from "../../assets/converted/orders.webp";
+import TableImg from "../../assets/converted/test-progect.webp";
+import HotelImg from "../../assets/converted/Hotel.webp";
+import ChartImg from "../../assets/converted/Providers.webp";
+import PaintImg from "../../assets/converted/Paint.webp";
+import ToDOImg from "../../assets/converted/ToDo list.webp";
+import CalcImg from "../../assets/converted/calculator.webp";
 
 import PopoverWrap from "../../components/Popover/PopoverWrap";
 
