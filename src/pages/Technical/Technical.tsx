@@ -1159,6 +1159,7 @@ const Technical: FC = () => {
         )}
       </div>
       <div className="history_updates">
+        {language==="ua"?<>
         <h2>Історія версій</h2>
         <h3>1.0.1</h3>
        <ul>
@@ -1167,6 +1168,17 @@ const Technical: FC = () => {
         <li>покращено відображення чату на маленьких екранах</li>
         <li>всі зображення конвертовано в формат webp, що дозволило досягнути показника продуктивності 90%, зменшити витрати трафіку та пришвидшити швидкість завантаження</li>
        </ul>
+        </>:<>
+        <h2>Version history</h2>
+        <h3>1.0.1</h3>
+       <ul>
+        <li>the indexes of each page are placed in separate variables, which will increase the ease of understanding the code in the future</li>
+        <li>the link to the server is placed in an environment variable, which increases the security of the application</li>
+        <li>chat display on small screens has been improved</li>
+        <li>all images were converted to webp format, which allowed to achieve 90% performance, reduce traffic consumption and speed up the download speed</li>
+       </ul>
+        </>}
+       
       </div>
     </div>
   );
