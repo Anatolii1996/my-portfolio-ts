@@ -1171,6 +1171,7 @@ const Technical: FC = () => {
        <h3>1.1.0</h3>
        <ul>
         <li>вирішив трохи точніше визначити мету даного ресурсу. Це - саме сайт візитка, прибрав будь-яке спілкування з сервером, бо в цьому немає сенсу. Жодного зворотнього зв'язку ресурс не зібрав. Метою створення даного функціоналу було навчитися конфігурувати клієнт-сервену взаємодію, ця задача виконана. Тепер мені необхідно звільнити місце на сервері, для розгортання там більш серйозного проєкту, над яким працював останнім часом. Весь код який виконував спілкування з сервером залишиться в репозиторії в гілці "finaly_build".</li>
+        <li>видалив з галереї розділ "Інші проєкти" через те, що зрозумів, що нікого з потенційних роботодавців не вразить калькулятор на JavaScript чи ToDo list. Розуміючи тенденції на ринку праці та очікування від кандидата, напевно такі проєкти краще взагалі нікому не показувати.</li>
        </ul>
         </>:<>
         <h2>Version history</h2>
@@ -1184,6 +1185,7 @@ const Technical: FC = () => {
        <h3>1.1.0</h3>
        <ul>
         <li>I decided to define the purpose of this resource a little more precisely. It's a business card site, and I removed any connection to the server because it doesn't make sense. The resource did not collect any feedback. The purpose of creating this functionality was to learn how to set up client-server interaction, and this task is completed. Now I need to free up space on the server to deploy a more serious project I've been working on lately. All the code that interacted with the server will remain in the repository in the "finaly_build" branch.</li>
+        <li>removed the "Other Projects" section from the gallery because I realized that no potential employer would be impressed by a JavaScript calculator or a ToDo list. Understanding the trends in the labor market and expectations from a candidate, it's probably better not to show such projects to anyone at all.</li>
        </ul>
         </>}
        

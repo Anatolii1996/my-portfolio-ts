@@ -44,6 +44,13 @@ const Galery: FC = () => {
   return (
     <div className={pageAnimStyle}>
       {language === "ua" ? (
+        <h2>Freelance проєкти</h2>
+      ) : (
+        <h2>Freelance projects</h2>
+      )}
+
+      <div className="freelance_projects"></div>
+      {language === "ua" ? (
         <h2>Випускні роботи DevEducation</h2>
       ) : (
         <h2>Graduation works DevEducation</h2>
@@ -136,46 +143,6 @@ const Galery: FC = () => {
               rel="noreferrer"
             >
               <img src={ChartImg} alt="crm-img" />
-            </a>
-          </div>
-        </PopoverWrap>
-      </div>
-      {language === "ua" ? <h2>Інші проєкти</h2> : <h2>Other projects</h2>}
-
-      <div className="other_projects">
-        <PopoverWrap content={["HTML", "Sass", "JavaScript", "Netlify"]}>
-          <div className="project_item">
-            {" "}
-            <a
-              href="https://extraordinary-jalebi-d2ba07.netlify.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={PaintImg} alt="quiz-img" />
-            </a>
-          </div>
-        </PopoverWrap>
-        <PopoverWrap content={["React", "Firebase", "Netlify"]}>
-          <div className="project_item">
-            {" "}
-            <a
-              href="https://todo-list-with-firebase007.netlify.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={ToDOImg} alt="quiz-img" />
-            </a>
-          </div>
-        </PopoverWrap>
-        <PopoverWrap content={["React", "Sass", "Netlify"]}>
-          <div className="project_item">
-            {" "}
-            <a
-              href="https://master--stirring-cuchufli-a6fee0.netlify.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={CalcImg} alt="quiz-img" />
             </a>
           </div>
         </PopoverWrap>
