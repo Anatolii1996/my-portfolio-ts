@@ -7,7 +7,6 @@ import LayoutWrap from "./components/Layout/LayoutWrap";
 import Home from "./pages/Home/Home";
 import Galery from "./pages/Gallery/Gallery";
 import Technical from "./pages/Technical/Technical";
-import Feedback from "./pages/Feedback/Feedback";
 import NoAcces from "./pages/NoAcces/NoAcces";
 
 const App: FC = () => {
@@ -25,7 +24,6 @@ const App: FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/galery" element={<Galery />} />
         <Route path="/technical" element={<Technical />} />
-        <Route path="/feedback" element={<Feedback />} />
        
       </Route>
     </Routes>

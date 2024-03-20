@@ -7,7 +7,6 @@ import userRedecer from "./userSlice";
 import commentsReducer from "./chatSlice";
 import countUserReducer from "./countUserSlice";
 
-import rootSaga from "../sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -24,7 +23,6 @@ const store = configureStore({
     getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
 
-sagaMiddleware.run(rootSaga);
 
 export default store;
 export type RootState = ReturnType<typeof store.getState>;

@@ -100,13 +100,7 @@ const LayoutWrap: FC = () => {
                 <Link to="/technical">Technical part</Link>
               )}
             </Menu.Item>
-            <Menu.Item key="/feedback">
-              {language === "ua" ? (
-                <Link to="/feedback">Зворотній зв'язок</Link>
-              ) : (
-                <Link to="/feedback">Feedback</Link>
-              )}
-            </Menu.Item>
+           
           </Menu>
           <Switch
             onChange={handleSwitchChange}
@@ -114,14 +108,7 @@ const LayoutWrap: FC = () => {
             unCheckedChildren="ua"
             defaultChecked
           />
-          <div className="header__visitors">
-            <div className={iconWrapClasses}>
-              <Icon icon="twemoji:star" className={headerIconClasses} />
-            </div>
-            <p>
-              :{!loading && <span className={countClasses}>{countVisit}</span>}
-            </p>
-          </div>
+        
         </Header>
         <Content style={{ padding: "0 50px" }}>
           <div

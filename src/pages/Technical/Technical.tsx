@@ -1168,6 +1168,10 @@ const Technical: FC = () => {
         <li>покращено відображення чату на маленьких екранах</li>
         <li>всі зображення конвертовано в формат webp, що дозволило досягнути показника продуктивності 90%, зменшити витрати трафіку та пришвидшити швидкість завантаження</li>
        </ul>
+       <h3>1.1.0</h3>
+       <ul>
+        <li>вирішив трохи точніше визначити мету даного ресурсу. Це - саме сайт візитка, прибрав будь-яке спілкування з сервером, бо в цьому немає сенсу. Жодного зворотнього зв'язку ресурс не зібрав. Метою створення даного функціоналу було навчитися конфігурувати клієнт-сервену взаємодію, ця задача виконана. Тепер мені необхідно звільнити місце на сервері, для розгортання там більш серйозного проєкту, над яким працював останнім часом. Весь код який виконував спілкування з сервером залишиться в репозиторії в гілці "finaly_build".</li>
+       </ul>
         </>:<>
         <h2>Version history</h2>
         <h3>1.0.1</h3>
@@ -1176,6 +1180,10 @@ const Technical: FC = () => {
         <li>the link to the server is placed in an environment variable, which increases the security of the application</li>
         <li>chat display on small screens has been improved</li>
         <li>all images were converted to webp format, which allowed to achieve 90% performance, reduce traffic consumption and speed up the download speed</li>
+       </ul>
+       <h3>1.1.0</h3>
+       <ul>
+        <li>I decided to define the purpose of this resource a little more precisely. It's a business card site, and I removed any connection to the server because it doesn't make sense. The resource did not collect any feedback. The purpose of creating this functionality was to learn how to set up client-server interaction, and this task is completed. Now I need to free up space on the server to deploy a more serious project I've been working on lately. All the code that interacted with the server will remain in the repository in the "finaly_build" branch.</li>
        </ul>
         </>}
        
