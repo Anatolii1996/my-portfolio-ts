@@ -12,9 +12,7 @@ import CrmImg from "../../assets/converted/orders.webp";
 import TableImg from "../../assets/converted/test-progect.webp";
 import HotelImg from "../../assets/converted/Hotel.webp";
 import ChartImg from "../../assets/converted/Providers.webp";
-import PaintImg from "../../assets/converted/Paint.webp";
-import ToDOImg from "../../assets/converted/ToDo list.webp";
-import CalcImg from "../../assets/converted/calculator.webp";
+import DeliveryImg from "../../assets/original/delivery.jpg"
 
 import PopoverWrap from "../../components/Popover/PopoverWrap";
 
@@ -49,7 +47,21 @@ const Galery: FC = () => {
         <h2>Freelance projects</h2>
       )}
 
-      <div className="freelance_projects"></div>
+      <div className="freelance_projects">
+      <PopoverWrap content={["React", "Redux", "Node.js", "MongoDB", "Express", "JWT"]}>
+          <div className="project_item">
+            {" "}
+            <a
+              href="https://sovkusom.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={DeliveryImg} alt="delivery-img" />
+            </a>
+          </div>
+        </PopoverWrap>
+
+      </div>
       {language === "ua" ? (
         <h2>Випускні роботи DevEducation</h2>
       ) : (

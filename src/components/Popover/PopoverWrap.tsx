@@ -32,6 +32,10 @@ const PopoverWrap: FC<IPopover> = ({ content, children, comment }) => {
     "GitHub Pages": <Icon icon="icon-park:github" />,
     "Ant Design": <Icon icon="logos:ant-design" />,
     "Chart.js": <img src={chartLogo} alt="ChartJS" />,
+    "Node.js": <Icon icon="vscode-icons:file-type-node"  />,
+    MongoDB:<Icon icon="vscode-icons:file-type-mongo" />,
+    Express:<Icon icon="skill-icons:expressjs-dark" />,
+    JWT:<Icon icon="logos:jwt" />
   };
 
   const contentItems = (
